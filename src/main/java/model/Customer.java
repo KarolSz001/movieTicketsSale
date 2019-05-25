@@ -16,5 +16,5 @@ public class Customer {
     String surname;
     Integer age;
     String email;
-    Integer loyatly_card_id;
+    Integer loyalty_card_id;
 }

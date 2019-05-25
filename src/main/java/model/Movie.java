@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import model.enums.Genre;
+
 import java.time.LocalDate;
 
 @Data
@@ -14,7 +16,7 @@ public class Movie {
 
     Integer id;
     String title;
-    String genre;
+    Genre genre;
     Double price;
     Integer duration;
     LocalDate date;

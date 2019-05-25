@@ -1,5 +1,13 @@
 import connect.DbConnect;
 import control.ControlAppService;
+import dataGenerator.DataGenerator;
+import dataGenerator.MovieStoresJsonConverter;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.Random;
 
 public class App {
 
@@ -11,5 +19,13 @@ public class App {
 
         DbConnect dbConnect = DbConnect.getInstance();
         dbConnect.getConnection();
+
+        /*DataGenerator dataGenerator = new DataGenerator();
+        List<String> result  =  dataGenerator.readTxtFile();
+        result.forEach(System.out::println);*/
+        DataGenerator dataGenerator = new DataGenerator();
+
+
+
     }
 }
