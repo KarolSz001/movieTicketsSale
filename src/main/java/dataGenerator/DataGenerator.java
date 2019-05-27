@@ -6,11 +6,14 @@ import model.enums.Genre;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class DataGenerator {
@@ -58,11 +61,15 @@ public class DataGenerator {
             String title = movieTitle;
             Genre genre = Genre.getRandomGenre();
             LocalDate localDate = dataGenerator();
-            Double price = 100 + (new Random().nextDouble() * (200 - 100));
+            DecimalFormatSymbols otherSymbol  = new DecimalFormatSymbols(Locale.getDefault());
+            DecimalFormat dc = new DecimalFormat("#.##",otherSymbol);
+            Double price = (50 + (new Random().nextDouble() * (99 - 50)));
+            price = Double.valueOf(dc.format(price));
             Integer duration = new Random().nextInt(180 - 60) + 60;
             Movie movie = new Movie().builder().id(id).title(title).genre(genre).date(localDate).price(price).duration(duration).build();
             movies.add(movie);
         }
+
         return movies;
     }
 }
