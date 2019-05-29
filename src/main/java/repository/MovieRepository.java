@@ -5,10 +5,9 @@ import model.Movie;
 import repository.generic.AbstractCrudRepository;
 
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
-public class MovieReposiory extends AbstractCrudRepository<Movie, Integer> {
+
+public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
 
 
     @Override
@@ -38,11 +37,6 @@ public class MovieReposiory extends AbstractCrudRepository<Movie, Integer> {
         );
 
     }
-
-    /*return connection.withHandle(handle -> handle
-                .createQuery("select * from " + type.getSimpleName().toLowerCase())
-                .mapToBean(type)
-                .list()*/
 
     public List<Movie> getAll() {
 

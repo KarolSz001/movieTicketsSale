@@ -1,7 +1,7 @@
 package dataGenerator;
 
 import model.Movie;
-import model.enums.Genre;
+import enums.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,15 +16,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public class DataGenerator {
+public class DateGenerator {
 
-    final String fileNameTxt = "movie.txt";
-    final MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
+    private final String fileNameTxt = "movie.txt";
+    private final Integer minRangePrice = 50;
+    private final Integer maxRangePrice = 99;
+    private final MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
 
-    public DataGenerator() {
+    public DateGenerator() {
         List<Movie> movies = moviesGenerator();
         movieStoresJsonConverter.toJson(movies);
-
     }
 
 
@@ -63,7 +64,7 @@ public class DataGenerator {
             LocalDate localDate = dataGenerator();
             DecimalFormatSymbols otherSymbol  = new DecimalFormatSymbols(Locale.getDefault());
             DecimalFormat dc = new DecimalFormat("#.##",otherSymbol);
-            Double price = (50 + (new Random().nextDouble() * (99 - 50)));
+            Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
             price = Double.valueOf(dc.format(price));
             Integer duration = new Random().nextInt(180 - 60) + 60;
             Movie movie = new Movie().builder().id(id).title(title).genre(genre).date(localDate).price(price).duration(duration).build();

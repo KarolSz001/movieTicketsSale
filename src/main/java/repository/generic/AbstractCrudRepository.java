@@ -2,6 +2,8 @@ package repository.generic;
 
 
 import exception.AppException;
+import model.Customer;
+import model.Movie;
 import org.jdbi.v3.core.Jdbi;
 import repository.connect.DbConnect;
 
@@ -11,10 +13,9 @@ import java.util.Optional;
 
 public abstract class AbstractCrudRepository<T, ID> implements CrudRepository<T, ID> {
 
-    protected  Jdbi connection = DbConnect.getInstance().getConnection();
+    protected Jdbi connection = DbConnect.getInstance().getConnection();
 
     private final Class<T> type = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-
 
 
     @Override

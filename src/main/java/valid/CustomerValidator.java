@@ -5,9 +5,9 @@ import model.Customer;
 
 public class CustomerValidator {
 
-    private final int MIN_LENGTH_NAME = 3;
+    private final int MIN_LENGTH_NAME = 2;
     private final String NAME_REGEX = "[A-Za-z]+";
-    private final String EMAIL_REGEX = "[a-z]+\\.[a-z]+@(gmail.com|onet.pl|wp.pl|interia.pl)";
+    private final String EMAIL_REGEX = "[a-z]+\\.[a-z]+@(gmail.com|onet.pl|wp.pl|interia.pl|o2.pl)";
 
     private static CustomerValidator instance = null;
 
@@ -23,23 +23,23 @@ public class CustomerValidator {
 
     public boolean isValidate(Customer customer) throws AppException {
 
-        if (isNameCorrect(customer.getName())) {
+        if (!isNameCorrect(customer.getName())) {
             throw new AppException(" Name only work with Letters");
         }
 
-        if (isSurnameCorrect(customer.getSurname())) {
-            throw new AppException(" surname only work with Letters");
+        if (!isSurnameCorrect(customer.getSurname())) {
+            throw new AppException("Surname only work with Letters");
         }
-        if (isNameLengthCorrect(customer.getName()))
-            throw new AppException("Name is too short ");
+        if (!isNameLengthCorrect(customer.getName()))
+            throw new AppException(" Name is too short ");
 
-        if (isSurnameLenghtCorrect(customer.getSurname())) {
-            throw new AppException(" Surname is too short");
+        if (!isSurnameLenghtCorrect(customer.getSurname())) {
+            throw new AppException(" Surname is too short ");
         }
-        if (isAgeCorrect(customer.getAge())) {
+        if (!isAgeCorrect(customer.getAge())) {
             throw new AppException(" Age is wrong ");
         }
-        if (isEmailCorrect(customer.getEmail())) {
+        if (!isEmailCorrect(customer.getEmail())) {
             throw new AppException(" email is wrong ");
         }
         return true;

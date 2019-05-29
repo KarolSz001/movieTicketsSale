@@ -4,12 +4,17 @@ import dataGenerator.MovieStoresJsonConverter;
 import model.Customer;
 import model.Movie;
 import org.jdbi.v3.core.Jdbi;
+import enums.*;
 
-import java.util.List;
+import javax.swing.text.TabableView;
+
+import static enums.TablesDb.*;
+
 
 public class DbConnect {
 
     private static DbConnect ourInstance = new DbConnect();
+
 
     public static DbConnect getInstance() {
         return ourInstance;
@@ -24,43 +29,41 @@ public class DbConnect {
     private final Jdbi connection;
 
     private DbConnect() {
+
         connection = Jdbi.create(URI, USERNAME, PASSWORD);
         cleanTables();
         createTables();
-        loadMoviesTODataBase();
-        loadCustomerTODataBase(new Customer(null, "roman", "nowak", 22, "roma.nowak@o2.pl", null));
     }
 
     public Jdbi getConnection() {
         return connection;
     }
 
-    private void loadMoviesTODataBase() {
-        MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
-        List<Movie> movies = movieStoresJsonConverter.fromJson().get();
-        for (Movie movie : movies) {
-            connection.withHandle(handle ->
-                    handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)", movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getDate()));
-
-        }
-    }
 
     public void cleanTables() {
 
+        /*connection.useHandle(handle -> {
+
+            handle.execute("DROP TABLE IF EXISTS " + TablesDb.SALES_STAND);
+            handle.execute("DROP TABLE IF EXISTS " + TablesDb.CUSTOMER);
+            handle.execute("DROP TABLE IF EXISTS " + TablesDb.LOYALTY_CARD);
+            handle.execute("DROP TABLE IF EXISTS " + TablesDb.MOVIE);
+
+        });*/
+        cleanTable(TablesDb.SALES_STAND);
+        cleanTable(TablesDb.CUSTOMER);
+        cleanTable(TablesDb.LOYALTY_CARD);
+        cleanTable(TablesDb.MOVIE);
+
+    }
+    private void cleanTable(TablesDb tablesDb) {
         connection.useHandle(handle -> {
-
-            handle.execute("DROP TABLE IF EXISTS sales_stand");
-            handle.execute("DROP TABLE IF EXISTS customer");
-            handle.execute("DROP TABLE IF EXISTS loyalty_card");
-            handle.execute("DROP TABLE IF EXISTS movie");
-
+            handle.execute("DROP TABLE IF EXISTS " + tablesDb);
         });
     }
 
-    public void loadCustomerTODataBase(Customer customer) {
-        connection.withHandle(handle ->
-                handle.execute("INSERT INTO customer (name, surname, age, email, loyalty_card_id) values (?, ?, ?, ?, ?)", customer.getName(), customer.getSurname(), customer.getAge(), customer.getEmail(), customer.getLoyalty_card_id()));
-    }
+
+
 
     private void createTables() {
 

@@ -1,4 +1,4 @@
-package model.enums;
+package enums;
 
 import java.util.Random;
 
@@ -10,7 +10,8 @@ public enum Genre {
     }
 
     public static Genre getRandomGenre() {
-        return Genre.values()[new Random().nextInt(Genre.values().length)];
+        int size = Genre.values().length;
+        return Genre.values()[new Random().nextInt(size)];
     }
 }
 
