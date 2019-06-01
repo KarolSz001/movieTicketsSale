@@ -3,9 +3,7 @@ package service;
 import api.CustomerService;
 import exception.AppException;
 import model.Customer;
-import org.jdbi.v3.core.Jdbi;
 import repository.CustomerRepository;
-import repository.connect.DbConnect;
 import valid.CustomerValidator;
 
 import java.util.List;

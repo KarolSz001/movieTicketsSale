@@ -12,6 +12,9 @@ public class App {
         System.out.println(appName);
         ControlAppService controlAppService = new ControlAppService();
         controlAppService.controlLoop();
+
+
+
         /*DateGenerator dateGenerator = new DateGenerator();
         DbConnect dbConnect = DbConnect.getInstance();
         CustomerRepository customerRepository = new CustomerRepository();

@@ -2,8 +2,6 @@ package repository.generic;
 
 
 import exception.AppException;
-import model.Customer;
-import model.Movie;
 import org.jdbi.v3.core.Jdbi;
 import repository.connect.DbConnect;
 

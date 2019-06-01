@@ -31,7 +31,7 @@ public class DbConnect {
     private DbConnect() {
 
         connection = Jdbi.create(URI, USERNAME, PASSWORD);
-        cleanTables();
+//        cleanTables();
         createTables();
     }
 
