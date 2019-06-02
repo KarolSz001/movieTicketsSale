@@ -46,8 +46,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomerById(Integer customerId) {
-        return customerRepository.findOne(customerId).orElseThrow(() -> new AppException(" getCustomerId NO RESULT "));
+    public Optional<Customer>  getCustomerById(Integer customerId) {
+        return customerRepository.findOne(customerId);
     }
 
 

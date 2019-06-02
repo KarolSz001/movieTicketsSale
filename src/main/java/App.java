@@ -11,7 +11,7 @@ public class App {
         final String appName = "movieTicketSale v1.0 25.05.2019";
         System.out.println(appName);
         ControlAppService controlAppService = new ControlAppService();
-        controlAppService.controlLoop();
+//        controlAppService.controlLoop();
 
 
 
@@ -26,6 +26,9 @@ public class App {
 //        movieRepository.findOne(10).ifPresent(System.out::println);
 //        movieRepository.findAll().forEach(System.out::println);
         movieRepository.getAll().forEach(System.out::println);*/
+
+       controlAppService.printAvailableTime();
+//        System.out.println(controlAppService.correctTime());
 
 
 

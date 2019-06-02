@@ -10,7 +10,7 @@ public interface MovieService {
     void addMovie(Movie movie);
     void removeMovieById(Integer movieId);
 
-    List<Movie> getAllCustomer();
+    List<Movie> getAllMovies();
     Movie getMovieById(Integer customerId);
 
 }

@@ -3,6 +3,7 @@ package api;
 import model.Customer;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CustomerService {
 
@@ -10,7 +11,7 @@ public interface CustomerService {
     void removeCustomerById(Integer id);
 
     List<Customer> getAllCustomer();
-    Customer getCustomerById(Integer customerId);
+    Optional<Customer> getCustomerById(Integer customerId);
 
 
 }

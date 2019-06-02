@@ -1,29 +1,34 @@
 package control;
 
-import java.nio.channels.DatagramChannel;
+import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Map;
+import java.util.Optional;
 
 import dataGenerator.DateGenerator;
 import model.Customer;
+import model.Movie;
 import service.CustomerServiceImpl;
 import service.MovieServiceImpl;
 
 
 public class ControlAppService {
 
-    static Scanner scanner = new Scanner(System.in);
     private final DataManager dataManager = new DataManager();
     private final DateGenerator dateGenerator = new DateGenerator();
     private final CustomerServiceImpl customerServiceImpl = CustomerServiceImpl.getInstance();
-    private final MovieServiceImpl movieServiceiImpl = MovieServiceImpl.getInstance();
-    boolean loopOn = true;
-    boolean loopCustomer = false;
-    boolean loopMovie = false;
+    private final MovieServiceImpl movieServiceImpl = MovieServiceImpl.getInstance();
+    private final Map<Customer, Movie> saleTicketsRegister = new HashMap<>();
+    private boolean loopOn = true;
+    private boolean loopCustomer = false;
+    private boolean loopMovie = false;
+    private boolean loopTickets = false;
 
     public ControlAppService() {
 
     }
+
 
     public void controlLoop() {
 
@@ -52,12 +57,7 @@ public class ControlAppService {
                                 break;
                             }
                             case 1: {
-                                if (isDataBaseEmpty()) {
-                                    System.out.println(" DATABASE IS EMPTY \n");
-
-                                } else {
-                                    getAllCustomers();
-                                }
+                                printAllCustomers();
                                 break;
                             }
                             case 2: {
@@ -77,38 +77,145 @@ public class ControlAppService {
                                 editCustomerById();
                             }
                             case 6: {
-                                customerGeneratData();
+                                customerGeneratorDate();
                             }
                         }
                     }
                 }
                 case 2: {
+
                     loopMovie = true;
-
                     while (loopMovie) {
+                        printMoviesMenu();
+                        System.out.println();
+                        Integer choice = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
 
-
+                        switch (choice) {
+                            case 0: {
+                                loopMovie = false;
+                                break;
+                            }
+                            case 1: {
+                                showAllMovies();
+                                break;
+                            }
+                            case 2: {
+                                showMovieById();
+                                break;
+                            }
+                            case 3: {
+                                removeMovieById();
+                            }
+                        }
                     }
                 }
+                case 3:
+                    System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION");
+                    loopTickets = true;
+                    System.out.println("PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE");
+                    String email = dataManager.getLine(" GIVE EMAIL ");
+
+                    System.out.println("CHECKING DATABASE BY EMAIL CUSTOMER");
+                    if (getCustomerByEmail(email).isPresent()) {
+                        System.out.println(" CUSTOMER AVAILABLE ");
+                        Customer customer = getCustomerByEmail(email).get();
+                        System.out.println(customer);
+                    } else {
+                        System.out.println(" NO CUSTOMER IN DATABASE , PRESS Y IF WANNA ADD");
+                    }
+                    Customer customer = creatCustomer();
+                    addCustomer(customer);
+
+                    System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY AFTER " + LocalTime.now());
+
             }
         }
-
     }
 
-    boolean isDataBaseEmpty() {
+    public void printAvailableTime() {
+
+        LocalTime highRangeTime = LocalTime.of(22, 30);
+        LocalTime counter = correctTime();
+        System.out.println(" correct time " + counter);
+        while (counter.isBefore(highRangeTime)){
+            System.out.println(counter);
+            counter = counter.plusMinutes(30);
+        }
+        System.out.println(counter);
+    }
+
+    public LocalTime correctTime() {
+        int mins = LocalTime.now().getMinute();
+        if (mins < 30) {
+            int hour = LocalTime.now().getHour();
+            return LocalTime.of(hour, 30);
+        } else {
+            if (LocalTime.now().getHour() == 22) {
+                System.out.println(" IT IS TOO LATE ");
+            } else {
+                int hour = LocalTime.now().plusHours(1).getHour();
+                return LocalTime.of(hour, 0);
+            }
+        }
+        return null;
+    }
+
+
+    private void showMovieById() {
+        Integer id = dataManager.getInt(" PRESS ID MOVIE ");
+        movieServiceImpl.getMovieById(id);
+    }
+
+    private void removeMovieById() {
+        Integer id = dataManager.getInt(" PRESS ID MOVIE ");
+        movieServiceImpl.removeMovieById(id);
+    }
+
+
+    private void showAllMovies() {
+
+        if (isMoviesBaseEmpty()) {
+            System.out.println(" DATABASE IS EMPTY \n");
+        } else {
+            getAllMovies().forEach(System.out::println);
+        }
+    }
+
+    private List<Movie> getAllMovies() {
+        return movieServiceImpl.getAllMovies();
+    }
+
+
+    boolean isMoviesBaseEmpty() {
+        return movieServiceImpl.getAllMovies().isEmpty();
+    }
+
+    boolean isCustomerBaseEmpty() {
         return customerServiceImpl.getAllCustomer().isEmpty();
     }
 
-    private void getAllCustomers() {
-        customerServiceImpl.getAllCustomer().forEach(System.out::println);
+    private void printAllCustomers() {
+        if (isCustomerBaseEmpty()) {
+            System.out.println(" DATABASE IS EMPTY \n");
+        } else {
+            getAllCustomers().forEach(System.out::println);
+        }
     }
 
-    private void getCustomerById() {
+    private List<Customer> getAllCustomers() {
+        return customerServiceImpl.getAllCustomer();
+    }
+
+    private Optional<Customer> getCustomerByEmail(String email) {
+        return getAllCustomers().stream().filter(f -> f.getEmail().equals(email)).findFirst();
+    }
+
+    private Optional getCustomerById() {
         Integer id = dataManager.getInt(" PRESS ID CUSTOMER ");
-        customerServiceImpl.getCustomerById(id);
+        return customerServiceImpl.getCustomerById(id);
     }
 
-    private void customerGeneratData() {
+    private void customerGeneratorDate() {
         List<Customer> customerList = dateGenerator.customersGenerator();
         for (Customer customer : customerList) {
             System.out.println(customer);
@@ -142,18 +249,17 @@ public class ControlAppService {
         System.out.println(" 0 - EXIT PROGRAM ");
         System.out.println(" 1 - CUSTOMERS MENU ");
         System.out.println(" 2 - MOVIES MENU ");
+        System.out.println(("3 - SALE TICKETS SERVICE"));
     }
 
     private void printCustomersMenu() {
 
         System.out.println(" CUSTOMER MENU ");
         System.out.println(" 0 - COME BACK TO MAIN MENU ");
-        System.out.println(" 1 - SHOW ALL CUSTOMERS ");
-        System.out.println(" 2 - SHOW CUSTOMER BY ID ");
-        System.out.println(" 3 - REMOVE CUSTOMER BY ID ");
-        System.out.println(" 4 - ADD NEW CUSTOMER ");
-        System.out.println(" 5 - EDIT CUSTOMER BY ID ");
-        System.out.println(" 6 - GENERATE RANDOM DATA");
+        System.out.println(" 1 - SHOW ALL MOVIES ");
+        System.out.println(" 2 - SHOW  MOVIE BY ID ");
+        System.out.println(" 3 - REMOVE MOVIE BY ID ");
+
     }
 
     private void printMoviesMenu() {
@@ -164,9 +270,7 @@ public class ControlAppService {
         System.out.println(" 2 - SHOW MOVIES BY ID ");
         System.out.println(" 3 - REMOVE MOVIES BY ID ");
         System.out.println(" 4 - ADD NEW MOVIE ");
-        System.out.println(" 5 - EDIT MOVIE BY ID ");
     }
-
 
     private Customer creatCustomer() {
 

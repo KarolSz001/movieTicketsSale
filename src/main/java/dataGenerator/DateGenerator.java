@@ -52,9 +52,10 @@ public class DateGenerator {
     }
 
     private LocalDate dataGenerator() {
-        LocalDate start = LocalDate.of(1970, Month.JANUARY, 1);
+       /* LocalDate start = LocalDate.of(1970, Month.JANUARY, 1);
         long days = ChronoUnit.DAYS.between(start, LocalDate.now());
-        return start.plusDays(new Random().nextInt((int) days + 1));
+        return start.plusDays(new Random().nextInt((int) days + 1));*/
+       return LocalDate.now();
     }
 
     public List<Movie> moviesGenerator() {

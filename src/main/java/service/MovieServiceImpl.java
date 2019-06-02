@@ -43,7 +43,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getAllCustomer() {
+    public List<Movie> getAllMovies() {
         return movieRepository.getAll();
     }
 

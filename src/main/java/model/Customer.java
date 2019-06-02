@@ -17,4 +17,6 @@ public class Customer {
     Integer age;
     String email;
     Integer loyalty_card_id;
+
+
 }
