@@ -4,6 +4,7 @@ import api.CustomerService;
 import exception.AppException;
 import model.Customer;
 import repository.CustomerRepository;
+import repository.SalesStandRepository;
 import valid.CustomerValidator;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class CustomerServiceImpl implements CustomerService {
     private static CustomerServiceImpl instance = null;
     private CustomerRepository customerRepository = new CustomerRepository();
     private CustomerValidator customerValidator = CustomerValidator.getInstance();
-
+    private SalesStandRepository salesStandRepository = new SalesStandRepository();
+    private final static Integer DISCOUNT_LIMIT = 4;
 
     private CustomerServiceImpl() {
     }
@@ -51,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-    private Optional<Customer> getCustomerByEmail(String customerEmail) {
+    public Optional<Customer> getCustomerByEmail(String customerEmail) {
         return getAllCustomer().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst();
     }
 
@@ -71,6 +73,13 @@ public class CustomerServiceImpl implements CustomerService {
     public void updateCustomer(Customer customer){
         Integer id  = customer.getId();
         customerRepository.update(id, customer);
+    }
+    public boolean isDiscountAvailable(Customer customer){
+        Integer idCustomer = customer.getId();
+        long result = salesStandRepository.findAll().stream().filter(f->f.getCustomerId().equals(idCustomer)).count();
+        System.out.println(result);
+
+        return result > DISCOUNT_LIMIT ;
     }
 
 

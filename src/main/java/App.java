@@ -8,10 +8,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        final String appName = "movieTicketSale v1.0 25.05.2019";
+        final String appName = "movieTicketSale v1.0 02.06.2019";
         System.out.println(appName);
         ControlAppService controlAppService = new ControlAppService();
-//        controlAppService.controlLoop();
+        controlAppService.controlLoop();
 
 
 
@@ -27,7 +27,7 @@ public class App {
 //        movieRepository.findAll().forEach(System.out::println);
         movieRepository.getAll().forEach(System.out::println);*/
 
-       controlAppService.printAvailableTime();
+//       controlAppService.printAvailableTime();
 //        System.out.println(controlAppService.correctTime());
 
 

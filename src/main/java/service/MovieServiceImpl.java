@@ -4,10 +4,12 @@ import api.MovieService;
 import dataGenerator.MovieStoresJsonConverter;
 import exception.AppException;
 import model.Movie;
+import model.MovieWithDateTime;
 import org.jdbi.v3.core.Jdbi;
 import repository.MovieRepository;
 import repository.connect.DbConnect;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -60,5 +62,29 @@ public class MovieServiceImpl implements MovieService {
                     handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)", movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getDate()));
 
         }
+    }
+/*SELECT
+		title,
+		start_date_time
+FROM sales_stand
+JOIN movie
+ON  sales_stand.id = sales_stand.movie_id;  */
+
+//select p.id, p.name, p.goals, t.id, t.name, t.points from player p join team t on p.team_id = t.id
+
+    public List<MovieWithDateTime> getInfo() {
+        return connection.withHandle(handle ->
+                handle
+                        .createQuery("select ss.id, mm.title, ss.start_date_time, mm.price FROM sales_stand ss JOIN movie mm ON ss.movie_id = mm.id;")
+                       /* .map((rs, cts) -> MovieWithDateTime.builder()
+                                .id(rs.getInt("ss.id"))
+                                .title(rs.getString("mm.title"))
+                                .watchTime(LocalDateTime.("ss.start_date_time"))
+                                .build())
+                        .list()
+*/
+                        .mapToBean(MovieWithDateTime.class)
+                        .list()
+        );
     }
 }

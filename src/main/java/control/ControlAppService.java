@@ -1,5 +1,7 @@
 package control;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Optional;
 import dataGenerator.DateGenerator;
 import model.Customer;
 import model.Movie;
+import model.Sales_Stand;
+import repository.SalesStandRepository;
 import service.CustomerServiceImpl;
 import service.MovieServiceImpl;
 
@@ -100,7 +104,8 @@ public class ControlAppService {
                                 break;
                             }
                             case 2: {
-                                showMovieById();
+                                Integer id = dataManager.getInt(" PRESS ID MOVIE NUMBER ");
+                                showMovieById(id);
                                 break;
                             }
                             case 3: {
@@ -111,25 +116,63 @@ public class ControlAppService {
                 }
                 case 3:
                     System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION");
-                    loopTickets = true;
-                    System.out.println("PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE");
+                    /*loopTickets = true;
+                    System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
                     String email = dataManager.getLine(" GIVE EMAIL ");
-
+                    Customer customer;
                     System.out.println("CHECKING DATABASE BY EMAIL CUSTOMER");
                     if (getCustomerByEmail(email).isPresent()) {
                         System.out.println(" CUSTOMER AVAILABLE ");
-                        Customer customer = getCustomerByEmail(email).get();
+                        customer = getCustomerByEmail(email).get();
                         System.out.println(customer);
                     } else {
-                        System.out.println(" NO CUSTOMER IN DATABASE , PRESS Y IF WANNA ADD");
+                        System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE");
+                        customer = creatCustomer();
+                        addCustomer(customer);
                     }
-                    Customer customer = creatCustomer();
+
+                    System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
+                    showAllMovies();
+                    System.out.println(" you choice is - > ");
+                    System.out.println(" which movie you pick up ");
+                    Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER ");
+                    showMovieById(idMovie);
+                    System.out.println(" Available time to watch movie ");
+                    printAvailableTime();
+                    Integer idCustomer = getCustomerByEmail(customer.getEmail()).get().getId();*/
+
+//                    Customer customer = dateGenerator.singleCustomerGenerator();
+                    Customer customer = new Customer().builder().name("KASIA").surname("HOHOH").age(101).email("kasia.HOHO@o2.pl").build();
                     addCustomer(customer);
 
-                    System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY AFTER " + LocalTime.now());
+                    Integer movie_id = movieServiceImpl.getMovieById(1).getId();
+                    String email = customer.getEmail();
+                    customer = customerServiceImpl.getCustomerByEmail(email).get();
+                    System.out.println(customer);
+                    saleTicketOperation(customer, movie_id);
+                    sendConfirmationOfSellingTicket();
+
 
             }
         }
+    }
+
+
+    private void saleTicketOperation(Customer customer, Integer movieId) {
+
+        Integer customer_id = customer.getId();
+        SalesStandRepository salesStandRepository = new SalesStandRepository();
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        LocalDateTime dateTime = LocalDateTime.of(date,time);
+        Boolean discount = customerServiceImpl.isDiscountAvailable(customer);
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(movieId).startDateTime(dateTime).discount(discount).build();
+        salesStandRepository.add(sales_stand);
+
+    }
+    public void sendConfirmationOfSellingTicket(){
+// movie info, start time, price of ticket, -> join movie and sale_stand
+        movieServiceImpl.getInfo().forEach(System.out::println);
     }
 
     public void printAvailableTime() {
@@ -137,7 +180,7 @@ public class ControlAppService {
         LocalTime highRangeTime = LocalTime.of(22, 30);
         LocalTime counter = correctTime();
         System.out.println(" correct time " + counter);
-        while (counter.isBefore(highRangeTime)){
+        while (counter.isBefore(highRangeTime)) {
             System.out.println(counter);
             counter = counter.plusMinutes(30);
         }
@@ -161,13 +204,12 @@ public class ControlAppService {
     }
 
 
-    private void showMovieById() {
-        Integer id = dataManager.getInt(" PRESS ID MOVIE ");
+    private void showMovieById(Integer id) {
         movieServiceImpl.getMovieById(id);
     }
 
     private void removeMovieById() {
-        Integer id = dataManager.getInt(" PRESS ID MOVIE ");
+        Integer id = dataManager.getInt(" PRESS ID MOVIE NUMBER");
         movieServiceImpl.removeMovieById(id);
     }
 
@@ -249,7 +291,7 @@ public class ControlAppService {
         System.out.println(" 0 - EXIT PROGRAM ");
         System.out.println(" 1 - CUSTOMERS MENU ");
         System.out.println(" 2 - MOVIES MENU ");
-        System.out.println(("3 - SALE TICKETS SERVICE"));
+        System.out.println(" 3 - SALE TICKETS SERVICE ");
     }
 
     private void printCustomersMenu() {

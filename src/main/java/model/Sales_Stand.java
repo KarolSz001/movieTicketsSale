@@ -11,9 +11,10 @@ import java.time.LocalDateTime;
 @Builder
 
 
-public class SalesStand {
+public class Sales_Stand {
     Integer id;
     Integer customerId;
     Integer movieId;
     LocalDateTime startDateTime;
+    Boolean discount;
 }

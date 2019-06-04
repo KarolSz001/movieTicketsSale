@@ -85,14 +85,18 @@ public class DateGenerator {
         int size = dataManager.getInt(" PRESS NUMBER OF CUSTOMERS ");
 
         for (int i = 0; i < size; i++) {
-            String name = String.valueOf(Name.randomNameGenerator());
-            String surname = String.valueOf(Surname.randomSurNameGenrator());
-            Integer age = new Random().nextInt(maxAge - minAge) + minAge;
-            String email = emailGenerator(name, surname);
-
-            customers.add(new Customer(null, name, surname, age, email, null));
+            Customer customer = singleCustomerGenerator();
+            customers.add(customer);
         }
         return customers;
+    }
+    public Customer singleCustomerGenerator(){
+        String name = String.valueOf(Name.randomNameGenerator());
+        String surname = String.valueOf(Surname.randomSurNameGenrator());
+        Integer age = new Random().nextInt(maxAge - minAge) + minAge;
+        String email = emailGenerator(name, surname);
+
+        return new Customer(null, name, surname, age, email, null);
     }
 
 
