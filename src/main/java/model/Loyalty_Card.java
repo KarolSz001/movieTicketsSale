@@ -12,9 +12,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 
-public class LoyaltyCard {
+public class Loyalty_Card {
     Integer id;
     LocalDate expirationDate;
     Double discount;
     Integer moviesNumber;
+    Integer current_movies_number;
 }

@@ -82,6 +82,10 @@ public class CustomerServiceImpl implements CustomerService {
         return result > DISCOUNT_LIMIT ;
     }
 
+    public void addLoyalCard (Customer customer){}
+
+
+
 
 }
 
