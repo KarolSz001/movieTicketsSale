@@ -51,7 +51,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie getMovieById(Integer movieId) {
-        return movieRepository.findOne(movieId).orElseThrow(() -> new AppException("Wrong ID number"));
+        return movieRepository.findOne(movieId).orElseThrow(() -> new AppException(" Wrong ID number "));
     }
 
     private void loadMoviesToDataBase(String fileName) {

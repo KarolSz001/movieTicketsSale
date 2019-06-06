@@ -23,25 +23,24 @@ public class ControlAppService {
     private final MovieServiceImpl movieServiceImpl = MovieServiceImpl.getInstance();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-
     private final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private final Integer DISCOUNT_LIMIT = 2;
 
+    private boolean loopCustomer;
+    private boolean loopMovie;
+    private boolean loopTickets;
     private boolean loopOn = true;
-    private boolean loopCustomer = false;
-    private boolean loopMovie = false;
-    private boolean loopTickets = false;
 
     public ControlAppService() {
 
     }
 
-
     public void controlLoop() {
 
         while (loopOn) {
+            setAllLoopsON();
             startMenu();
-            Integer read = dataManager.getInt(" PRESS NUMBER FOR YOU CHOICE ");
+            Integer read = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
             switch (read) {
 
                 case 0: {
@@ -51,7 +50,6 @@ public class ControlAppService {
                 }
                 case 1: {
 
-                    loopCustomer = true;
                     while (loopCustomer) {
                         printCustomersMenu();
                         System.out.println();
@@ -60,7 +58,7 @@ public class ControlAppService {
                         switch (readCustomer) {
 
                             case 0: {
-                                loopCustomer = false;
+                                setAllLoopsOff();
                                 break;
                             }
                             case 1: {
@@ -91,7 +89,6 @@ public class ControlAppService {
                 }
                 case 2: {
 
-                    loopMovie = true;
                     while (loopMovie) {
                         printMoviesMenu();
                         System.out.println();
@@ -99,7 +96,7 @@ public class ControlAppService {
 
                         switch (choice) {
                             case 0: {
-                                loopMovie = false;
+                                setAllLoopsOff();
                                 break;
                             }
                             case 1: {
@@ -118,95 +115,95 @@ public class ControlAppService {
                     }
                 }
                 case 3:
-                    System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION");
-                    loopTickets = true;
-                    System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
-                    String email = dataManager.getLine(" GIVE EMAIL ");
-                    Customer customer;
-                    System.out.println("CHECKING DATABASE BY EMAIL CUSTOMER");
-                    if (getCustomerByEmail(email).isPresent()) {
-                        System.out.println(" CUSTOMER AVAILABLE ");
-                        customer = getCustomerByEmail(email).get();
-                        System.out.println(customer);
-                    } else {
-                        System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE");
-//                        customer = creatCustomer();
-                        customer = dateGenerator.singleCustomerGenerator();
-                        System.out.println(" CREATED RANDOM CUSTOMER ---->>>>>" + customer);
-                        addCustomer(customer);
+                    if(loopTickets) {
+                        System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION");
+                        saleTicketOperation();
+                        setAllLoopsOff();
                     }
-
-                    System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
-                    showAllMoviesToday();
-                    Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE");
-                    showMovieById(idMovie);
-
-                    System.out.println(" SCREENING HOURS ...... ");
-                    printAvailableTime();
-                    LocalTime localTime = LocalTime.now();
-                    saleTicketOperation(customer, idMovie, localTime);
-
-
-                    /*Integer idCustomer = getCustomerByEmail(customer.getEmail()).get().getId();
-                    customer = dateGenerator.singleCustomerGenerator();
-                    Customer customerA = new Customer().builder().name("KASIA").surname("HOHOH").age(101).email("kasia.HOHO@o2.pl").build();
-                    addCustomer(customerA);
-                    Customer customerB = new Customer().builder().name("ANNA").surname("SSSSS").age(101).email("anna.sss@o2.pl").build();
-                    addCustomer(customerB);
-
-                    Integer movie_id = movieServiceImpl.getMovieById(1).getId();
-                    email = customerA.getEmail();
-                    customer = customerServiceImpl.getCustomerByEmail(email).get();
-                    System.out.println(customer);
-                    saleTicketOperation(customer, movie_id);
-                    movie_id = movieServiceImpl.getMovieById(2).getId();
-                    saleTicketOperation(customer, movie_id);
-                    movie_id = movieServiceImpl.getMovieById(3).getId();
-                    saleTicketOperation(customer, movie_id);*/
-
-
-                   /* String emailB = customerB.getEmail();
-                    customer = customerServiceImpl.getCustomerByEmail(emailB).get();
-                    movie_id = movieServiceImpl.getMovieById(12).getId();
-                    saleTicketOperation(customer, movie_id);
-                    movie_id = movieServiceImpl.getMovieById(13).getId();
-                    saleTicketOperation(customer, movie_id);
-
-                    printAllTicketsInformation();*/
-
-                    /*System.out.println(" is cartCustomerAvailable for " + customer.getEmail() + " ---->>> " + isCartCustomerAvailable(customer));
-
-
-                    if(isCartCustomerAvailable(customer) && !hasLoyalatycard(customer)){
-                        addLoyalty(customer);
-                    }*/
-
 
             }
         }
     }
 
+    private void setAllLoopsON(){
+
+        loopCustomer = true;
+        loopMovie = true;
+        loopTickets = true;
+    }
+    private void setAllLoopsOff(){
+
+            loopCustomer = false;
+            loopMovie = false;
+            loopTickets = false;
+    }
+
+    private LocalTime getScreeningHours() {
+
+        System.out.println(" SCREENING HOURS ...... ");
+        printAvailableTime();
+        Integer hh = dataManager.getInt(" give a hour ");
+        Integer mm = dataManager.getInt(" give minutes ");
+        LocalTime time = LocalTime.of(hh,mm);
+        time = correctTime(time);
+        return time;
+
+    }
+
+    private Integer getMovieById() {
+
+        System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
+        showAllMoviesToday();
+        Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
+        showMovieById(idMovie);
+        return idMovie;
+    }
+
+    private Customer getCustomerOperation() {
+
+        System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
+        String email = dataManager.getLine(" GIVE EMAIL ");
+        Customer customer;
+        System.out.println(" CHECKING DATABASE BY EMAIL CUSTOMER ");
+        if (getCustomerByEmail(email).isPresent()) {
+            System.out.println(" CUSTOMER AVAILABLE ");
+            customer = getCustomerByEmail(email).get();
+            System.out.println(customer);
+        } else {
+            System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE ");
+            customer = dateGenerator.singleCustomerGenerator();
+            System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
+            dataManager.getLine("PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH");
+            addCustomer(customer);
+        }
+        return customer;
+    }
+
     boolean hasLoyalatycard(Customer customer) {
+
         return getCustomerByEmail(customer.getEmail()).get().getLoyalty_card_id() != null;
     }
 
 
-    private void saleTicketOperation(Customer customer, Integer movieId, LocalTime localTime) {
-        Integer customer_id = customer.getId();
+    private void saleTicketOperation() {
+
+        Customer customer = getCustomerOperation();
+        Integer idMovie = getMovieById();
+        Integer customer_id = getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
-        LocalTime time = localTime;
+        LocalTime time = getScreeningHours();
         LocalDateTime dateTime = LocalDateTime.of(date, time);
-        Boolean discount = customerServiceImpl.isDiscountAvailable(customer);
+        boolean discount = customerServiceImpl.isDiscountAvailable(customer);
+
         if (discount) {
             addLoyalty(customer);
         }
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(movieId).startDateTime(dateTime).discount(discount).build();
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).startDateTime(dateTime).discount(discount).build();
         salesStandRepository.add(sales_stand);
 
     }
 
     public void printAllTicketsInformation() {
-// movie info, start time, price of ticket, -> join movie and sale_stand
         getAllTicketsInfo().forEach(System.out::println);
     }
 
@@ -215,9 +212,10 @@ public class ControlAppService {
     }
 
     private void addLoyalty(Customer customer) {
+
         Integer customerId = getCustomerByEmail(customer.getEmail()).get().getId();
 
-//        loyaltyCardRepository.createLoyaltycard(customerId);
+//        loyaltyCardRepository.createLoyaltyCard(customerId);
         LocalDate date = LocalDate.now().plusMonths(1);
         Double discount = 2.0;
         Integer moviesNumber = 3;
@@ -227,6 +225,10 @@ public class ControlAppService {
         loyaltyCardRepository.add(loyaltyCard);
     }
 
+    /*private Integer getIdLoyaltyCard(){
+        return loyaltyCardRepository.findOne()
+    }*/
+
 
     boolean isCartCustomerAvailable(Customer customer) {
         long result = getAllTicketsInfo().stream().filter(f -> f.getEmail().equals(customer.getEmail())).count();
@@ -235,6 +237,7 @@ public class ControlAppService {
     }
 
     public void printAvailableTime() {
+
         LocalTime counter = correctTime(LocalTime.now());
         System.out.println(" correct time " + counter);
 
@@ -247,7 +250,7 @@ public class ControlAppService {
 
     public LocalTime correctTime(LocalTime localTime) {
         if (!isGivenTimeCorrect(localTime)) {
-            System.out.println(" now available you get ticket on -->" + HIGH_RANGE_TIME);
+            System.out.println(" IT IS OVER TIME , BY DEFAULT YOU GET  -->" + HIGH_RANGE_TIME);
             return HIGH_RANGE_TIME;
         }
         int minute = localTime.getMinute();
@@ -270,7 +273,7 @@ public class ControlAppService {
 
 
     private void showMovieById(Integer id) {
-        movieServiceImpl.getMovieById(id);
+        System.out.println(movieServiceImpl.getMovieById(id));
     }
 
     private void removeMovieById() {
@@ -284,7 +287,8 @@ public class ControlAppService {
         if (isMoviesBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-            getAllMovies().stream().filter(f -> f.getDate().equals(LocalDate.now())).forEach(System.out::println);
+//            getAllMovies().stream().filter(f -> f.getDate().equals(LocalDate.now())).forEach(System.out::println);
+            getAllMovies().stream().forEach(System.out::println);
         }
     }
 
@@ -357,15 +361,20 @@ public class ControlAppService {
         System.out.println(" 1 - CUSTOMERS MENU ");
         System.out.println(" 2 - MOVIES MENU ");
         System.out.println(" 3 - SALE TICKETS SERVICE ");
+
     }
 
     private void printCustomersMenu() {
 
         System.out.println(" CUSTOMER MENU ");
         System.out.println(" 0 - COME BACK TO MAIN MENU ");
-        System.out.println(" 1 - SHOW ALL MOVIES ");
-        System.out.println(" 2 - SHOW  MOVIE BY ID ");
-        System.out.println(" 3 - REMOVE MOVIE BY ID ");
+        System.out.println(" 1 - SHOW ALL CUSTOMERS ");
+        System.out.println(" 2 - SHOW CUSTOMER BY ID ");
+        System.out.println(" 3 - REMOVE CUSTOMER BY ID ");
+        System.out.println(" 4 - CREATE CUSTOMER ");
+        System.out.println(" 5 - EDIT CUSTOMER BY ID ");
+        System.out.println(" 6 - ADD RANDOM CUSTOMERS ");
+
 
     }
 

@@ -8,11 +8,10 @@ import enums.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -20,7 +19,7 @@ import java.util.Random;
 
 public class DateGenerator {
 
-    private final String fileNameTxt = "movie.txt";
+    private final String fileNameTxt = "titlesMovie.txt";
     private final Integer minRangePrice = 50;
     private final Integer maxRangePrice = 99;
     private final Integer maxAge = 99;
@@ -69,13 +68,15 @@ public class DateGenerator {
             Integer id = null;
             String title = movieTitle;
             Genre genre = Genre.getRandomGenre();
-            LocalDate localDate = dataGenerator();
+//            LocalDate localDate = dataGenerator();
+
+            LocalDate localData = LocalDate.now();
             DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
             DecimalFormat dc = new DecimalFormat("#.##", otherSymbol);
             Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
             price = Double.valueOf(dc.format(price));
             Integer duration = new Random().nextInt(180 - 60) + 60;
-            Movie movie = new Movie().builder().id(id).title(title).genre(genre).date(localDate).price(price).duration(duration).build();
+            Movie movie = new Movie().builder().id(id).title(title).genre(genre).date(localData).price(price).duration(duration).build();
             movies.add(movie);
         }
 

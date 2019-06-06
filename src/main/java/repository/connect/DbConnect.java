@@ -1,14 +1,7 @@
 package repository.connect;
-
-import dataGenerator.MovieStoresJsonConverter;
-import model.Customer;
-import model.Movie;
 import org.jdbi.v3.core.Jdbi;
 import enums.*;
 
-import javax.swing.text.TabableView;
-
-import static enums.TablesDb.*;
 
 
 public class DbConnect {
@@ -42,14 +35,6 @@ public class DbConnect {
 
     public void cleanTables() {
 
-        /*connection.useHandle(handle -> {
-
-            handle.execute("DROP TABLE IF EXISTS " + TablesDb.SALES_STAND);
-            handle.execute("DROP TABLE IF EXISTS " + TablesDb.CUSTOMER);
-            handle.execute("DROP TABLE IF EXISTS " + TablesDb.LOYALTY_CARD);
-            handle.execute("DROP TABLE IF EXISTS " + TablesDb.MOVIE);
-
-        });*/
         cleanTable(TablesDb.SALES_STAND);
         cleanTable(TablesDb.CUSTOMER);
         cleanTable(TablesDb.LOYALTY_CARD);
@@ -61,8 +46,6 @@ public class DbConnect {
             handle.execute("DROP TABLE IF EXISTS " + tablesDb);
         });
     }
-
-
 
 
     private void createTables() {

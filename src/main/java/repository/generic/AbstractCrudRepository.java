@@ -24,7 +24,7 @@ public abstract class AbstractCrudRepository<T, ID> implements CrudRepository<T,
         }
 
         connection.withHandle(handle -> handle
-                .createUpdate("delete from " + type.getCanonicalName().toLowerCase() + " where id = :id")
+                .createUpdate("delete from " + type.getSimpleName().toLowerCase() + " where id = :id")
                 .bind("id", id)
                 .execute()
         );
@@ -34,7 +34,7 @@ public abstract class AbstractCrudRepository<T, ID> implements CrudRepository<T,
     public Optional<T> findOne(ID id) {
 
         if (id == null) {
-            throw new AppException("find one - id is null");
+            throw new AppException(" find one - id is null ");
         }
 
         return connection.withHandle(handle -> handle
