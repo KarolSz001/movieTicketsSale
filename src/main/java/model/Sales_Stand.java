@@ -15,5 +15,5 @@ public class Sales_Stand {
     Integer id;
     Integer customerId;
     Integer movieId;
-    LocalDateTime startDateTime;
+    LocalDateTime start_date_time;
 }

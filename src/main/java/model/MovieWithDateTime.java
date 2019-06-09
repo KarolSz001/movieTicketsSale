@@ -15,7 +15,7 @@ public class MovieWithDateTime {
 
     private Integer id;
     private String title;
-    private LocalDateTime watchTime;
+    private LocalDateTime start_date_time;
     private Double price;
     private String name;
     private String surname;

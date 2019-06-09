@@ -67,16 +67,10 @@ public class MovieServiceImpl implements MovieService {
         return connection.withHandle(handle ->
                 handle
                         .createQuery("select ss.id, mm.title, ss.start_date_time, mm.price, cc.name, cc.surname, cc.email " +
-                                "FROM sales_stand ss JOIN movie mm ON ss.movie_id = mm.id " +
+                                "FROM sales_stand ss JOIN movie mm " +
+                                "ON ss.movie_id = mm.id " +
                                 "INNER JOIN customer cc " +
                                 "ON cc.id = ss.customer_id;")
-                       /* .map((rs, cts) -> MovieWithDateTime.builder()
-                                .id(rs.getInt("ss.id"))
-                                .title(rs.getString("mm.title"))
-                                .watchTime(LocalDateTime.("ss.start_date_time"))
-                                .build())
-                        .list()
-*/
                         .mapToBean(MovieWithDateTime.class)
                         .list()
         );

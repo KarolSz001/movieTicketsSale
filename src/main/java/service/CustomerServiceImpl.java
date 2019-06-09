@@ -78,7 +78,6 @@ public class CustomerServiceImpl implements CustomerService {
         Integer idCustomer = customer.getId();
         long result = salesStandRepository.findAll().stream().filter(f->f.getCustomerId().equals(idCustomer)).count();
         System.out.println(result);
-
         return result > DISCOUNT_LIMIT ;
     }
 

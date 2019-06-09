@@ -16,7 +16,7 @@ public class SalesStandRepository extends AbstractCrudRepository<Sales_Stand,Int
         }
 
         connection.withHandle(handle ->
-                handle.execute("INSERT INTO sales_stand (customer_id, movie_id, start_date_time) values (?, ?, ?)", item.getCustomerId(), item.getMovieId(), item.getStartDateTime()));
+                handle.execute("INSERT INTO sales_stand (customer_id, movie_id, start_date_time) values (?, ?, ?)", item.getCustomerId(), item.getMovieId(), item.getStart_date_time()));
 
     }
 

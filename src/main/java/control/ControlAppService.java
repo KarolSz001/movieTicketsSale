@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -146,8 +147,8 @@ public class ControlAppService {
         printAvailableTime();
         Integer hh = dataManager.getInt(" give a hour ");
         Integer mm = dataManager.getInt(" give minutes ");
-        LocalTime time = LocalTime.of(hh, mm);
-        return correctTime(time);
+        return correctTime(LocalTime.of(hh, mm));
+
 
     }
 
@@ -171,11 +172,11 @@ public class ControlAppService {
             customer = getCustomerByEmail(email).get();
             System.out.println(customer);
         } else {
-            System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE ");
-            customer = dateGenerator.singleCustomerGenerator();
-            System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
-            dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
-            addCustomer(customer);
+        System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE ");
+        customer = dateGenerator.singleCustomerGenerator();
+        System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
+        dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
+        addCustomer(customer);
         }
         return customer;
     }
@@ -199,16 +200,22 @@ public class ControlAppService {
         if (discount) {
             addLoyalty(customer);
         }
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).startDateTime(dateTime).build();
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).start_date_time(dateTime).build();
         addTicketToDataBase(sales_stand);
-        printAllCustomerTickets() {
+        System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
 
-        }
-        salesStandRepository.findAll().forEach(System.out::println);
     }
 
-    private void printAllCustomerTickets() {
+    private void printAllCustomerTickets(String customerEmail) {
+        movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).forEach(System.out::println);
+    }
 
+    private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
+        return movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
+    }
+
+    private List<MovieWithDateTime> sellingTicketInformationList(){
+        return movieServiceImpl.getInfo();
     }
 
     private void addTicketToDataBase(Sales_Stand ss) {
@@ -233,9 +240,9 @@ public class ControlAppService {
         Double discount = 2.0;
         Integer moviesNumber = 3;
         Integer currentMoviesNumber = 0;
-
         Loyalty_Card loyaltyCard = new Loyalty_Card().builder().expirationDate(date).discount(discount).moviesNumber(moviesNumber).current_movies_number(currentMoviesNumber).build();
         loyaltyCardRepository.add(loyaltyCard);
+
     }
 
     /*private Integer getIdLoyaltyCard(){
