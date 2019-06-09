@@ -68,15 +68,13 @@ public class DateGenerator {
             Integer id = null;
             String title = movieTitle;
             Genre genre = Genre.getRandomGenre();
-//            LocalDate localDate = dataGenerator();
-
-            LocalDate localData = LocalDate.now();
+            LocalDate localDate = dataGenerator();
             DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
             DecimalFormat dc = new DecimalFormat("#.##", otherSymbol);
             Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
             price = Double.valueOf(dc.format(price));
             Integer duration = new Random().nextInt(180 - 60) + 60;
-            Movie movie = new Movie().builder().id(id).title(title).genre(genre).date(localData).price(price).duration(duration).build();
+            Movie movie = new Movie().builder().id(id).title(title).genre(genre).price(price).duration(duration).release_date(localDate).build();
             movies.add(movie);
         }
 

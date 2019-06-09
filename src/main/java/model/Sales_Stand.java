@@ -16,5 +16,4 @@ public class Sales_Stand {
     Integer customerId;
     Integer movieId;
     LocalDateTime startDateTime;
-    Boolean discount;
 }

@@ -59,7 +59,7 @@ public class DbConnect {
                             "genre VARCHAR(50) NOT NULL, " +
                             "price DECIMAL(4,2) NOT NULL, " +
                             "duration INT(11) NOT NULL, " +
-                            "release_date DATE NOT NULL " +
+                            "release_date VARCHAR(50) NOT NULL " +
                             ")"
             );
             handle.execute(
@@ -91,7 +91,6 @@ public class DbConnect {
                             "customer_id INT(11) NOT NULL, " +
                             "movie_id INT(11) NOT NULL, " +
                             "start_date_time TIMESTAMP NOT NULL, " +
-                            "discount BOOL NOT NULL DEFAULT FALSE, " +
                             "FOREIGN KEY (customer_id) REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE, " +
                             "FOREIGN KEY (movie_id) REFERENCES movie(id) ON DELETE CASCADE ON UPDATE CASCADE " +
                             ");"

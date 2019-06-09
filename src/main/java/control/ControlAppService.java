@@ -3,6 +3,7 @@ package control;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -115,8 +116,8 @@ public class ControlAppService {
                     }
                 }
                 case 3:
-                    if(loopTickets) {
-                        System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION");
+                    if (loopTickets) {
+                        System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION ");
                         saleTicketOperation();
                         setAllLoopsOff();
                     }
@@ -125,17 +126,18 @@ public class ControlAppService {
         }
     }
 
-    private void setAllLoopsON(){
+    private void setAllLoopsON() {
 
         loopCustomer = true;
         loopMovie = true;
         loopTickets = true;
     }
-    private void setAllLoopsOff(){
 
-            loopCustomer = false;
-            loopMovie = false;
-            loopTickets = false;
+    private void setAllLoopsOff() {
+
+        loopCustomer = false;
+        loopMovie = false;
+        loopTickets = false;
     }
 
     private LocalTime getScreeningHours() {
@@ -144,9 +146,8 @@ public class ControlAppService {
         printAvailableTime();
         Integer hh = dataManager.getInt(" give a hour ");
         Integer mm = dataManager.getInt(" give minutes ");
-        LocalTime time = LocalTime.of(hh,mm);
-        time = correctTime(time);
-        return time;
+        LocalTime time = LocalTime.of(hh, mm);
+        return correctTime(time);
 
     }
 
@@ -173,7 +174,7 @@ public class ControlAppService {
             System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE ");
             customer = dateGenerator.singleCustomerGenerator();
             System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
-            dataManager.getLine("PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH");
+            dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
             addCustomer(customer);
         }
         return customer;
@@ -198,10 +199,22 @@ public class ControlAppService {
         if (discount) {
             addLoyalty(customer);
         }
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).startDateTime(dateTime).discount(discount).build();
-        salesStandRepository.add(sales_stand);
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).startDateTime(dateTime).build();
+        addTicketToDataBase(sales_stand);
+        printAllCustomerTickets() {
+
+        }
+        salesStandRepository.findAll().forEach(System.out::println);
+    }
+
+    private void printAllCustomerTickets() {
 
     }
+
+    private void addTicketToDataBase(Sales_Stand ss) {
+        salesStandRepository.add(ss);
+    }
+
 
     public void printAllTicketsInformation() {
         getAllTicketsInfo().forEach(System.out::println);
@@ -249,26 +262,25 @@ public class ControlAppService {
     }
 
     public LocalTime correctTime(LocalTime localTime) {
-        if (!isGivenTimeCorrect(localTime)) {
-            System.out.println(" IT IS OVER TIME , BY DEFAULT YOU GET  -->" + HIGH_RANGE_TIME);
+        LocalTime lt = LocalTime.parse(localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+        if (isItTimeOverRange(lt)) {
+            System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE ");
             return HIGH_RANGE_TIME;
         }
-        int minute = localTime.getMinute();
-        if (minute < 30) {
-            int hour = localTime.getHour();
-            return LocalTime.of(hour, 30);
+        if (lt.getMinute() < 30) {
+            return LocalTime.of(lt.getHour(), 30);
         } else {
-            if (localTime.getHour() == 22) {
+            if (lt.getHour() == 22) {
                 System.out.println(" IT IS TOO LATE ");
                 return null;
             } else {
-                return localTime.plusHours(1);
+                return LocalTime.of(lt.getHour() + 1, 0);
             }
         }
     }
 
-    private boolean isGivenTimeCorrect(LocalTime localTime) {
-        return !localTime.isAfter(HIGH_RANGE_TIME);
+    private boolean isItTimeOverRange(LocalTime localTime) {
+        return localTime.isAfter(HIGH_RANGE_TIME) && localTime.isBefore(LocalTime.now());
     }
 
 
@@ -288,12 +300,13 @@ public class ControlAppService {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
 //            getAllMovies().stream().filter(f -> f.getDate().equals(LocalDate.now())).forEach(System.out::println);
-            getAllMovies().stream().forEach(System.out::println);
+            getAllMovies().forEach(System.out::println);
+//            movieServiceImpl.printAllData().forEach(System.out::println);
         }
     }
 
     private List<Movie> getAllMovies() {
-        return movieServiceImpl.getAllMovies();
+        return movieServiceImpl.getAll();
     }
 
 

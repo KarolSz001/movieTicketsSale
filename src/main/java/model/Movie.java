@@ -2,14 +2,12 @@ package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import enums.*;
 
-
-import java.time.LocalDate;
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 @AllArgsConstructor
@@ -23,6 +21,8 @@ public class Movie {
     Genre genre;
     Double price;
     Integer duration;
-    LocalDate date;
+    LocalDate release_date;
+
+
 
 }

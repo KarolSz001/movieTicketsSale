@@ -18,7 +18,7 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
         }
 
         connection.withHandle(handle ->
-        handle.execute("INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)", movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getDate()));
+        handle.execute("INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)", movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date()));
 
     }
 
@@ -27,23 +27,17 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
 
         connection.withHandle(handle ->
                 handle
-                        .createUpdate("UPDATE movie set title = :title, genre = :genre , price = :price, duration = :duration, release_date =: release_date) WHERE id = :id")
+                        .createUpdate("UPDATE movie set title = :title, genre = :genre , price = :price, duration = :duration, release_date =: release_date WHERE id = :id")
                         .bind("title",movie.getTitle())
                         .bind("genre",movie.getGenre())
                         .bind("price",movie.getPrice())
                         .bind("duration", movie.getDuration())
-                        .bind("release_date", movie.getDate())
+                        .bind("dddd", movie.getRelease_date())
                         .execute()
         );
 
     }
 
-    public List<Movie> getAll() {
 
-       return connection.withHandle( handle -> handle
-                        .createQuery("select * from movie")
-                        .mapToBean(Movie.class)
-                        .list());
-    }
 
 }
