@@ -1,7 +1,6 @@
 package service;
 
 import api.CustomerService;
-import exception.AppException;
 import model.Customer;
 import repository.CustomerRepository;
 import repository.SalesStandRepository;
@@ -74,16 +73,21 @@ public class CustomerServiceImpl implements CustomerService {
         Integer id  = customer.getId();
         customerRepository.update(id, customer);
     }
-    public boolean isDiscountAvailable(Customer customer){
-        Integer idCustomer = customer.getId();
-        long result = salesStandRepository.findAll().stream().filter(f->f.getCustomerId().equals(idCustomer)).count();
-        System.out.println(result);
-        return result > DISCOUNT_LIMIT ;
+    public boolean isCardAvailable(Integer customerId){
+        if(!hasLoyalCard(customerId)) {
+            long result = salesStandRepository.findAll().stream().filter(f -> f.getCustomerId().equals(customerId)).count();
+            return result >= DISCOUNT_LIMIT;
+        }
+        return false;
     }
 
-    public void addLoyalCard (Customer customer){}
+    public boolean hasLoyalCard(Integer customerId){
+       return customerRepository.findOne(customerId).get().getLoyalty_card_id() != 0;
+    }
 
-
+    public void addIdLoyalCardToCustomer(Integer idCard, Integer customerId){
+          customerRepository.addIdLoyaltyCardToCustomer(idCard, customerId);
+    }
 
 
 }

@@ -191,25 +191,30 @@ public class ControlAppService {
 
         Customer customer = getCustomerOperation();
         Integer idMovie = getMovieById();
-        Integer customer_id = getCustomerByEmail(customer.getEmail()).get().getId();
+        Integer customerId = getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
         LocalTime time = getScreeningHours();
         LocalDateTime dateTime = LocalDateTime.of(date, time);
-        boolean discount = customerServiceImpl.isDiscountAvailable(customer);
-
-        if (discount) {
+// card is available if customer don't have one (no 0) and (watched limit movies and time exceeded)
+        if (isCardAvailableForCustomer(customerId)) {
             addLoyalty(customer);
         }
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customer_id).movieId(idMovie).start_date_time(dateTime).build();
+
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).build();
         addTicketToDataBase(sales_stand);
         System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
 
+    }
+
+    private boolean isCardAvailableForCustomer(Integer customerId){
+        return customerServiceImpl.isCardAvailable(customerId);
     }
 
     private void printAllCustomerTickets(String customerEmail) {
         movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).forEach(System.out::println);
     }
 
+    // filtr last movie in sell history for this customer (byEmail)
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
         return movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
     }
@@ -234,21 +239,18 @@ public class ControlAppService {
     private void addLoyalty(Customer customer) {
 
         Integer customerId = getCustomerByEmail(customer.getEmail()).get().getId();
-
-//        loyaltyCardRepository.createLoyaltyCard(customerId);
         LocalDate date = LocalDate.now().plusMonths(1);
         Double discount = 2.0;
         Integer moviesNumber = 3;
         Integer currentMoviesNumber = 0;
         Loyalty_Card loyaltyCard = new Loyalty_Card().builder().expirationDate(date).discount(discount).moviesNumber(moviesNumber).current_movies_number(currentMoviesNumber).build();
         loyaltyCardRepository.add(loyaltyCard);
+        int sizeOfLcardList = loyaltyCardRepository.findAll().size();
+        Integer idLoyaltyCard = loyaltyCardRepository.findAll().get(sizeOfLcardList - 1).getId();
+        customerServiceImpl.addIdLoyalCardToCustomer(idLoyaltyCard, customerId);
+        System.out.println(" ADDED NEW LOYALTY_CARD FOR CUSTOMER \n");
 
     }
-
-    /*private Integer getIdLoyaltyCard(){
-        return loyaltyCardRepository.findOne()
-    }*/
-
 
     boolean isCartCustomerAvailable(Customer customer) {
         long result = getAllTicketsInfo().stream().filter(f -> f.getEmail().equals(customer.getEmail())).count();
