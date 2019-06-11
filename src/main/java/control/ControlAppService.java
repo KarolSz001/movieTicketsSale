@@ -172,7 +172,7 @@ public class ControlAppService {
             customer = getCustomerByEmail(email).get();
             System.out.println(customer);
         } else {
-        System.out.println(" NO CUSTOMER IN DATABASE , LET's CREATE ONE ");
+        System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
         customer = dateGenerator.singleCustomerGenerator();
         System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
         dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
@@ -200,10 +200,23 @@ public class ControlAppService {
             addLoyalty(customer);
         }
 
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).build();
+        boolean discount = hasDiscount(customerId);
+        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(discount).build();
         addTicketToDataBase(sales_stand);
         System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
+    }
 
+
+    private boolean hasDiscount(Integer customerId){
+        if(!customerServiceImpl.hasLoyalCard(customerId)) {
+            return false;
+        } else {
+             return isLoyalCardActive(customerId);
+        }
+    }
+
+    private boolean isLoyalCardActive(Integer customerId){
+        return customerServiceImpl.isCardActive(customerId);
     }
 
     private boolean isCardAvailableForCustomer(Integer customerId){

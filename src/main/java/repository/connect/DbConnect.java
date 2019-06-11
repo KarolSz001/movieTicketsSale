@@ -79,7 +79,7 @@ public class DbConnect {
                             "surname VARCHAR(50) NOT NULL, " +
                             "age INT(11) NOT NULL, " +
                             "email VARCHAR(50), " +
-                            "loyalty_card_id INT(11), " +
+                            "loyalty_card_id INT(11) NOT NULL DEFAULT 0, " +
                             "FOREIGN KEY (loyalty_card_id) REFERENCES loyalty_card(id) ON DELETE CASCADE ON UPDATE CASCADE " +
                             ");"
             );
@@ -91,6 +91,7 @@ public class DbConnect {
                             "customer_id INT(11) NOT NULL, " +
                             "movie_id INT(11) NOT NULL, " +
                             "start_date_time TIMESTAMP NOT NULL, " +
+                            "discount BOOL NOT NULL DEFAULT FALSE, " +
                             "FOREIGN KEY (customer_id) REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE, " +
                             "FOREIGN KEY (movie_id) REFERENCES movie(id) ON DELETE CASCADE ON UPDATE CASCADE " +
                             ");"

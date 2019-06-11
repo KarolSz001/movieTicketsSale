@@ -9,7 +9,7 @@ public class LoyaltyCardRepository extends AbstractCrudRepository<Loyalty_Card, 
 
     @Override
     public void add(Loyalty_Card item) {
-        if(item == null){
+        if (item == null) {
             throw new AppException(" add wrong argument - > null");
         }
 
@@ -21,10 +21,6 @@ public class LoyaltyCardRepository extends AbstractCrudRepository<Loyalty_Card, 
     @Override
     public void update(Integer integer, Loyalty_Card item) {
 
-    }
-    public void createLoyaltycard(Integer customerId){
 
     }
-
-
 }
