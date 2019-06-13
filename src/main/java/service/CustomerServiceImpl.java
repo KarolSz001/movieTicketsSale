@@ -2,11 +2,13 @@ package service;
 
 import api.CustomerService;
 import model.Customer;
+import model.Loyalty_Card;
 import repository.CustomerRepository;
 import repository.LoyaltyCardRepository;
 import repository.SalesStandRepository;
 import valid.CustomerValidator;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -94,7 +96,23 @@ public class CustomerServiceImpl implements CustomerService {
 
     public boolean isCardActive(Integer customerId) {
         Integer idCard = customerRepository.findOne(customerId).get().getLoyalty_card_id();
-        return loyaltyCardRepository.findOne(idCard).get().getCurrent_movies_number() < loyaltyCardRepository.findOne(idCard).get().getMoviesNumber();
+        if (isCardActiveByNumberOfMovies(idCard)) {
+            System.out.println("CARD IS STILL ACTIVE");
+            return true;
+        } else {
+            System.out.println("CARD LOST ACTIVATION");
+            return false;
+        }
+    }
+    private boolean isCardActiveByNumberOfMovies(Integer idCard){
+        return getCardById(idCard).getCurrent_movies_number() < getCardById(idCard).getMoviesNumber();
+    }
+    private boolean isCardActiveByData(Integer idCard){
+        return LocalDate.now().isBefore(getCardById(idCard).getExpirationDate()) || LocalDate.now().isEqual(getCardById(idCard).getExpirationDate());
+    }
+
+    private Loyalty_Card getCardById(Integer id) {
+        return loyaltyCardRepository.findOne(id).get();
     }
 
 }

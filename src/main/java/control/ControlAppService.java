@@ -25,34 +25,35 @@ public class ControlAppService {
     private final MovieServiceImpl movieServiceImpl = MovieServiceImpl.getInstance();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-    private final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
-    private final Integer DISCOUNT_LIMIT = 2;
-    private final Double DISCOUNT_VALUE = 8.0;
+
+    private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
+    private static final Integer DISCOUNT_LIMIT = 2;
+    private static final Double DISCOUNT_VALUE = 8.0;
 
     private boolean loopCustomer;
     private boolean loopMovie;
     private boolean loopTickets;
-    private boolean loopOn = true;
+    private boolean loopOn;
 
     public ControlAppService() {
-
     }
 
     public void controlLoop() {
+        loopOn = true;
 
         while (loopOn) {
-            setAllLoopsON();
+
+            setAllLoops(true);
             startMenu();
             Integer read = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
-            switch (read) {
 
+            switch (read) {
                 case 0: {
                     exit();
                     loopOn = false;
                     return;
                 }
                 case 1: {
-
                     while (loopCustomer) {
                         printCustomersMenu();
                         System.out.println();
@@ -61,7 +62,7 @@ public class ControlAppService {
                         switch (readCustomer) {
 
                             case 0: {
-                                setAllLoopsOff();
+                                setAllLoops(false);
                                 break;
                             }
                             case 1: {
@@ -91,7 +92,6 @@ public class ControlAppService {
                     }
                 }
                 case 2: {
-
                     while (loopMovie) {
                         printMoviesMenu();
                         System.out.println();
@@ -99,7 +99,7 @@ public class ControlAppService {
 
                         switch (choice) {
                             case 0: {
-                                setAllLoopsOff();
+                                setAllLoops(false);
                                 break;
                             }
                             case 1: {
@@ -121,25 +121,16 @@ public class ControlAppService {
                     if (loopTickets) {
                         System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION ");
                         saleTicketOperation();
-                        setAllLoopsOff();
+                        setAllLoops(false);
                     }
-
             }
         }
     }
 
-    private void setAllLoopsON() {
-
-        loopCustomer = true;
-        loopMovie = true;
-        loopTickets = true;
-    }
-
-    private void setAllLoopsOff() {
-
-        loopCustomer = false;
-        loopMovie = false;
-        loopTickets = false;
+    private void setAllLoops(boolean flag) {
+        loopCustomer = flag;
+        loopMovie = flag;
+        loopTickets = flag;
     }
 
     private LocalTime getScreeningHours() {
@@ -150,7 +141,6 @@ public class ControlAppService {
         Integer mm = dataManager.getInt(" give minutes ");
         return correctTime(LocalTime.of(hh, mm));
 
-
     }
 
     private Integer getMovieById() {
@@ -159,6 +149,7 @@ public class ControlAppService {
         showAllMoviesToday();
         Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
         showMovieById(idMovie);
+
         return idMovie;
     }
 
@@ -168,24 +159,24 @@ public class ControlAppService {
         String email = dataManager.getLine(" GIVE EMAIL ");
         Customer customer;
         System.out.println(" CHECKING DATABASE BY EMAIL CUSTOMER ");
+
         if (getCustomerByEmail(email).isPresent()) {
+
             System.out.println(" CUSTOMER AVAILABLE ");
             customer = getCustomerByEmail(email).get();
             System.out.println(customer);
+
         } else {
+
             System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
             customer = dateGenerator.singleCustomerGenerator();
             System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
             dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
             addCustomer(customer);
+
         }
         return customer;
     }
-
-    boolean hasLoyalatycard(Customer customer) {
-        return getCustomerByEmail(customer.getEmail()).get().getLoyalty_card_id() != null;
-    }
-
 
     private void saleTicketOperation() {
 
@@ -197,9 +188,8 @@ public class ControlAppService {
         LocalTime time = getScreeningHours();
         LocalDateTime dateTime = LocalDateTime.of(date, time);
 
-// card is available if customer don't have one (no 0) and (watched limit movies and time exceeded)
         if (isCardAvailableForCustomer(customerId)) {
-            boolean isConfirmation = dataManager.getBoolean("DO YOU WANNA GET LOYAL CARD ??");
+            boolean isConfirmation = dataManager.getBoolean("bDO YOU WANNA GET LOYAL CARD ?? ");
             if (isConfirmation) {
                 addLoyalty(customer);
             }
@@ -212,12 +202,12 @@ public class ControlAppService {
             MovieWithDateTime movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
             discountPriceTicket(movieWithDateTime);
             System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + movieWithDateTime);
+
         } else {
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(false).build();
             addTicketToDataBase(sales_stand);
             System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
         }
-
 
     }
 
@@ -243,36 +233,12 @@ public class ControlAppService {
         return customerServiceImpl.isCardAvailable(customerId);
     }
 
-    boolean isCartCustomerAvailable(Customer customer) {
-        long result = getAllTicketsInfo().stream().filter(f -> f.getEmail().equals(customer.getEmail())).count();
-        System.out.println(result);
-        return result >= DISCOUNT_LIMIT;
-    }
-
-    private void printAllCustomerTickets(String customerEmail) {
-        movieServiceImpl.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).forEach(System.out::println);
-    }
-
-    // filtr last movie in sell history for this customer (byEmail)
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
         return movieServiceImpl.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
     }
 
-    private List<MovieWithDateTime> sellingTicketInformationList() {
-        return movieServiceImpl.getInfo();
-    }
-
     private void addTicketToDataBase(Sales_Stand ss) {
         salesStandRepository.add(ss);
-    }
-
-
-    public void printAllTicketsInformation() {
-        getAllTicketsInfo().forEach(System.out::println);
-    }
-
-    private List<MovieWithDateTime> getAllTicketsInfo() {
-        return movieServiceImpl.getInfo();
     }
 
     private void addLoyalty(Customer customer) {
@@ -288,30 +254,26 @@ public class ControlAppService {
         Integer idLoyaltyCard = loyaltyCardRepository.findAll().get(sizeOfCardList - 1).getId();
         customerServiceImpl.addIdLoyalCardToCustomer(idLoyaltyCard, customerId);
         System.out.println(" ADDED NEW LOYALTY_CARD FOR CUSTOMER \n");
-
     }
 
-
     public void printAvailableTime() {
-
         LocalTime counter = correctTime(LocalTime.now());
-        System.out.println(" correct time " + counter);
-
         while (counter.isBefore(HIGH_RANGE_TIME)) {
-            System.out.println(counter);
+            System.out.print(counter + " || ");
             counter = counter.plusMinutes(30);
         }
-        System.out.println(counter);
     }
 
     public LocalTime correctTime(LocalTime localTime) {
         LocalTime lt = LocalTime.parse(localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
-        if (isItTimeOverRange(lt)) {
-            System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE ");
+        if (isTimeOverRange(lt)) {
+            System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE SCREEN HOUR ");
             return HIGH_RANGE_TIME;
         }
-        if (lt.getMinute() < 30) {
+
+        if (lt.getMinute() < 30 && lt.getMinute() > 0) {
             return LocalTime.of(lt.getHour(), 30);
+
         } else {
             if (lt.getHour() == 22) {
                 System.out.println(" IT IS TOO LATE ");
@@ -322,10 +284,9 @@ public class ControlAppService {
         }
     }
 
-    private boolean isItTimeOverRange(LocalTime localTime) {
+    private boolean isTimeOverRange(LocalTime localTime) {
         return localTime.isAfter(HIGH_RANGE_TIME) && localTime.isBefore(LocalTime.now());
     }
-
 
     private void showMovieById(Integer id) {
         System.out.println(movieServiceImpl.getMovieById(id));
@@ -336,22 +297,17 @@ public class ControlAppService {
         movieServiceImpl.removeMovieById(id);
     }
 
-
     private void showAllMoviesToday() {
-
         if (isMoviesBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-//            getAllMovies().stream().filter(f -> f.getDate().equals(LocalDate.now())).forEach(System.out::println);
-            getAllMovies().forEach(System.out::println);
-//            movieServiceImpl.printAllData().forEach(System.out::println);
+            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(System.out::println);
         }
     }
 
     private List<Movie> getAllMovies() {
         return movieServiceImpl.getAll();
     }
-
 
     boolean isMoviesBaseEmpty() {
         return movieServiceImpl.getAllMovies().isEmpty();
@@ -365,41 +321,33 @@ public class ControlAppService {
         if (isCustomerBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-            getAllCustomers().forEach(System.out::println);
+            getListOfAllCustomers().forEach(System.out::println);
         }
-    }
-
-    private List<Customer> getAllCustomers() {
-        return customerServiceImpl.getAllCustomer();
     }
 
     private Optional<Customer> getCustomerByEmail(String email) {
-        return getAllCustomers().stream().filter(f -> f.getEmail().equals(email)).findFirst();
+        return getListOfAllCustomers().stream().filter(f -> f.getEmail().equals(email)).findFirst();
     }
 
-    private Optional getCustomerById() {
-        Integer id = dataManager.getInt(" PRESS ID CUSTOMER ");
-        return customerServiceImpl.getCustomerById(id);
+    private List<Customer> getListOfAllCustomers() {
+        return customerServiceImpl.getAllCustomer();
+    }
+
+    private Optional<Customer> getCustomerById() {
+        return customerServiceImpl.getCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
     }
 
     private void customerGeneratorDate() {
-        List<Customer> customerList = dateGenerator.customersGenerator();
-        for (Customer customer : customerList) {
-            System.out.println(customer);
-            addCustomer(customer);
-        }
+        dateGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
     }
 
     private void editCustomerById() {
-        Integer id = dataManager.getInt(" PRESS ID CUSTOMER TO EDIT ");
-        Customer customer = new Customer();
-        customer.setId(id);
+        Customer customer = getCustomerById().get();
         customerServiceImpl.updateCustomer(customer);
     }
 
     private void removeCustomerById() {
-        Integer id = dataManager.getInt(" PRESS ID CUSTOMER ");
-        customerServiceImpl.removeCustomerById(id);
+        customerServiceImpl.removeCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
     }
 
     private void exit() {
