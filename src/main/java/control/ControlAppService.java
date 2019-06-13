@@ -183,12 +183,12 @@ public class ControlAppService {
     }
 
     boolean hasLoyalatycard(Customer customer) {
-
         return getCustomerByEmail(customer.getEmail()).get().getLoyalty_card_id() != null;
     }
 
 
     private void saleTicketOperation() {
+
         Sales_Stand sales_stand;
         Customer customer = getCustomerOperation();
         Integer idMovie = getMovieById();
@@ -211,9 +211,8 @@ public class ControlAppService {
             addTicketToDataBase(sales_stand);
             MovieWithDateTime movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
             discountPriceTicket(movieWithDateTime);
-            System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
+            System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + movieWithDateTime);
         } else {
-
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(false).build();
             addTicketToDataBase(sales_stand);
             System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
@@ -222,9 +221,9 @@ public class ControlAppService {
 
     }
 
-    private void discountPriceTicket(MovieWithDateTime movieWithDateTime) {
-        Double price = DISCOUNT_VALUE * movieWithDateTime.getPrice();
-        movieWithDateTime.setPrice(price);
+    private void discountPriceTicket(MovieWithDateTime item) {
+        Double priceAfterDiscount = item.getPrice() - (DISCOUNT_VALUE * item.getPrice());
+        item.setPrice(priceAfterDiscount);
     }
 
 

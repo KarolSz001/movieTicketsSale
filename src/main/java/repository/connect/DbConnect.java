@@ -79,7 +79,7 @@ public class DbConnect {
                             "surname VARCHAR(50) NOT NULL, " +
                             "age INT(11) NOT NULL, " +
                             "email VARCHAR(50), " +
-                            "loyalty_card_id INT(11) NOT NULL DEFAULT 0, " +
+                            "loyalty_card_id INT(11), " +
                             "FOREIGN KEY (loyalty_card_id) REFERENCES loyalty_card(id) ON DELETE CASCADE ON UPDATE CASCADE " +
                             ");"
             );

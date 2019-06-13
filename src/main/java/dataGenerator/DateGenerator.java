@@ -97,7 +97,7 @@ public class DateGenerator {
         Integer age = new Random().nextInt(maxAge - minAge) + minAge;
         String email = emailGenerator(name, surname);
 
-        return new Customer(null, name, surname, age, email, null);
+        return Customer.builder().name(name).surname(surname).age(age).email(email).build();
     }
 
 

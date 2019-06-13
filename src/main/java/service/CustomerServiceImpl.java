@@ -85,7 +85,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public boolean hasLoyalCard(Integer customerId) {
-        return customerRepository.findOne(customerId).get().getLoyalty_card_id() != 0;
+        return customerRepository.findOne(customerId).get().getLoyalty_card_id() != null;
     }
 
     public void addIdLoyalCardToCustomer(Integer idCard, Integer customerId) {
