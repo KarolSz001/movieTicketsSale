@@ -27,6 +27,7 @@ public class ControlAppService {
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private final Integer DISCOUNT_LIMIT = 2;
+    private final Double DISCOUNT_VALUE = 8.0;
 
     private boolean loopCustomer;
     private boolean loopMovie;
@@ -172,11 +173,11 @@ public class ControlAppService {
             customer = getCustomerByEmail(email).get();
             System.out.println(customer);
         } else {
-        System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
-        customer = dateGenerator.singleCustomerGenerator();
-        System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
-        dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
-        addCustomer(customer);
+            System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
+            customer = dateGenerator.singleCustomerGenerator();
+            System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
+            dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
+            addCustomer(customer);
         }
         return customer;
     }
@@ -188,51 +189,77 @@ public class ControlAppService {
 
 
     private void saleTicketOperation() {
-
+        Sales_Stand sales_stand;
         Customer customer = getCustomerOperation();
         Integer idMovie = getMovieById();
         Integer customerId = getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
         LocalTime time = getScreeningHours();
         LocalDateTime dateTime = LocalDateTime.of(date, time);
+
 // card is available if customer don't have one (no 0) and (watched limit movies and time exceeded)
         if (isCardAvailableForCustomer(customerId)) {
-            addLoyalty(customer);
+            boolean isConfirmation = dataManager.getBoolean("DO YOU WANNA GET LOYAL CARD ??");
+            if (isConfirmation) {
+                addLoyalty(customer);
+            }
         }
 
-        boolean discount = hasDiscount(customerId);
-        Sales_Stand sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(discount).build();
-        addTicketToDataBase(sales_stand);
-        System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
+        if (hasDiscount(customerId)) {
+            // price is lower by discount and decrease number of watched movies in loyal card
+            sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(true).build();
+            addTicketToDataBase(sales_stand);
+            MovieWithDateTime movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
+            discountPriceTicket(movieWithDateTime);
+            System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
+        } else {
+
+            sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(false).build();
+            addTicketToDataBase(sales_stand);
+            System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + sendConfirmationOfSellingTicket(customer.getEmail()));
+        }
+
+
+    }
+
+    private void discountPriceTicket(MovieWithDateTime movieWithDateTime) {
+        Double price = DISCOUNT_VALUE * movieWithDateTime.getPrice();
+        movieWithDateTime.setPrice(price);
     }
 
 
-    private boolean hasDiscount(Integer customerId){
-        if(!customerServiceImpl.hasLoyalCard(customerId)) {
+    private boolean hasDiscount(Integer customerId) {
+        if (!customerServiceImpl.hasLoyalCard(customerId)) {
             return false;
         } else {
-             return isLoyalCardActive(customerId);
+            return isLoyalCardActive(customerId);
         }
     }
 
-    private boolean isLoyalCardActive(Integer customerId){
+    private boolean isLoyalCardActive(Integer customerId) {
         return customerServiceImpl.isCardActive(customerId);
     }
 
-    private boolean isCardAvailableForCustomer(Integer customerId){
+    private boolean isCardAvailableForCustomer(Integer customerId) {
         return customerServiceImpl.isCardAvailable(customerId);
     }
 
+    boolean isCartCustomerAvailable(Customer customer) {
+        long result = getAllTicketsInfo().stream().filter(f -> f.getEmail().equals(customer.getEmail())).count();
+        System.out.println(result);
+        return result >= DISCOUNT_LIMIT;
+    }
+
     private void printAllCustomerTickets(String customerEmail) {
-        movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).forEach(System.out::println);
+        movieServiceImpl.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).forEach(System.out::println);
     }
 
     // filtr last movie in sell history for this customer (byEmail)
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
-        return movieServiceImpl.getInfo().stream().filter(f->f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
+        return movieServiceImpl.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
     }
 
-    private List<MovieWithDateTime> sellingTicketInformationList(){
+    private List<MovieWithDateTime> sellingTicketInformationList() {
         return movieServiceImpl.getInfo();
     }
 
@@ -258,18 +285,13 @@ public class ControlAppService {
         Integer currentMoviesNumber = 0;
         Loyalty_Card loyaltyCard = new Loyalty_Card().builder().expirationDate(date).discount(discount).moviesNumber(moviesNumber).current_movies_number(currentMoviesNumber).build();
         loyaltyCardRepository.add(loyaltyCard);
-        int sizeOfLcardList = loyaltyCardRepository.findAll().size();
-        Integer idLoyaltyCard = loyaltyCardRepository.findAll().get(sizeOfLcardList - 1).getId();
+        int sizeOfCardList = loyaltyCardRepository.findAll().size();
+        Integer idLoyaltyCard = loyaltyCardRepository.findAll().get(sizeOfCardList - 1).getId();
         customerServiceImpl.addIdLoyalCardToCustomer(idLoyaltyCard, customerId);
         System.out.println(" ADDED NEW LOYALTY_CARD FOR CUSTOMER \n");
 
     }
 
-    boolean isCartCustomerAvailable(Customer customer) {
-        long result = getAllTicketsInfo().stream().filter(f -> f.getEmail().equals(customer.getEmail())).count();
-        System.out.println(result);
-        return result >= DISCOUNT_LIMIT;
-    }
 
     public void printAvailableTime() {
 

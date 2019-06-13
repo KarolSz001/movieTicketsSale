@@ -1,8 +1,11 @@
 package repository;
 
 import exception.AppException;
+import model.Customer;
 import model.Loyalty_Card;
 import repository.generic.AbstractCrudRepository;
+
+import java.time.LocalDate;
 
 public class LoyaltyCardRepository extends AbstractCrudRepository<Loyalty_Card, Integer> {
 
@@ -23,4 +26,6 @@ public class LoyaltyCardRepository extends AbstractCrudRepository<Loyalty_Card, 
 
 
     }
+
+
 }
