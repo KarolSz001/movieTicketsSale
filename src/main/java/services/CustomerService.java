@@ -1,6 +1,7 @@
 package services;
 
-import api.CustomerService;
+import dataGenerator.DataGenerator;
+import dataGenerator.DataManager;
 import model.Customer;
 import model.Loyalty_Card;
 import repository.CustomerRepository;
@@ -20,6 +21,10 @@ public class CustomerService {
     private CustomerValidator customerValidator = CustomerValidator.getInstance();
     private SalesStandRepository salesStandRepository = new SalesStandRepository();
     private LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
+
+    private final DataManager dataManager = new DataManager();
+    private final DataGenerator dataGenerator = new DataGenerator();
+
     private final static Integer DISCOUNT_LIMIT = 4;
 
     private CustomerService() {
@@ -104,16 +109,83 @@ public class CustomerService {
             return false;
         }
     }
-    private boolean isCardActiveByNumberOfMovies(Integer idCard){
+
+    private boolean isCardActiveByNumberOfMovies(Integer idCard) {
         return getCardById(idCard).getCurrent_movies_number() < getCardById(idCard).getMoviesNumber();
     }
-    private boolean isCardActiveByData(Integer idCard){
+
+    private boolean isCardActiveByData(Integer idCard) {
         return LocalDate.now().isBefore(getCardById(idCard).getExpirationDate()) || LocalDate.now().isEqual(getCardById(idCard).getExpirationDate());
     }
 
     private Loyalty_Card getCardById(Integer id) {
         return loyaltyCardRepository.findOne(id).get();
     }
+
+
+    public Customer getCustomerOperation() {
+
+        System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
+        String email = dataManager.getLine(" GIVE EMAIL ");
+        Customer customer;
+        System.out.println(" CHECKING DATABASE BY EMAIL CUSTOMER ");
+
+        if (getCustomerByEmail(email).isPresent()) {
+
+            System.out.println(" CUSTOMER AVAILABLE ");
+            customer = getCustomerByEmail(email).get();
+            System.out.println(customer);
+
+        } else {
+
+            System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
+            customer = dataGenerator.singleCustomerGenerator();
+            System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
+            dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
+            addCustomer(customer);
+
+        }
+        return customer;
+    }
+
+
+    public void customerGeneratorDate() {
+        dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
+    }
+
+    public void editCustomerById() {
+        Customer customer = getCustomerById(dataManager.getInt(" PRESS ID CUSTOMER ")).get();
+        updateCustomer(customer);
+    }
+
+    public void removeCustomerById() {
+        removeCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
+    }
+
+
+    public void printAllCustomers() {
+        if (isCustomerBaseEmpty()) {
+            System.out.println(" DATABASE IS EMPTY \n");
+        } else {
+            getAllCustomer().forEach(System.out::println);
+        }
+    }
+
+    public Customer creatCustomer() {
+
+        String name = dataManager.getLine(" GIVE A NAME ");
+        String surname = dataManager.getLine(" GIVE SURNAME ");
+        Integer age = dataManager.getInt(" GIVE AGE ");
+        String email = dataManager.getLine(" GIVE EMAIL ");
+
+        return new Customer().builder().id(null).name(name).surname(surname).age(age).email(email).build();
+    }
+
+
+    boolean isCustomerBaseEmpty() {
+        return getAllCustomer().isEmpty();
+    }
+
 
 }
 

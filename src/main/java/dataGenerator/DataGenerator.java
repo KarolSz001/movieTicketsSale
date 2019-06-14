@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public class DateGenerator {
+public class DataGenerator {
 
     private final String fileNameTxt = "titlesMovie.txt";
     private final Integer minRangePrice = 50;
@@ -25,7 +25,7 @@ public class DateGenerator {
     private final MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
     private final DataManager dataManager = new DataManager();
 
-    public DateGenerator() {
+    public DataGenerator() {
         List<Movie> movies = moviesGenerator();
         movieStoresJsonConverter.toJson(movies);
     }

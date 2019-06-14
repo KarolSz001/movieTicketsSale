@@ -1,4 +1,5 @@
 package services;
+import dataGenerator.DataManager;
 import dataGenerator.MovieStoresJsonConverter;
 import exception.AppException;
 import model.Movie;
@@ -6,24 +7,28 @@ import model.MovieWithDateTime;
 import org.jdbi.v3.core.Jdbi;
 import repository.MovieRepository;
 import repository.connect.DbConnect;
+
+import java.time.LocalDate;
 import java.util.List;
 
 
 
-public class MovieServiceI {
+public class MovieService {
 
-    private static MovieServiceI instance = null;
+    private static MovieService instance = null;
     private final Jdbi connection = DbConnect.getInstance().getConnection();
     private final String jsonFile = "movieTitle.json";
 
-    private MovieServiceI() {
+    private final DataManager dataManager = new DataManager();
+
+    private MovieService() {
         loadMoviesToDataBase(jsonFile);
 
     }
 
-    public static MovieServiceI getInstance() {
+    public static MovieService getInstance() {
         if (instance == null) {
-            instance = new MovieServiceI();
+            instance = new MovieService();
         }
         return instance;
     }
@@ -90,6 +95,28 @@ public class MovieServiceI {
                 .mapToBean(Movie.class)
                 .list()
         );
+    }
+
+
+    public void showMovieById(Integer id) {
+        System.out.println(getMovieById(id));
+    }
+
+    public void removeMovieById() {
+        Integer id = dataManager.getInt(" PRESS ID MOVIE NUMBER");
+        removeMovieById(id);
+    }
+
+    public void showAllMoviesToday() {
+        if (isMoviesBaseEmpty()) {
+            System.out.println(" DATABASE IS EMPTY \n");
+        } else {
+            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(System.out::println);
+        }
+    }
+
+    boolean isMoviesBaseEmpty() {
+        return getAllMovies().isEmpty();
     }
 
 }
