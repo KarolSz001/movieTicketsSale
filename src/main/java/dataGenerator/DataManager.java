@@ -1,4 +1,4 @@
-package control;
+package dataGenerator;
 import exception.AppException;
 import java.util.Scanner;
 

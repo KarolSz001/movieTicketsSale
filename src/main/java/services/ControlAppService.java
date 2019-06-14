@@ -1,4 +1,4 @@
-package control;
+package services;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,12 +8,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+import dataGenerator.DataManager;
 import dataGenerator.DateGenerator;
 import model.*;
 import repository.LoyaltyCardRepository;
 import repository.SalesStandRepository;
-import service.CustomerServiceImpl;
-import service.MovieServiceImpl;
 
 
 public class ControlAppService {
@@ -21,13 +20,13 @@ public class ControlAppService {
 
     private final DataManager dataManager = new DataManager();
     private final DateGenerator dateGenerator = new DateGenerator();
-    private final CustomerServiceImpl customerServiceImpl = CustomerServiceImpl.getInstance();
-    private final MovieServiceImpl movieServiceImpl = MovieServiceImpl.getInstance();
+    private final CustomerService customerService = CustomerService.getInstance();
+    private final MovieServiceI movieServiceI = MovieServiceI.getInstance();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
 
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
-    private static final Integer DISCOUNT_LIMIT = 2;
+    private static final Integer NUMBER__MOVIES_DISCOUNT = 2;
     private static final Double DISCOUNT_VALUE = 8.0;
 
     private boolean loopCustomer;
@@ -218,7 +217,7 @@ public class ControlAppService {
 
 
     private boolean hasDiscount(Integer customerId) {
-        if (!customerServiceImpl.hasLoyalCard(customerId)) {
+        if (!customerService.hasLoyalCard(customerId)) {
             return false;
         } else {
             return isLoyalCardActive(customerId);
@@ -226,15 +225,15 @@ public class ControlAppService {
     }
 
     private boolean isLoyalCardActive(Integer customerId) {
-        return customerServiceImpl.isCardActive(customerId);
+        return customerService.isCardActive(customerId);
     }
 
     private boolean isCardAvailableForCustomer(Integer customerId) {
-        return customerServiceImpl.isCardAvailable(customerId);
+        return customerService.isCardAvailable(customerId);
     }
 
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
-        return movieServiceImpl.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
+        return movieServiceI.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();
     }
 
     private void addTicketToDataBase(Sales_Stand ss) {
@@ -245,14 +244,12 @@ public class ControlAppService {
 
         Integer customerId = getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now().plusMonths(1);
-        Double discount = 2.0;
-        Integer moviesNumber = 3;
-        Integer currentMoviesNumber = 0;
-        Loyalty_Card loyaltyCard = new Loyalty_Card().builder().expirationDate(date).discount(discount).moviesNumber(moviesNumber).current_movies_number(currentMoviesNumber).build();
+        Loyalty_Card loyaltyCard = new Loyalty_Card().builder().expirationDate(date).discount(DISCOUNT_VALUE).moviesNumber(NUMBER__MOVIES_DISCOUNT).current_movies_number(0).build();
         loyaltyCardRepository.add(loyaltyCard);
         int sizeOfCardList = loyaltyCardRepository.findAll().size();
+        // get last added card
         Integer idLoyaltyCard = loyaltyCardRepository.findAll().get(sizeOfCardList - 1).getId();
-        customerServiceImpl.addIdLoyalCardToCustomer(idLoyaltyCard, customerId);
+        customerService.addIdLoyalCardToCustomer(idLoyaltyCard, customerId);
         System.out.println(" ADDED NEW LOYALTY_CARD FOR CUSTOMER \n");
     }
 
@@ -266,35 +263,29 @@ public class ControlAppService {
 
     public LocalTime correctTime(LocalTime localTime) {
         LocalTime lt = LocalTime.parse(localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+
         if (isTimeOverRange(lt)) {
             System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE SCREEN HOUR ");
             return HIGH_RANGE_TIME;
         }
-
-        if (lt.getMinute() < 30 && lt.getMinute() > 0) {
+        if (lt.getMinute() < 30 && lt.getMinute() > 0 && lt.getHour() <= 22) {
             return LocalTime.of(lt.getHour(), 30);
-
-        } else {
-            if (lt.getHour() == 22) {
-                System.out.println(" IT IS TOO LATE ");
-                return null;
-            } else {
-                return LocalTime.of(lt.getHour() + 1, 0);
-            }
         }
+        return LocalTime.of(lt.getHour() + 1, 0);
     }
+
 
     private boolean isTimeOverRange(LocalTime localTime) {
         return localTime.isAfter(HIGH_RANGE_TIME) && localTime.isBefore(LocalTime.now());
     }
 
     private void showMovieById(Integer id) {
-        System.out.println(movieServiceImpl.getMovieById(id));
+        System.out.println(movieServiceI.getMovieById(id));
     }
 
     private void removeMovieById() {
         Integer id = dataManager.getInt(" PRESS ID MOVIE NUMBER");
-        movieServiceImpl.removeMovieById(id);
+        movieServiceI.removeMovieById(id);
     }
 
     private void showAllMoviesToday() {
@@ -306,15 +297,15 @@ public class ControlAppService {
     }
 
     private List<Movie> getAllMovies() {
-        return movieServiceImpl.getAll();
+        return movieServiceI.getAll();
     }
 
     boolean isMoviesBaseEmpty() {
-        return movieServiceImpl.getAllMovies().isEmpty();
+        return movieServiceI.getAllMovies().isEmpty();
     }
 
     boolean isCustomerBaseEmpty() {
-        return customerServiceImpl.getAllCustomer().isEmpty();
+        return customerService.getAllCustomer().isEmpty();
     }
 
     private void printAllCustomers() {
@@ -330,11 +321,11 @@ public class ControlAppService {
     }
 
     private List<Customer> getListOfAllCustomers() {
-        return customerServiceImpl.getAllCustomer();
+        return customerService.getAllCustomer();
     }
 
     private Optional<Customer> getCustomerById() {
-        return customerServiceImpl.getCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
+        return customerService.getCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
     }
 
     private void customerGeneratorDate() {
@@ -343,11 +334,11 @@ public class ControlAppService {
 
     private void editCustomerById() {
         Customer customer = getCustomerById().get();
-        customerServiceImpl.updateCustomer(customer);
+        customerService.updateCustomer(customer);
     }
 
     private void removeCustomerById() {
-        customerServiceImpl.removeCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
+        customerService.removeCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
     }
 
     private void exit() {
@@ -355,7 +346,7 @@ public class ControlAppService {
     }
 
     private void addCustomer(Customer customer) {
-        customerServiceImpl.addCustomer(customer);
+        customerService.addCustomer(customer);
     }
 
     private void startMenu() {

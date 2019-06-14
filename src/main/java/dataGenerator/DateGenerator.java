@@ -1,6 +1,5 @@
 package dataGenerator;
 
-import control.DataManager;
 import model.Customer;
 import model.Movie;
 import enums.*;
@@ -8,7 +7,6 @@ import enums.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;

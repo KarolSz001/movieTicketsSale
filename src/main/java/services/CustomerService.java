@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import api.CustomerService;
 import model.Customer;
@@ -13,26 +13,26 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerService {
 
-    private static CustomerServiceImpl instance = null;
+    private static CustomerService instance = null;
     private CustomerRepository customerRepository = new CustomerRepository();
     private CustomerValidator customerValidator = CustomerValidator.getInstance();
     private SalesStandRepository salesStandRepository = new SalesStandRepository();
     private LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final static Integer DISCOUNT_LIMIT = 4;
 
-    private CustomerServiceImpl() {
+    private CustomerService() {
     }
 
-    public static CustomerServiceImpl getInstance() {
+    public static CustomerService getInstance() {
         if (instance == null) {
-            instance = new CustomerServiceImpl();
+            instance = new CustomerService();
         }
         return instance;
     }
 
-    @Override
+
     public void addCustomer(Customer customer) {
 
         if (customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()))) {
@@ -40,17 +40,17 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
-    @Override
+
     public void removeCustomerById(Integer id) {
         customerRepository.delete(id);
     }
 
-    @Override
+
     public List<Customer> getAllCustomer() {
         return customerRepository.findAll();
     }
 
-    @Override
+
     public Optional<Customer> getCustomerById(Integer customerId) {
         return customerRepository.findOne(customerId);
     }

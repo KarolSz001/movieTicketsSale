@@ -1,5 +1,6 @@
-package control;
+package services;
 
+import dataGenerator.DataManager;
 import model.Customer;
 import model.Movie;
 

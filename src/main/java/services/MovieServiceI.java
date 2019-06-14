@@ -1,6 +1,4 @@
-package service;
-
-import api.MovieService;
+package services;
 import dataGenerator.MovieStoresJsonConverter;
 import exception.AppException;
 import model.Movie;
@@ -9,46 +7,46 @@ import org.jdbi.v3.core.Jdbi;
 import repository.MovieRepository;
 import repository.connect.DbConnect;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
-public class MovieServiceImpl implements MovieService {
 
-    private static MovieServiceImpl instance = null;
+public class MovieServiceI {
+
+    private static MovieServiceI instance = null;
     private final Jdbi connection = DbConnect.getInstance().getConnection();
     private final String jsonFile = "movieTitle.json";
 
-    private MovieServiceImpl() {
+    private MovieServiceI() {
         loadMoviesToDataBase(jsonFile);
 
     }
 
-    public static MovieServiceImpl getInstance() {
+    public static MovieServiceI getInstance() {
         if (instance == null) {
-            instance = new MovieServiceImpl();
+            instance = new MovieServiceI();
         }
         return instance;
     }
 
     MovieRepository movieRepository = new MovieRepository();
 
-    @Override
+
     public void addMovie(Movie movie) {
         movieRepository.add(movie);
 
     }
 
-    @Override
+
     public void removeMovieById(Integer movieId) {
         movieRepository.delete(movieId);
     }
 
-    @Override
+
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
-    @Override
+
     public Movie getMovieById(Integer movieId) {
         return movieRepository.findOne(movieId).orElseThrow(() -> new AppException(" Wrong ID number "));
     }
