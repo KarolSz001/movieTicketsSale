@@ -64,16 +64,6 @@ public class SaleTicketService {
 
     }
 
-    private LocalTime getScreeningHours() {
-
-        System.out.println(" SCREENING HOURS ...... ");
-        printAvailableTime();
-        Integer hh = dataManager.getInt(" give a hour ");
-        Integer mm = dataManager.getInt(" give minutes ");
-        return correctTime(LocalTime.of(hh, mm));
-
-    }
-
     private Integer getMovieById() {
 
         System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
@@ -82,6 +72,17 @@ public class SaleTicketService {
         movieService.showMovieById(idMovie);
 
         return idMovie;
+    }
+
+    private LocalTime getScreeningHours() {
+
+        System.out.println(" SCREENING HOURS ...... ");
+        printAvailableTime();
+        Integer hh = dataManager.getInt(" give a hour ");
+        Integer mm = dataManager.getInt(" give minutes ");
+
+        return correctTime(LocalTime.of(hh, mm));
+
     }
 
     public LocalTime correctTime(LocalTime localTime) {
@@ -97,17 +98,14 @@ public class SaleTicketService {
         return LocalTime.of(lt.getHour() + 1, 0);
     }
 
-
     private boolean isTimeOverRange(LocalTime localTime) {
         return localTime.isAfter(HIGH_RANGE_TIME) && localTime.isBefore(LocalTime.now());
     }
-
 
     private void discountPriceTicket(MovieWithDateTime item) {
         Double priceAfterDiscount = item.getPrice() - (DISCOUNT_VALUE * item.getPrice());
         item.setPrice(priceAfterDiscount);
     }
-
 
     private boolean hasDiscount(Integer customerId) {
         if (!customerService.hasLoyalCard(customerId)) {
@@ -117,13 +115,16 @@ public class SaleTicketService {
         }
     }
 
-    private boolean isLoyalCardActive(Integer customerId) {
-        return customerService.isCardActive(customerId);
-    }
-
     private boolean isCardAvailableForCustomer(Integer customerId) {
         return customerService.isCardAvailable(customerId);
     }
+
+    private boolean isLoyalCardActive(Integer customerId) {
+
+        return customerService.isCardActive(customerId);
+    }
+
+
 
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
         return movieService.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();

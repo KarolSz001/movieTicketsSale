@@ -1,4 +1,5 @@
 package services;
+
 import dataGenerator.DataManager;
 import dataGenerator.MovieStoresJsonConverter;
 import exception.AppException;
@@ -12,13 +13,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-
 public class MovieService {
 
     private static MovieService instance = null;
     private final Jdbi connection = DbConnect.getInstance().getConnection();
     private final String jsonFile = "movieTitle.json";
-
     private final DataManager dataManager = new DataManager();
 
     private MovieService() {
@@ -33,36 +32,18 @@ public class MovieService {
         return instance;
     }
 
-    MovieRepository movieRepository = new MovieRepository();
-
-
-    public void addMovie(Movie movie) {
-        movieRepository.add(movie);
-
-    }
-
-
-    public void removeMovieById(Integer movieId) {
-        movieRepository.delete(movieId);
-    }
-
-
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
-    }
-
-
-    public Movie getMovieById(Integer movieId) {
-        return movieRepository.findOne(movieId).orElseThrow(() -> new AppException(" Wrong ID number "));
-    }
-
     private void loadMoviesToDataBase(String fileName) {
         MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter(fileName);
         List<Movie> movies = movieStoresJsonConverter.fromJson().get();
         for (Movie movie : movies) {
             connection.withHandle(handle ->
-                    handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)", movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date()));
+                    handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)",
+                            movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date()));
 
+          /*var rov = movies.stream()
+                  .peek(connection.withHandle(handle ->
+                            handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)",
+                            movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date()))).count();*/
         }
     }
 
@@ -79,24 +60,12 @@ public class MovieService {
         );
     }
 
-    public List<String> printAllData(){
+    MovieRepository movieRepository = new MovieRepository();
 
-       return connection.withHandle( handle -> handle
-       .createQuery("SELECT release_date FROM movie;")
-       .mapTo(String.class)
-               .list()
-       );
 
+    public void removeMovieById(Integer movieId) {
+        movieRepository.delete(movieId);
     }
-    public List<Movie> getAll() {
-
-        return connection.withHandle(handle -> handle
-                .createQuery("SELECT * FROM movie;")
-                .mapToBean(Movie.class)
-                .list()
-        );
-    }
-
 
     public void showMovieById(Integer id) {
         System.out.println(getMovieById(id));
@@ -118,5 +87,34 @@ public class MovieService {
     boolean isMoviesBaseEmpty() {
         return getAllMovies().isEmpty();
     }
+
+
+    public List<Movie> getAllMovies() {
+        return movieRepository.findAll();
+    }
+
+
+    public Movie getMovieById(Integer movieId) {
+        return movieRepository.findOne(movieId).orElseThrow(() -> new AppException(" Wrong ID number "));
+    }
+
+    public void addMovie(Movie movie) {
+        movieRepository.add(movie);
+
+    }
+
+    public List<String> printAllData() {
+
+        return connection.withHandle(handle -> handle.createQuery("SELECT release_date FROM movie;").mapTo(String.class).list()
+        );
+
+    }
+
+    public List<Movie> getAll() {
+
+        return connection.withHandle(handle -> handle.createQuery("SELECT * FROM movie;").mapToBean(Movie.class).list()
+        );
+    }
+
 
 }

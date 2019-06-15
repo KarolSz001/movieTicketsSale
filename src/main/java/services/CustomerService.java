@@ -16,16 +16,16 @@ import java.util.stream.Collectors;
 
 public class CustomerService {
 
-    private static CustomerService instance = null;
-    private CustomerRepository customerRepository = new CustomerRepository();
-    private CustomerValidator customerValidator = CustomerValidator.getInstance();
-    private SalesStandRepository salesStandRepository = new SalesStandRepository();
-    private LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
+    private static final Integer DISCOUNT_LIMIT = 4;
+    private static CustomerService instance;
 
+    private final CustomerRepository customerRepository = new CustomerRepository();
+    private final CustomerValidator customerValidator = CustomerValidator.getInstance();
+    private final SalesStandRepository salesStandRepository = new SalesStandRepository();
+    private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final DataManager dataManager = new DataManager();
     private final DataGenerator dataGenerator = new DataGenerator();
 
-    private final static Integer DISCOUNT_LIMIT = 4;
 
     private CustomerService() {
     }
@@ -39,12 +39,12 @@ public class CustomerService {
 
 
     public void addCustomer(Customer customer) {
-
-        if (customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()))) {
-            customerRepository.add(customer);
-        }
+        if (validationCustomerBeforeAdd(customer)) customerRepository.add(customer);
     }
 
+    private boolean validationCustomerBeforeAdd(Customer customer) {
+        return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()));
+    }
 
     public void removeCustomerById(Integer id) {
         customerRepository.delete(id);
@@ -55,22 +55,19 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-
     public Optional<Customer> getCustomerById(Integer customerId) {
         return customerRepository.findOne(customerId);
     }
-
 
     public Optional<Customer> getCustomerByEmail(String customerEmail) {
         return getAllCustomer().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst();
     }
 
     private boolean isEmailAlreadyExist(String email) {
-        Optional<Customer> customer = getCustomerByEmail(email);
-        return customer.isPresent();
+        return getCustomerByEmail(email).isPresent();
     }
 
-    public Integer getCountCustomers() {
+    public Integer getNumbersOfCustomers() {
         return getAllCustomer().size();
     }
 
@@ -79,14 +76,12 @@ public class CustomerService {
     }
 
     public void updateCustomer(Customer customer) {
-        Integer id = customer.getId();
-        customerRepository.update(id, customer);
+        customerRepository.update(customer.getId(), customer);
     }
 
     public boolean isCardAvailable(Integer customerId) {
         if (!hasLoyalCard(customerId)) {
-            long result = salesStandRepository.findAll().stream().filter(f -> f.getCustomerId().equals(customerId)).count();
-            return result >= DISCOUNT_LIMIT;
+            return salesStandRepository.findAll().stream().filter(f -> f.getCustomerId().equals(customerId)).count() >= DISCOUNT_LIMIT;
         }
         return false;
     }
@@ -101,11 +96,11 @@ public class CustomerService {
 
     public boolean isCardActive(Integer customerId) {
         Integer idCard = customerRepository.findOne(customerId).get().getLoyalty_card_id();
-        if (isCardActiveByNumberOfMovies(idCard)) {
-            System.out.println("CARD IS STILL ACTIVE");
+        if (isCardActiveByNumberOfMovies(idCard) && isCardActiveByDate(idCard)) {
+            System.out.println(" CARD IS STILL ACTIVE ");
             return true;
         } else {
-            System.out.println("CARD LOST ACTIVATION");
+            System.out.println(" CARD LOST ACTIVATION ");
             return false;
         }
     }
@@ -114,14 +109,13 @@ public class CustomerService {
         return getCardById(idCard).getCurrent_movies_number() < getCardById(idCard).getMoviesNumber();
     }
 
-    private boolean isCardActiveByData(Integer idCard) {
-        return LocalDate.now().isBefore(getCardById(idCard).getExpirationDate()) || LocalDate.now().isEqual(getCardById(idCard).getExpirationDate());
+    private boolean isCardActiveByDate(Integer idCard) {
+        return !LocalDate.now().isAfter(getCardById(idCard).getExpirationDate());
     }
 
     private Loyalty_Card getCardById(Integer id) {
         return loyaltyCardRepository.findOne(id).get();
     }
-
 
     public Customer getCustomerOperation() {
 
@@ -148,7 +142,6 @@ public class CustomerService {
         return customer;
     }
 
-
     public void customerGeneratorDate() {
         dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
     }
@@ -169,10 +162,11 @@ public class CustomerService {
         } else {
             getAllCustomer().forEach(System.out::println);
         }
+
+
     }
 
     public Customer creatCustomer() {
-
         String name = dataManager.getLine(" GIVE A NAME ");
         String surname = dataManager.getLine(" GIVE SURNAME ");
         Integer age = dataManager.getInt(" GIVE AGE ");
