@@ -34,7 +34,6 @@ public class DbConnect {
 
 
     public void cleanTables() {
-
         cleanTable(TablesDb.SALES_STAND);
         cleanTable(TablesDb.CUSTOMER);
         cleanTable(TablesDb.LOYALTY_CARD);
@@ -59,7 +58,7 @@ public class DbConnect {
                             "genre VARCHAR(50) NOT NULL, " +
                             "price DECIMAL(4,2) NOT NULL, " +
                             "duration INT(11) NOT NULL, " +
-                            "release_date VARCHAR(50) NOT NULL " +
+                            "release_date DATE NOT NULL " +
                             ")"
             );
             handle.execute(

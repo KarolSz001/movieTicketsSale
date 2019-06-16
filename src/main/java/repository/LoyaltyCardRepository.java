@@ -23,6 +23,19 @@ public class LoyaltyCardRepository extends AbstractCrudRepository<Loyalty_Card, 
 
     @Override
     public void update(Integer integer, Loyalty_Card item) {
+        if (integer == null || item == null) {
+            throw new AppException(" add wrong argument - > null");
+        }
+
+        connection.withHandle(handle ->
+                handle.createUpdate("UPDATE loyalty_card set expiration_date = :expiration_date, discount = :discount , movies_number = :movies_number, current_movies_number = :current_movies_number WHERE id = :id;")
+                        .bind("expiration_date",item.getExpirationDate())
+                        .bind("discount",item.getDiscount())
+                        .bind("movies_number",item.getMoviesNumber())
+                        .bind("current_movies_number", item.getCurrent_movies_number())
+                        .bind("id", integer)
+                        .execute()
+        );
 
 
     }

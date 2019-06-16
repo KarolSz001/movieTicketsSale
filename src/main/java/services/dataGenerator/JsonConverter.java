@@ -1,4 +1,4 @@
-package dataGenerator;
+package services.dataGenerator;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

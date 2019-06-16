@@ -1,5 +1,5 @@
 package services;
-import dataGenerator.DataManager;
+import services.dataGenerator.DataManager;
 import model.*;
 import screen.MenuPrinter;
 
@@ -23,7 +23,6 @@ public class ControlAppService {
 
     public void controlLoop() {
         loopOn = true;
-
         while (loopOn) {
 
             setAllLoops(true);

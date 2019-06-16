@@ -1,7 +1,7 @@
 package services;
 
-import dataGenerator.DataGenerator;
-import dataGenerator.DataManager;
+import services.dataGenerator.DataGenerator;
+import services.dataGenerator.DataManager;
 import model.Customer;
 import model.Loyalty_Card;
 import repository.CustomerRepository;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class CustomerService {
 
-    private static final Integer DISCOUNT_LIMIT = 4;
+    private static final Integer DISCOUNT_LIMIT = 1;
     private static CustomerService instance;
 
     private final CustomerRepository customerRepository = new CustomerRepository();
@@ -39,41 +39,24 @@ public class CustomerService {
 
 
     public void addCustomer(Customer customer) {
-        if (validationCustomerBeforeAdd(customer)) customerRepository.add(customer);
+        if (validationCustomerBeforeAdd(customer)) {
+            customerRepository.add(customer);
+        }
     }
 
-    private boolean validationCustomerBeforeAdd(Customer customer) {
-        return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()));
-    }
+    private boolean validationCustomerBeforeAdd(Customer customer) { return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail())); }
 
-    public void removeCustomerById(Integer id) {
-        customerRepository.delete(id);
-    }
+    public void removeCustomerById(Integer id) { customerRepository.delete(id); }
+
+    public List<Customer> getAllCustomer() { return customerRepository.findAll();}
+
+    public Optional<Customer> getCustomerById(Integer customerId) { return customerRepository.findOne(customerId); }
+
+    public Optional<Customer> getCustomerByEmail(String customerEmail) { return getAllCustomer().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst(); }
+
+    private boolean isEmailAlreadyExist(String email) { return getCustomerByEmail(email).isPresent(); }
 
 
-    public List<Customer> getAllCustomer() {
-        return customerRepository.findAll();
-    }
-
-    public Optional<Customer> getCustomerById(Integer customerId) {
-        return customerRepository.findOne(customerId);
-    }
-
-    public Optional<Customer> getCustomerByEmail(String customerEmail) {
-        return getAllCustomer().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst();
-    }
-
-    private boolean isEmailAlreadyExist(String email) {
-        return getCustomerByEmail(email).isPresent();
-    }
-
-    public Integer getNumbersOfCustomers() {
-        return getAllCustomer().size();
-    }
-
-    public List<Customer> getAllCustomersWithLoyaltyCard() {
-        return getAllCustomer().stream().filter(f -> f.getLoyalty_card_id() != null).collect(Collectors.toList());
-    }
 
     public void updateCustomer(Customer customer) {
         customerRepository.update(customer.getId(), customer);
@@ -125,19 +108,16 @@ public class CustomerService {
         System.out.println(" CHECKING DATABASE BY EMAIL CUSTOMER ");
 
         if (getCustomerByEmail(email).isPresent()) {
-
             System.out.println(" CUSTOMER AVAILABLE ");
             customer = getCustomerByEmail(email).get();
             System.out.println(customer);
 
         } else {
-
             System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
             customer = dataGenerator.singleCustomerGenerator();
             System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
             dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
             addCustomer(customer);
-
         }
         return customer;
     }
@@ -162,8 +142,6 @@ public class CustomerService {
         } else {
             getAllCustomer().forEach(System.out::println);
         }
-
-
     }
 
     public Customer creatCustomer() {
@@ -171,13 +149,16 @@ public class CustomerService {
         String surname = dataManager.getLine(" GIVE SURNAME ");
         Integer age = dataManager.getInt(" GIVE AGE ");
         String email = dataManager.getLine(" GIVE EMAIL ");
-
         return new Customer().builder().id(null).name(name).surname(surname).age(age).email(email).build();
     }
 
 
-    boolean isCustomerBaseEmpty() {
-        return getAllCustomer().isEmpty();
+    boolean isCustomerBaseEmpty() { return getAllCustomer().isEmpty(); }
+
+    public Integer getNumbersOfCustomers() { return getAllCustomer().size(); }
+
+    public List<Customer> getAllCustomersWithLoyaltyCard() {
+        return getAllCustomer().stream().filter(f -> f.getLoyalty_card_id() != null).collect(Collectors.toList());
     }
 
 

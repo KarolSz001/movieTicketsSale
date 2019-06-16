@@ -1,4 +1,4 @@
-package dataGenerator;
+package services.dataGenerator;
 
 import model.Movie;
 

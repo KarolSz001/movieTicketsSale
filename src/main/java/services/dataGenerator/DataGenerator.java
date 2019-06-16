@@ -1,4 +1,4 @@
-package dataGenerator;
+package services.dataGenerator;
 
 import model.Customer;
 import model.Movie;
@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -49,34 +50,34 @@ public class DataGenerator {
     }
 
     private LocalDate dataGenerator() {
+
         LocalDate today = LocalDate.now();
         LocalDate past = today.minusMonths(1);
         LocalDate future = today.plusMonths(1);
-        LocalDate[] localDates = {past,today,future};
+        LocalDate[] localDates = {past, today, future};
         int size = localDates.length;
-       return localDates[new Random().nextInt(size)];
+        return localDates[new Random().nextInt(size)];
     }
 
     public List<Movie> moviesGenerator() {
-
         List<String> titleMovies = readTxtFile();
         List<Movie> movies = new ArrayList<>();
-
         for (String movieTitle : titleMovies) {
-            Integer id = null;
             String title = movieTitle;
-            Genre genre = Genre.getRandomGenre();
-            LocalDate localDate = dataGenerator();
-            DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
-            DecimalFormat dc = new DecimalFormat("#.##", otherSymbol);
-            Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
-            price = Double.valueOf(dc.format(price));
-            Integer duration = new Random().nextInt(180 - 60) + 60;
-            Movie movie = new Movie().builder().id(id).title(title).genre(genre).price(price).duration(duration).release_date(localDate).build();
-            movies.add(movie);
+            movies.add(singleMovieGenerator(title));
         }
-
         return movies;
+    }
+
+    private Movie singleMovieGenerator(String title) {
+        Genre genre = Genre.getRandomGenre();
+        LocalDate localDate = dataGenerator();
+        DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
+        DecimalFormat dc = new DecimalFormat("#.##", otherSymbol);
+        Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
+        price = Double.valueOf(dc.format(price));
+        Integer duration = new Random().nextInt(180 - 60) + 60;
+        return new Movie().builder().id(null).title(title).genre(genre).price(price).duration(duration).release_date(localDate).build();
     }
 
     public List<Customer> customersGenerator() {
@@ -89,7 +90,8 @@ public class DataGenerator {
         }
         return customers;
     }
-    public Customer singleCustomerGenerator(){
+
+    public Customer singleCustomerGenerator() {
         String name = String.valueOf(Name.randomNameGenerator());
         String surname = String.valueOf(Surname.randomSurNameGenrator());
         Integer age = new Random().nextInt(maxAge - minAge) + minAge;

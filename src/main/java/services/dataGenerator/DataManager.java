@@ -1,4 +1,4 @@
-package dataGenerator;
+package services.dataGenerator;
 import exception.AppException;
 import java.util.Scanner;
 

@@ -60,11 +60,14 @@ public class CustomerValidator {
     private boolean isSurnameLenghtCorrect(String surname) {
         return surname.length() > MIN_LENGTH_NAME;
     }
+
     private boolean isAgeCorrect(Integer age){
         return age > 0;
     }
+
     private boolean isEmailCorrect(String email){
         return email.matches(EMAIL_REGEX);
     }
+
 
     }
