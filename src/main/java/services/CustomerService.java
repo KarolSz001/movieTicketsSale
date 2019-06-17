@@ -1,5 +1,6 @@
 package services;
 
+import lombok.RequiredArgsConstructor;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
 import model.Customer;
@@ -26,7 +27,6 @@ public class CustomerService {
     private final DataManager dataManager = new DataManager();
     private final DataGenerator dataGenerator = new DataGenerator();
 
-
     private CustomerService() {
     }
 
@@ -48,11 +48,11 @@ public class CustomerService {
 
     public void removeCustomerById(Integer id) { customerRepository.delete(id); }
 
-    public List<Customer> getAllCustomer() { return customerRepository.findAll();}
+    public List<Customer> findAll() { return customerRepository.findAll();}
 
     public Optional<Customer> getCustomerById(Integer customerId) { return customerRepository.findOne(customerId); }
 
-    public Optional<Customer> getCustomerByEmail(String customerEmail) { return getAllCustomer().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst(); }
+    public Optional<Customer> getCustomerByEmail(String customerEmail) { return findAll().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst(); }
 
     private boolean isEmailAlreadyExist(String email) { return getCustomerByEmail(email).isPresent(); }
 
@@ -140,7 +140,7 @@ public class CustomerService {
         if (isCustomerBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-            getAllCustomer().forEach(System.out::println);
+            findAll().forEach(System.out::println);
         }
     }
 
@@ -153,12 +153,12 @@ public class CustomerService {
     }
 
 
-    boolean isCustomerBaseEmpty() { return getAllCustomer().isEmpty(); }
+    boolean isCustomerBaseEmpty() { return findAll().isEmpty(); }
 
-    public Integer getNumbersOfCustomers() { return getAllCustomer().size(); }
+    public Integer getNumbersOfCustomers() { return findAll().size(); }
 
     public List<Customer> getAllCustomersWithLoyaltyCard() {
-        return getAllCustomer().stream().filter(f -> f.getLoyalty_card_id() != null).collect(Collectors.toList());
+        return findAll().stream().filter(f -> f.getLoyalty_card_id() != null).collect(Collectors.toList());
     }
 
 
