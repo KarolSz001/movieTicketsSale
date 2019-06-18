@@ -66,10 +66,26 @@ public class ControlAppService {
                             }
                             case 5: {
                                 customerService.editCustomerById();
+                                break;
                             }
                             case 6: {
                                 customerService.customerGeneratorDate();
+                                break;
                             }
+                            case 7:{
+                                customerService.sortCustomerBySurname();
+                                break;
+                            }
+                            case 8:{
+                                customerService.getAllCustomersWithLoyaltyCard();
+                                break;
+                            }
+                            case 9:{
+                                customerService.;
+                                break;
+                            }
+
+
                         }
                     }
                 }

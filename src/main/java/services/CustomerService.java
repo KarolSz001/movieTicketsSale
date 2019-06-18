@@ -1,5 +1,6 @@
 package services;
 
+import exception.AppException;
 import lombok.RequiredArgsConstructor;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
@@ -11,6 +12,7 @@ import repository.SalesStandRepository;
 import valid.CustomerValidator;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -44,18 +46,29 @@ public class CustomerService {
         }
     }
 
-    private boolean validationCustomerBeforeAdd(Customer customer) { return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail())); }
+    private boolean validationCustomerBeforeAdd(Customer customer) {
+        return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()));
+    }
 
-    public void removeCustomerById(Integer id) { customerRepository.delete(id); }
+    public void removeCustomerById(Integer id) {
+        customerRepository.delete(id);
+    }
 
-    public List<Customer> findAll() { return customerRepository.findAll();}
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
 
-    public Optional<Customer> getCustomerById(Integer customerId) { return customerRepository.findOne(customerId); }
+    public Optional<Customer> getCustomerById(Integer customerId) {
+        return customerRepository.findOne(customerId);
+    }
 
-    public Optional<Customer> getCustomerByEmail(String customerEmail) { return findAll().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst(); }
+    public Optional<Customer> getCustomerByEmail(String customerEmail) {
+        return findAll().stream().filter(f -> f.getEmail().equals(customerEmail)).findFirst();
+    }
 
-    private boolean isEmailAlreadyExist(String email) { return getCustomerByEmail(email).isPresent(); }
-
+    private boolean isEmailAlreadyExist(String email) {
+        return getCustomerByEmail(email).isPresent();
+    }
 
 
     public void updateCustomer(Customer customer) {
@@ -113,14 +126,41 @@ public class CustomerService {
             System.out.println(customer);
 
         } else {
+
             System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
             customer = dataGenerator.singleCustomerGenerator();
-            System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customer);
-            dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
-            addCustomer(customer);
+            if (isCustomerEmailAlreadyInDataBase(customer.getEmail())) {
+                throw new AppException(" EMAIL IS ALREADY EXIST IN DATABASE ");
+
+            } else {
+                Customer customerTemp = singleCustomerCreator();
+                if (!validationCustomerBeforeAdd(customer)) {
+                    throw new AppException(" VALIDATION CUSTOMER ERROR ");
+                } else {
+                    addCustomer(customer);
+                }
+
+                System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customerTemp);
+                dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
+                addCustomer(customer);
+            }
         }
         return customer;
     }
+
+    private Customer singleCustomerCreator() {
+        String name = dataManager.getLine(" GIVE YOU NAME ").toUpperCase();
+        String surname = dataManager.getLine(" GIVE YOU SURNAME ").toUpperCase();
+        Integer age = dataManager.getInt(" GIVE YOU AGE ");
+        String email = dataManager.getLine(" GIVE YOU EMAIL ");
+        return Customer.builder().name(name).surname(surname).age(age).email(email).build();
+
+    }
+
+    private boolean isCustomerEmailAlreadyInDataBase(String email) {
+        return findAll().stream().anyMatch(f -> f.getEmail().equals(email));
+    }
+
 
     public void customerGeneratorDate() {
         dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
@@ -153,14 +193,21 @@ public class CustomerService {
     }
 
 
-    boolean isCustomerBaseEmpty() { return findAll().isEmpty(); }
-
-    public Integer getNumbersOfCustomers() { return findAll().size(); }
-
-    public List<Customer> getAllCustomersWithLoyaltyCard() {
-        return findAll().stream().filter(f -> f.getLoyalty_card_id() != null).collect(Collectors.toList());
+    boolean isCustomerBaseEmpty() {
+        return findAll().isEmpty();
     }
 
+    public Integer getNumbersOfCustomers() {
+        return findAll().size();
+    }
+
+    public List<Customer> getAllCustomersWithLoyaltyCard() {
+        return findAll().stream().filter(f -> f.getLoyalty_card_id() != null).peek(System.out::println).collect(Collectors.toList());
+    }
+
+    public void sortCustomerBySurname(){
+        findAll().stream().sorted((s1,s2)->s2.getSurname().compareTo(s1.getSurname())).forEach(System.out::println);
+    }
 
 }
 

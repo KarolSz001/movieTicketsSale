@@ -25,6 +25,9 @@ public class MenuPrinter {
         System.out.println(" 4 - CREATE CUSTOMER ");
         System.out.println(" 5 - EDIT CUSTOMER BY ID ");
         System.out.println(" 6 - ADD RANDOM CUSTOMERS ");
+        System.out.println(" 7 - SORT CUSTOMER BY SURNAME ");
+        System.out.println(" 8 - SELECT CUSTOMER WITH LOYAL_CARDS");
+        System.out.println(" 9 - SORT CUSTOMER BY NUMBER OF WATCHED MOVIES ");
 
 
     }

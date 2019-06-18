@@ -45,8 +45,7 @@ public class CustomerValidator {
         return true;
     }
 
-    private boolean isNameCorrect(String name) {
-        return name.matches(NAME_REGEX);
+    private boolean isNameCorrect(String name) { return name.matches(NAME_REGEX);
     }
 
     private boolean isSurnameCorrect(String name) {

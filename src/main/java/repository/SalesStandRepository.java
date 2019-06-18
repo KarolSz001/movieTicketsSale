@@ -9,8 +9,6 @@ public class SalesStandRepository extends AbstractCrudRepository<Sales_Stand,Int
 
     @Override
     public void add(Sales_Stand item) {
-
-
         if(item == null){
             throw new AppException(" add wrong argument - > null");
         }

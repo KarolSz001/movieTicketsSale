@@ -47,7 +47,6 @@ public class SaleTicketService {
         }
 
         MovieWithDateTime movieWithDateTime;
-
         if (hasDiscount(customerId)) {
             System.out.println(" DISCOUNT IS ACTIVE ");
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(true).build();
@@ -55,6 +54,7 @@ public class SaleTicketService {
             movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
             discountPriceTicket(movieWithDateTime);
             increaseCurrentNumberMovieInLoyalCard(customerId);
+
         } else {
             System.out.println(" DISCOUNT IS NOT ACTIVE ");
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(false).build();

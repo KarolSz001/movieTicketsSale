@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -49,7 +48,7 @@ public class DataGenerator {
         return list;
     }
 
-    private LocalDate dataGenerator() {
+    private LocalDate dateGenerator() {
 
         LocalDate today = LocalDate.now();
         LocalDate past = today.minusMonths(1);
@@ -62,16 +61,13 @@ public class DataGenerator {
     public List<Movie> moviesGenerator() {
         List<String> titleMovies = readTxtFile();
         List<Movie> movies = new ArrayList<>();
-        for (String movieTitle : titleMovies) {
-            String title = movieTitle;
-            movies.add(singleMovieGenerator(title));
-        }
+        var one = titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).count();
         return movies;
     }
 
     private Movie singleMovieGenerator(String title) {
         Genre genre = Genre.getRandomGenre();
-        LocalDate localDate = dataGenerator();
+        LocalDate localDate = dateGenerator();
         DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
         DecimalFormat dc = new DecimalFormat("#.##", otherSymbol);
         Double price = (minRangePrice + (new Random().nextDouble() * (maxRangePrice - minRangePrice)));
@@ -83,7 +79,6 @@ public class DataGenerator {
     public List<Customer> customersGenerator() {
         List<Customer> customers = new ArrayList<>();
         int size = dataManager.getInt(" PRESS NUMBER OF CUSTOMERS ");
-
         for (int i = 0; i < size; i++) {
             Customer customer = singleCustomerGenerator();
             customers.add(customer);
@@ -121,10 +116,10 @@ public class DataGenerator {
 
     private String emailGenerator(String name, String surname) {
         StringBuilder sb = new StringBuilder();
-        sb.append(name);
+        sb.append(name.toLowerCase());
         sb.append(".");
-        sb.append(surname);
-        sb.append("@o2.pl");
+        sb.append(surname.toLowerCase());
+        sb.append("@gmail.com");
         return sb.toString();
     }
 
