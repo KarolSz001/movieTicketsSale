@@ -81,7 +81,7 @@ public class ControlAppService {
                                 break;
                             }
                             case 9:{
-                                customerService.;
+                                customerService.printCustomersByNumbersWatchedMovies();
                                 break;
                             }
 

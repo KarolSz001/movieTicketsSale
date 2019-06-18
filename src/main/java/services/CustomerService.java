@@ -2,6 +2,8 @@ package services;
 
 import exception.AppException;
 import lombok.RequiredArgsConstructor;
+import model.MovieWithDateTime;
+import repository.MovieRepository;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
 import model.Customer;
@@ -14,7 +16,9 @@ import valid.CustomerValidator;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CustomerService {
@@ -22,6 +26,7 @@ public class CustomerService {
     private static final Integer DISCOUNT_LIMIT = 1;
     private static CustomerService instance;
 
+    private final MovieRepository movieRepository = new MovieRepository();
     private final CustomerRepository customerRepository = new CustomerRepository();
     private final CustomerValidator customerValidator = CustomerValidator.getInstance();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
@@ -207,6 +212,21 @@ public class CustomerService {
 
     public void sortCustomerBySurname(){
         findAll().stream().sorted((s1,s2)->s2.getSurname().compareTo(s1.getSurname())).forEach(System.out::println);
+    }
+
+    public void printCustomersByNumbersWatchedMovies(){
+        movieRepository.getInfo().stream()
+                                .collect(Collectors.groupingBy(MovieWithDateTime::getEmail))
+                                .entrySet()
+                                .stream()
+                                .collect(Collectors.toMap(
+                                        Map.Entry::getKey,
+                                        e->e.getValue().stream().map(MovieWithDateTime::getTitle).count()
+                                ))
+                                .entrySet()
+                                .stream()
+                                .sorted(Comparator.comparing(Map.Entry::getValue))
+                                .forEach(System.out::println);
     }
 
 }
