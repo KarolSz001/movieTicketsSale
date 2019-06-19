@@ -9,6 +9,7 @@ import valid.CustomerValidator;
 public class UserValidatorTest {
 
     private CustomerValidator customerValidator = CustomerValidator.getInstance();
+
     @Test
     public void shouldNowThrowAnyExceptionWhileValidationCorrectCustomer(){
         // given

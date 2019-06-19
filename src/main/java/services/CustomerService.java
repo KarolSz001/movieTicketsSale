@@ -18,13 +18,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CustomerService {
 
     private static final Integer DISCOUNT_LIMIT = 1;
-    private static CustomerService instance;
+//    private static CustomerService instance;
 
     private final MovieRepository movieRepository = new MovieRepository();
     private final CustomerRepository customerRepository = new CustomerRepository();
@@ -34,15 +33,15 @@ public class CustomerService {
     private final DataManager dataManager = new DataManager();
     private final DataGenerator dataGenerator = new DataGenerator();
 
-    private CustomerService() {
+    public CustomerService() {
     }
 
-    public static CustomerService getInstance() {
+ /*   public static CustomerService getInstance() {
         if (instance == null) {
             instance = new CustomerService();
         }
         return instance;
-    }
+    }*/
 
 
     public void addCustomer(Customer customer) {
@@ -119,7 +118,6 @@ public class CustomerService {
     }
 
     public Customer getCustomerOperation() {
-
         System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
         String email = dataManager.getLine(" GIVE EMAIL ");
         Customer customer;
@@ -128,28 +126,19 @@ public class CustomerService {
         if (getCustomerByEmail(email).isPresent()) {
             System.out.println(" CUSTOMER AVAILABLE ");
             customer = getCustomerByEmail(email).get();
-            System.out.println(customer);
 
         } else {
-
             System.out.println(" NO CUSTOMER IN DATABASE , LET'S CREATE ONE ");
-            customer = dataGenerator.singleCustomerGenerator();
-            if (isCustomerEmailAlreadyInDataBase(customer.getEmail())) {
+            customer = singleCustomerCreator();
+            if (getCustomerByEmail(email).isPresent()) {
                 throw new AppException(" EMAIL IS ALREADY EXIST IN DATABASE ");
-
-            } else {
-                Customer customerTemp = singleCustomerCreator();
-                if (!validationCustomerBeforeAdd(customer)) {
-                    throw new AppException(" VALIDATION CUSTOMER ERROR ");
-                } else {
-                    addCustomer(customer);
-                }
-
-                System.out.println(" CREATED RANDOM CUSTOMER ---->>>>> " + customerTemp);
-                dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
-                addCustomer(customer);
             }
+            if (!validationCustomerBeforeAdd(customer)) {
+                throw new AppException(" VALIDATION CUSTOMER ERROR ");
+            }
+
         }
+        System.out.println(" CREATED CUSTOMER ---->>>>> " + customer);
         return customer;
     }
 
@@ -210,23 +199,23 @@ public class CustomerService {
         return findAll().stream().filter(f -> f.getLoyalty_card_id() != null).peek(System.out::println).collect(Collectors.toList());
     }
 
-    public void sortCustomerBySurname(){
-        findAll().stream().sorted((s1,s2)->s2.getSurname().compareTo(s1.getSurname())).forEach(System.out::println);
+    public void sortCustomerBySurname() {
+        findAll().stream().sorted((s1, s2) -> s2.getSurname().compareTo(s1.getSurname())).forEach(System.out::println);
     }
 
-    public void printCustomersByNumbersWatchedMovies(){
+    public void printCustomersByNumbersWatchedMovies() {
         movieRepository.getInfo().stream()
-                                .collect(Collectors.groupingBy(MovieWithDateTime::getEmail))
-                                .entrySet()
-                                .stream()
-                                .collect(Collectors.toMap(
-                                        Map.Entry::getKey,
-                                        e->e.getValue().stream().map(MovieWithDateTime::getTitle).count()
-                                ))
-                                .entrySet()
-                                .stream()
-                                .sorted(Comparator.comparing(Map.Entry::getValue))
-                                .forEach(System.out::println);
+                .collect(Collectors.groupingBy(MovieWithDateTime::getEmail))
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> e.getValue().stream().map(MovieWithDateTime::getTitle).count()
+                ))
+                .entrySet()
+                .stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .forEach(System.out::println);
     }
 
 }

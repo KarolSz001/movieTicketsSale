@@ -61,7 +61,7 @@ public class DataGenerator {
     public List<Movie> moviesGenerator() {
         List<String> titleMovies = readTxtFile();
         List<Movie> movies = new ArrayList<>();
-        var one = titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).count();
+        titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).forEach(System.out::println);
         return movies;
     }
 

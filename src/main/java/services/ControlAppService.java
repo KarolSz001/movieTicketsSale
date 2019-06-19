@@ -8,7 +8,7 @@ public class ControlAppService {
 
     private final MenuPrinter menuPrinter = new MenuPrinter();
     private final DataManager dataManager = new DataManager();
-    private final CustomerService customerService = CustomerService.getInstance();
+    private final CustomerService customerService = new CustomerService();
     private final MovieService movieService = MovieService.getInstance();
     private final SaleTicketService saleTicketService = new SaleTicketService();
 

@@ -19,7 +19,7 @@ public class SaleTicketService {
     private final DataManager dataManager = new DataManager();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-    private final CustomerService customerService = CustomerService.getInstance();
+    private final CustomerService customerService = new CustomerService();
     private final MovieService movieService = MovieService.getInstance();
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private static final Integer MOVIES_LIMIT_NUMBER = 2;
@@ -31,8 +31,11 @@ public class SaleTicketService {
 
     public void saleTicketOperation() {
 
+        MovieWithDateTime movieWithDateTime;
         Sales_Stand sales_stand;
         Customer customer = customerService.getCustomerOperation();
+        customerService.addCustomer(customer);
+        dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
         Integer idMovie = getMovieById();
         Integer customerId = customerService.getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
@@ -46,7 +49,6 @@ public class SaleTicketService {
             }
         }
 
-        MovieWithDateTime movieWithDateTime;
         if (hasDiscount(customerId)) {
             System.out.println(" DISCOUNT IS ACTIVE ");
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(true).build();
@@ -61,30 +63,31 @@ public class SaleTicketService {
             addTicketToDataBase(sales_stand);
             movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
         }
+
         System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + movieWithDateTime);
     }
 
     private Integer getMovieById() {
+
         System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
         movieService.showAllMoviesToday();
         Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
         movieService.showMovieById(idMovie);
-
         return idMovie;
     }
 
     private LocalTime getScreeningHours() {
+
         System.out.println("\n SCREENING HOURS ...... ");
         printAvailableTime();
         Integer hh = dataManager.getInt("\n give a hour ");
         Integer mm = dataManager.getInt(" give minutes ");
-
         if (isTimeOverRange(LocalTime.of(hh, mm))) {
             System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE SCREEN HOUR ");
             return HIGH_RANGE_TIME;
         }
-        return correctTime(LocalTime.of(hh, mm));
 
+        return correctTime(LocalTime.of(hh, mm));
     }
 
     public LocalTime correctTime(LocalTime localTime) {
