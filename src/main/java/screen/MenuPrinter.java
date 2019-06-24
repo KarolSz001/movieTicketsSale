@@ -40,7 +40,10 @@ public class MenuPrinter {
         System.out.println(" 2 - SHOW MOVIES BY ID ");
         System.out.println(" 3 - REMOVE MOVIES BY ID ");
         System.out.println(" 4 - ADD NEW MOVIE ");
+        System.out.println(" 5 - SORT MOVIES BY DURATION TIME ");
+        System.out.println(" 6 - EDIT MOVIES BY ID ");
     }
+
     public void printExit() {
         System.out.println(" EXIT APPLICATION - GOODBYE ");
     }

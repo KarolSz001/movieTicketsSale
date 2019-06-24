@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class DataGenerator {
 
@@ -61,7 +62,7 @@ public class DataGenerator {
     public List<Movie> moviesGenerator() {
         List<String> titleMovies = readTxtFile();
         List<Movie> movies = new ArrayList<>();
-        titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).forEach(System.out::println);
+        titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).collect(Collectors.toList());
         return movies;
     }
 

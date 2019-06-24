@@ -1,31 +1,33 @@
 package services;
 
+import enums.Genre;
 import services.dataGenerator.DataManager;
 import exception.AppException;
 import model.Movie;
 import model.MovieWithDateTime;
 import repository.MovieRepository;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 public class MovieService {
 
-    private static MovieService instance;
+//    private static MovieService instance;
     private final String jsonFile = "movieTitle.json";
     private final DataManager dataManager = new DataManager();
     private final MovieRepository movieRepository = new MovieRepository();
 
-    private MovieService() {
+    public MovieService() {
         movieRepository.loadMoviesToDataBase(jsonFile);
 
     }
 
-    public static MovieService getInstance() {
+    /*public static MovieService getInstance() {
         if (instance == null) {
             instance = new MovieService();
         }
         return instance;
-    }
+    }*/
 
 
     public void removeMovieById(Integer movieId) {
@@ -58,6 +60,25 @@ public class MovieService {
     public Movie getMovieById(Integer movieId) { return movieRepository.findOne(movieId).orElseThrow(() -> new AppException(" Wrong ID number ")); }
 
     public void addMovie(Movie movie) { movieRepository.add(movie); }
+
+
+    public Movie createMovie(){
+        String title  = dataManager.getLine(" GIVE A TITLE ");
+        Genre genre = Genre.valueOf(dataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
+        Double price = Double.valueOf(dataManager.getDouble(" GIVE A PRICE -> patern ##.## "));
+        Integer duration = dataManager.getInt(" GIVE NUMBER OF MINUTES TIME, DURATION TIME ");
+        return Movie.builder().title(title).genre(genre).price(price).duration(duration).price(price).build();
+    }
+
+    public void sortMoviesByDurationTime(){
+        getAllMovies().stream().sorted(Comparator.comparing(Movie::getDuration,Comparator.reverseOrder())).forEach(System.out::println);
+    }
+
+    public void editMovieById(){
+        Integer idMovie = dataManager.getInt(" GIVE MOVIE ID TO EDIT ");
+        Movie movie  = createMovie();
+        movieRepository.update(idMovie, movie);
+    }
 
 
 

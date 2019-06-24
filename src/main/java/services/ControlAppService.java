@@ -9,7 +9,7 @@ public class ControlAppService {
     private final MenuPrinter menuPrinter = new MenuPrinter();
     private final DataManager dataManager = new DataManager();
     private final CustomerService customerService = new CustomerService();
-    private final MovieService movieService = MovieService.getInstance();
+    private final MovieService movieService = new MovieService();
     private final SaleTicketService saleTicketService = new SaleTicketService();
 
 
@@ -111,6 +111,21 @@ public class ControlAppService {
                             }
                             case 3: {
                                 movieService.removeMovieById();
+                                break;
+                            }
+                            case 4: {
+                                Movie movie = movieService.createMovie();
+                                movieService.addMovie(movie);
+                                break;
+                            }
+                            case 5: {
+                                movieService.sortMoviesByDurationTime();
+                                break;
+                            }
+
+                            case 6: {
+                                movieService.editMovieById();
+                                break;
                             }
                         }
                     }

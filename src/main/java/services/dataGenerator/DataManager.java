@@ -18,6 +18,17 @@ public class DataManager {
         return Integer.parseInt(line);
     }
 
+    public Integer getDouble(String message) {
+        System.out.println(message);
+
+        String line = sc.nextLine();
+        if (line == null || !line.matches("\\d+\\.\\d{2}")) {
+            throw new AppException(" WRONG DATA TRY AGAIN ");
+        }
+
+        return Integer.parseInt(line);
+    }
+
 
     public String getLine(String message) {
         System.out.println(message);

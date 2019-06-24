@@ -20,7 +20,7 @@ public class SaleTicketService {
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final CustomerService customerService = new CustomerService();
-    private final MovieService movieService = MovieService.getInstance();
+    private final MovieService movieService = new MovieService();
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private static final Integer MOVIES_LIMIT_NUMBER = 2;
     private static final Double DISCOUNT_VALUE = 8.0;

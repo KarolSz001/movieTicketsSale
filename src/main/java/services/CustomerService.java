@@ -74,7 +74,6 @@ public class CustomerService {
         return getCustomerByEmail(email).isPresent();
     }
 
-
     public void updateCustomer(Customer customer) {
         customerRepository.update(customer.getId(), customer);
     }
@@ -151,11 +150,6 @@ public class CustomerService {
 
     }
 
-    private boolean isCustomerEmailAlreadyInDataBase(String email) {
-        return findAll().stream().anyMatch(f -> f.getEmail().equals(email));
-    }
-
-
     public void customerGeneratorDate() {
         dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
     }
@@ -186,14 +180,10 @@ public class CustomerService {
         return new Customer().builder().id(null).name(name).surname(surname).age(age).email(email).build();
     }
 
-
     boolean isCustomerBaseEmpty() {
         return findAll().isEmpty();
     }
 
-    public Integer getNumbersOfCustomers() {
-        return findAll().size();
-    }
 
     public List<Customer> getAllCustomersWithLoyaltyCard() {
         return findAll().stream().filter(f -> f.getLoyalty_card_id() != null).peek(System.out::println).collect(Collectors.toList());
