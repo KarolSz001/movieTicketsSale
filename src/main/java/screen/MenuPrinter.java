@@ -15,6 +15,17 @@ public class MenuPrinter {
 
     }
 
+    public void printSaleTicketServiceMenu(){
+
+        System.out.println(" SALE TICKETS SERVICE MENU ");
+        System.out.println(" 0 - COME BACK TO MAIN MENU ");
+        System.out.println(" 1 - SALE TICKETS OPERATION ");
+        System.out.println(" 2 - SEND ALL SALE TICKETS CUSTOMER HISTORY ");
+        System.out.println(" 3 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE GENRE ");
+        System.out.println(" 4 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE MAX DURATION TIME ");
+
+    }
+
     public void printCustomersMenu() {
 
         System.out.println(" CUSTOMER MENU ");

@@ -1,5 +1,6 @@
 package services;
 
+import enums.Genre;
 import services.dataGenerator.DataManager;
 import model.*;
 import repository.LoyaltyCardRepository;
@@ -29,11 +30,10 @@ public class SaleTicketService {
     public SaleTicketService() {
     }
 
-    public void saleTicketOperation() {
+    public void saleTicketOperation(Customer customer) {
 
         MovieWithDateTime movieWithDateTime;
         Sales_Stand sales_stand;
-        Customer customer = customerService.getCustomerOperation();
         customerService.addCustomer(customer);
         dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
         Integer idMovie = getMovieById();
@@ -161,13 +161,27 @@ public class SaleTicketService {
     }
 
     private void increaseCurrentNumberMovieInLoyalCard(Integer itemId) {
-
         Integer loyaltyCardId = customerService.getCustomerById(itemId).get().getLoyalty_card_id();
         Loyalty_Card loyaltyCard = loyaltyCardRepository.findOne(loyaltyCardId).get();
         int number = loyaltyCard.getCurrent_movies_number() + 1;
         loyaltyCard.setCurrent_movies_number(number);
         loyaltyCardRepository.update(loyaltyCardId, loyaltyCard);
     }
+
+    public void printAllTicketsHistory(Customer customer) {
+        movieService.getInfo().stream().filter(f->f.getEmail().equals(customer.getEmail())).forEach(System.out::println);
+    }
+
+    public void filterAllTicketsHistoryByGenre(Customer customer){
+        Genre genre = Genre.valueOf(dataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
+        movieService.getInfo().stream().filter(f->f.getEmail().equals(customer.getEmail())).filter(f->f.getGenre().equals(genre)).forEach(System.out::println);
+    }
+    public void filterAllTicketsHistoryByMaxDurationTime(Customer customer){
+        Integer duration = dataManager.getInt(" GIVE MAX DURATION TIME ");
+        movieService.getInfo().stream().filter(f->f.getEmail().equals(customer.getEmail())).filter(f->f.getDuration().equals(duration)).forEach(System.out::println);
+    }
+
+
 
 
 }

@@ -44,7 +44,6 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
         MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter(fileName);
         List<Movie> movies = movieStoresJsonConverter.fromJson().get();
         for (Movie movie : movies) {
-//            System.out.println(movie);
             connection.withHandle(handle ->
                     handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)",
                             movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date().plusDays(1)));
@@ -54,7 +53,7 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
 
     public List<MovieWithDateTime> getInfo() {
         return connection.withHandle(handle ->
-                handle.createQuery("select ss.id, mm.title, ss.start_date_time, mm.price, cc.name, cc.surname, cc.email " +
+                handle.createQuery("select ss.id, mm.title, ss.start_date_time, mm.price, mm.genre, mm.duration, cc.name, cc.surname, cc.email " +
                         "FROM sales_stand ss JOIN movie mm " +
                         "ON ss.movie_id = mm.id " +
                         "INNER JOIN customer cc " +
@@ -63,10 +62,5 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
                         .list()
         );
     }
-
-   /* public List<String> printAllData() { return connection.withHandle(handle -> handle.createQuery("SELECT release_date FROM movie;").mapTo(String.class).list()); }
-
-    public List<Movie> getAll() { return connection.withHandle(handle -> handle.createQuery("SELECT * FROM movie;").mapToBean(Movie.class).list()); }*/
-
 
 }

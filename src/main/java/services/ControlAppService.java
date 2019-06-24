@@ -1,4 +1,5 @@
 package services;
+
 import services.dataGenerator.DataManager;
 import model.*;
 import screen.MenuPrinter;
@@ -52,7 +53,8 @@ public class ControlAppService {
                                 break;
                             }
                             case 2: {
-                                customerService.getCustomerById(1);
+                                Integer customerId = dataManager.getInt(" GIVE CUSTOMER ID");
+                                customerService.getCustomerById(customerId);
                                 break;
                             }
                             case 3: {
@@ -72,19 +74,18 @@ public class ControlAppService {
                                 customerService.customerGeneratorDate();
                                 break;
                             }
-                            case 7:{
+                            case 7: {
                                 customerService.sortCustomerBySurname();
                                 break;
                             }
-                            case 8:{
+                            case 8: {
                                 customerService.getAllCustomersWithLoyaltyCard();
                                 break;
                             }
-                            case 9:{
+                            case 9: {
                                 customerService.printCustomersByNumbersWatchedMovies();
                                 break;
                             }
-
 
                         }
                     }
@@ -131,11 +132,41 @@ public class ControlAppService {
                     }
                 }
                 case 3:
-                    if (loopTickets) {
-                        System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION ");
-                        saleTicketService.saleTicketOperation();
-                        setAllLoops(false);
+                    while (loopTickets) {
+                        menuPrinter.printSaleTicketServiceMenu();
+                        System.out.println();
+                        Customer customer = customerService.getCustomerOperation();
+                        Integer choice = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
+
+                        switch (choice) {
+                            case 0: {
+                                setAllLoops(false);
+                                break;
+                            }
+                            case 1: {
+                                System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION ");
+                                saleTicketService.saleTicketOperation(customer);
+                                break;
+                            }
+                            case 2: {
+                                System.out.println(" SEND ALL SALE TICKETS CUSTOMER HISTORY ");
+                                saleTicketService.printAllTicketsHistory(customer);
+                                break;
+                            }
+                            case 3: {
+                                System.out.println(" SEND ALL SALE TICKETS CUSTOMER HISTORY WITH CHOOSE GENRE ");
+                                saleTicketService.filterAllTicketsHistoryByGenre(customer);
+                                break;
+                            }
+                            case 4: {
+                                System.out.println(" SEND ALL SALE TICKETS CUSTOMER HISTORY WITH CHOOSE MAX DURATION TIME ");
+                                saleTicketService.filterAllTicketsHistoryByMaxDurationTime(customer);
+                                break;
+                            }
+                        }
+
                     }
+
             }
         }
     }
@@ -145,8 +176,6 @@ public class ControlAppService {
         loopMovie = flag;
         loopTickets = flag;
     }
-
-
 
 
 }
