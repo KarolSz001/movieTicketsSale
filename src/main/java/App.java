@@ -5,9 +5,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        final String appName = " movieTicketSale v1.0 18.06.2019 ";
-        System.out.println(appName);
-        ControlAppService controlAppService = new ControlAppService();
+        StringBuilder sb = new StringBuilder();
+        sb.append("----------------------------------------------------------------------------- \n");
+        sb.append(" movieTicketSale v1.0 25.06.2019 \n ");
+        sb.append("Karol Szot \n");
+        sb.append("----------------------------------------------------------------------------- \n");
+        System.out.println(sb.toString());
+        ControlAppService controlAppService = ControlAppService.getInstance();
         controlAppService.controlLoop();
     }
 }

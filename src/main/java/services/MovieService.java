@@ -12,22 +12,22 @@ import java.util.List;
 
 public class MovieService {
 
-//    private static MovieService instance;
+    private static MovieService instance;
     private final String jsonFile = "movieTitle.json";
     private final DataManager dataManager = new DataManager();
     private final MovieRepository movieRepository = new MovieRepository();
 
-    public MovieService() {
+    private MovieService() {
         movieRepository.loadMoviesToDataBase(jsonFile);
 
     }
 
-    /*public static MovieService getInstance() {
+    public static MovieService getInstance() {
         if (instance == null) {
             instance = new MovieService();
         }
         return instance;
-    }*/
+    }
 
 
     public void removeMovieById(Integer movieId) {

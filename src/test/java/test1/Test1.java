@@ -36,7 +36,7 @@ public class Test1 {
         //GIVEN
         Mockito
                 .when(customerRepository.findAll())
-                .thenReturn(List.of(Customer.builder().id(1).name("ADAM").surname("KOWAL").age(22).email("adam.kowal@gmail.com").loyalty_card_id(null).build()));
+                .thenReturn(List.of(Customer.builder().name("ADAM").surname("KOWAL").age(22).email("adam.kowal@gmail.com").build()));
         // WHEN
         List<Customer> customers = customerService.findAll();
 

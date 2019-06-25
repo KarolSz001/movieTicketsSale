@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 public class DataGenerator {
 
+    private static DataGenerator instance;
     private final String fileNameTxt = "titlesMovie.txt";
     private final Integer minRangePrice = 50;
     private final Integer maxRangePrice = 99;
@@ -26,10 +27,18 @@ public class DataGenerator {
     private final MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
     private final DataManager dataManager = new DataManager();
 
-    public DataGenerator() {
+    private DataGenerator() {
         List<Movie> movies = moviesGenerator();
         movieStoresJsonConverter.toJson(movies);
     }
+
+    public static DataGenerator getInstance() {
+        if(instance == null) {
+            instance = new DataGenerator();
+        }
+        return instance;
+    }
+
 
 
     public List<String> readTxtFile() {

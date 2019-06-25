@@ -7,11 +7,12 @@ import screen.MenuPrinter;
 
 public class ControlAppService {
 
+    private static ControlAppService instance;
     private final MenuPrinter menuPrinter = new MenuPrinter();
     private final DataManager dataManager = new DataManager();
     private final CustomerService customerService = new CustomerService();
-    private final MovieService movieService = new MovieService();
-    private final SaleTicketService saleTicketService = new SaleTicketService();
+    private final MovieService movieService = MovieService.getInstance();
+    private final SaleTicketService saleTicketService = SaleTicketService.getInstance();
 
 
     private boolean loopCustomer;
@@ -19,7 +20,14 @@ public class ControlAppService {
     private boolean loopTickets;
     private boolean loopOn;
 
-    public ControlAppService() {
+    private ControlAppService() {
+    }
+
+    public static ControlAppService getInstance(){
+        if(instance == null){
+            instance = new ControlAppService();
+        }
+        return instance;
     }
 
     public void controlLoop() {

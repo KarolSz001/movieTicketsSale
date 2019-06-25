@@ -17,17 +17,25 @@ import java.util.Locale;
 
 public class SaleTicketService {
 
+    private static SaleTicketService instance;
     private final DataManager dataManager = new DataManager();
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final CustomerService customerService = new CustomerService();
-    private final MovieService movieService = new MovieService();
+    private final MovieService movieService = MovieService.getInstance();
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private static final Integer MOVIES_LIMIT_NUMBER = 2;
     private static final Double DISCOUNT_VALUE = 8.0;
 
 
-    public SaleTicketService() {
+    private SaleTicketService() {
+    }
+
+    public static SaleTicketService getInstance(){
+        if(instance == null){
+            instance = new SaleTicketService();
+        }
+        return instance;
     }
 
     public void saleTicketOperation(Customer customer) {

@@ -2,61 +2,77 @@ package screen;
 
 public class MenuPrinter {
 
+    private final StringBuilder sb = new StringBuilder();
+
     public MenuPrinter() {
     }
 
     public void startMenu() {
+        sb.setLength(0);
 
-        System.out.println(" MAIN LOOP MENU ");
-        System.out.println(" 0 - EXIT PROGRAM ");
-        System.out.println(" 1 - CUSTOMERS MENU ");
-        System.out.println(" 2 - MOVIES MENU ");
-        System.out.println(" 3 - SALE TICKETS SERVICE ");
+        sb.append("-----------------------------------------------------------------------------\n");
+        sb.append(" MAIN LOOP MENU \n");
+        sb.append(" 0 - EXIT PROGRAM \n");
+        sb.append(" 1 - CUSTOMERS MENU \n");
+        sb.append(" 2 - MOVIES MENU \n");
+        sb.append(" 3 - SALE TICKETS SERVICE \n");
+        sb.append("-----------------------------------------------------------------------------\n");
+        System.out.println(sb.toString());
 
     }
 
-    public void printSaleTicketServiceMenu(){
+    public void printSaleTicketServiceMenu() {
+        sb.setLength(0);
 
-        System.out.println(" SALE TICKETS SERVICE MENU ");
-        System.out.println(" 0 - COME BACK TO MAIN MENU ");
-        System.out.println(" 1 - SALE TICKETS OPERATION ");
-        System.out.println(" 2 - SEND ALL SALE TICKETS CUSTOMER HISTORY ");
-        System.out.println(" 3 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE GENRE ");
-        System.out.println(" 4 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE MAX DURATION TIME ");
+        sb.append("-----------------------------------------------------------------------------\n");
+        sb.append(" SALE TICKETS SERVICE MENU \n");
+        sb.append(" 0 - COME BACK TO MAIN MENU \n");
+        sb.append(" 1 - SALE TICKETS OPERATION \n");
+        sb.append(" 2 - SEND ALL SALE TICKETS CUSTOMER HISTORY \n");
+        sb.append(" 3 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE GENRE \n");
+        sb.append(" 4 - SEND SALE TICKETS CUSTOMER HISTORY WITH CHOOSE MAX DURATION TIME \n");
+        sb.append("-----------------------------------------------------------------------------\n");
+        System.out.println(sb.toString());
 
     }
 
     public void printCustomersMenu() {
+        sb.setLength(0);
 
-        System.out.println(" CUSTOMER MENU ");
-        System.out.println(" 0 - COME BACK TO MAIN MENU ");
-        System.out.println(" 1 - SHOW ALL CUSTOMERS ");
-        System.out.println(" 2 - SHOW CUSTOMER BY ID ");
-        System.out.println(" 3 - REMOVE CUSTOMER BY ID ");
-        System.out.println(" 4 - CREATE CUSTOMER ");
-        System.out.println(" 5 - EDIT CUSTOMER BY ID ");
-        System.out.println(" 6 - ADD RANDOM CUSTOMERS ");
-        System.out.println(" 7 - SORT CUSTOMER BY SURNAME ");
-        System.out.println(" 8 - SELECT CUSTOMER WITH LOYAL_CARDS");
-        System.out.println(" 9 - SORT CUSTOMER BY NUMBER OF WATCHED MOVIES ");
-
-
+        sb.append("-----------------------------------------------------------------------------\n");
+        sb.append(" CUSTOMER MENU \n");
+        sb.append(" 0 - COME BACK TO MAIN MENU \n");
+        sb.append(" 1 - SHOW ALL CUSTOMERS \n");
+        sb.append(" 2 - SHOW CUSTOMER BY ID \n");
+        sb.append(" 3 - REMOVE CUSTOMER BY ID \n");
+        sb.append(" 4 - CREATE CUSTOMER \n");
+        sb.append(" 5 - EDIT CUSTOMER BY ID \n");
+        sb.append(" 6 - ADD RANDOM CUSTOMERS \n");
+        sb.append(" 7 - SORT CUSTOMER BY SURNAME \n");
+        sb.append(" 8 - SELECT CUSTOMER WITH LOYAL_CARDS \n");
+        sb.append(" 9 - SORT CUSTOMER BY NUMBER OF WATCHED MOVIES \n");
+        sb.append("----------------------------------------------------------------------------- \n");
+        System.out.println(sb.toString());
     }
 
     public void printMoviesMenu() {
 
-        System.out.println(" MOVIE MENU ");
-        System.out.println(" 0 - COME BACK TO MAIN MENU ");
-        System.out.println(" 1 - SHOW ALL MOVIES ");
-        System.out.println(" 2 - SHOW MOVIES BY ID ");
-        System.out.println(" 3 - REMOVE MOVIES BY ID ");
-        System.out.println(" 4 - ADD NEW MOVIE ");
-        System.out.println(" 5 - SORT MOVIES BY DURATION TIME ");
-        System.out.println(" 6 - EDIT MOVIES BY ID ");
+        sb.append("----------------------------------------------------------------------------- \n");
+        sb.append(" MOVIE MENU ");
+        sb.append(" 0 - COME BACK TO MAIN MENU \n");
+        sb.append(" 1 - SHOW ALL MOVIES \n");
+        sb.append(" 2 - SHOW MOVIES BY ID \n");
+        sb.append(" 3 - REMOVE MOVIES BY ID \n");
+        sb.append(" 4 - ADD NEW MOVIE \n");
+        sb.append(" 5 - SORT MOVIES BY DURATION TIME \n");
+        sb.append(" 6 - EDIT MOVIES BY ID \n");
+        sb.append("----------------------------------------------------------------------------- \n");
+        System.out.println(sb.toString());
+
     }
 
     public void printExit() {
-        System.out.println(" EXIT APPLICATION - GOODBYE ");
+        System.out.println(" EXIT APPLICATION - GOODBYE \n");
     }
 
 }

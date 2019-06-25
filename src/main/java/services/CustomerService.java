@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private static final Integer DISCOUNT_LIMIT = 1;
-//    private static CustomerService instance;
+    private static CustomerService instance;
 
     private final MovieRepository movieRepository = new MovieRepository();
     private final CustomerRepository customerRepository = new CustomerRepository();
@@ -31,17 +31,17 @@ public class CustomerService {
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
     private final DataManager dataManager = new DataManager();
-    private final DataGenerator dataGenerator = new DataGenerator();
+    private final DataGenerator dataGenerator = DataGenerator.getInstance();
 
     public CustomerService() {
     }
 
- /*   public static CustomerService getInstance() {
+    public static CustomerService getInstance() {
         if (instance == null) {
             instance = new CustomerService();
         }
         return instance;
-    }*/
+    }
 
 
     public void addCustomer(Customer customer) {
