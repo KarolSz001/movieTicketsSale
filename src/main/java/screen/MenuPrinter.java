@@ -2,14 +2,22 @@ package screen;
 
 public class MenuPrinter {
 
-    private final StringBuilder sb = new StringBuilder();
+    private static MenuPrinter instance;
+    private final StringBuilder sb;
 
-    public MenuPrinter() {
+    private MenuPrinter() {
+        sb = new StringBuilder();
+    }
+
+    public static MenuPrinter getInstance(){
+        if(instance == null){
+            instance = new MenuPrinter();
+        }
+        return instance;
     }
 
     public void startMenu() {
         sb.setLength(0);
-
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" MAIN LOOP MENU \n");
         sb.append(" 0 - EXIT PROGRAM \n");
@@ -23,7 +31,6 @@ public class MenuPrinter {
 
     public void printSaleTicketServiceMenu() {
         sb.setLength(0);
-
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" SALE TICKETS SERVICE MENU \n");
         sb.append(" 0 - COME BACK TO MAIN MENU \n");
@@ -38,7 +45,6 @@ public class MenuPrinter {
 
     public void printCustomersMenu() {
         sb.setLength(0);
-
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" CUSTOMER MENU \n");
         sb.append(" 0 - COME BACK TO MAIN MENU \n");
@@ -56,7 +62,7 @@ public class MenuPrinter {
     }
 
     public void printMoviesMenu() {
-
+        sb.setLength(0);
         sb.append("----------------------------------------------------------------------------- \n");
         sb.append(" MOVIE MENU ");
         sb.append(" 0 - COME BACK TO MAIN MENU \n");

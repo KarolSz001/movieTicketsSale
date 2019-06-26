@@ -8,7 +8,7 @@ import screen.MenuPrinter;
 public class ControlAppService {
 
     private static ControlAppService instance;
-    private final MenuPrinter menuPrinter = new MenuPrinter();
+    private final MenuPrinter menuPrinter = MenuPrinter.getInstance();
     private final DataManager dataManager = new DataManager();
     private final CustomerService customerService = new CustomerService();
     private final MovieService movieService = MovieService.getInstance();

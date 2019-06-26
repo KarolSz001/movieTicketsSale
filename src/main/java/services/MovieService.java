@@ -47,7 +47,10 @@ public class MovieService {
         if (isMoviesBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(System.out::println);
+            System.out.println("-----------------------------------------------------------------------------\n");
+            System.out.printf("%5s %40s %25s %15s %15s", "MOVIE ID", "TITLE", "GRADE", "DURATION", "RELEASE DATA\n");
+            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(s->System.out.format("%5s %50s %20s %10d %20s \n",s.getId(),s.getTitle(),s.getGenre(),s.getDuration(),s.getRelease_date()));
+            System.out.println("-----------------------------------------------------------------------------\n");
         }
     }
 
