@@ -21,7 +21,7 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 
-public class Test1 {
+public class Test1Mock {
 
     @Mock
     private CustomerRepository customerRepository;
