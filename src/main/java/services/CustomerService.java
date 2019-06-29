@@ -151,7 +151,7 @@ public class CustomerService {
     }
 
     public void customerGeneratorDate() {
-        dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(System.out::println);
+        dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(this::printFormattedCustomer);
     }
 
     public void editCustomerById() {
@@ -168,8 +168,16 @@ public class CustomerService {
         if (isCustomerBaseEmpty()) {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
-            findAll().forEach(System.out::println);
+            findAll().forEach(this::printFormattedCustomer);
+
         }
+    }
+    private void printFormattedCustomer(Customer s){
+        System.out.println("-----------------------------------------------------------------------------\n");
+        System.out.printf("%5s %15s %25s %15s %15s", "CUSTOMER ID", "NAME", "SURNAME", "AGE", "EMAIL", "Card_Id \n");
+        System.out.format("\n %5s %20s %25s %15s %20s \n", s.getId(), s.getName(), s.getSurname(), s.getAge(), s.getEmail(), s.getLoyalty_card_id());
+        System.out.println("-----------------------------------------------------------------------------\n");
+
     }
 
     public Customer creatCustomer() {
@@ -190,7 +198,7 @@ public class CustomerService {
     }
 
     public void sortCustomerBySurname() {
-        findAll().stream().sorted((s1, s2) -> s2.getSurname().compareTo(s1.getSurname())).forEach(System.out::println);
+        findAll().stream().sorted((s1, s2) -> s2.getSurname().compareTo(s1.getSurname())).forEach(this::printFormattedCustomer);
     }
 
     public void printCustomersByNumbersWatchedMovies() {

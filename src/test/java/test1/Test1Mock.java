@@ -44,21 +44,4 @@ public class Test1Mock {
         Assertions.assertEquals(1,customers.size());
     }
 
-
-   /* @Test
-    @DisplayName(" add person with no null arguments  ")
-    public void test2(){
-        // GIVEN
-
-        Mockito
-                .when(customerRepository.add(Customer.builder().name("ADAM").surname("KOWAL").age(22).email("adam.kowal@gmail.com").build())
-                .thenReturn()
-
-
-
-    }
-    */
-
-
-
 }

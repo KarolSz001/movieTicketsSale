@@ -45,11 +45,11 @@ public class DataGenerator {
         List<String> list = new ArrayList<>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileNameTxt));
-            String readlLine = bufferedReader.readLine();
+            String readLine = bufferedReader.readLine();
 
-            while (readlLine != null) {
-                list.add(readlLine);
-                readlLine = bufferedReader.readLine();
+            while (readLine != null) {
+                list.add(readLine);
+                readLine = bufferedReader.readLine();
             }
             bufferedReader.close();
         } catch (IOException e) {

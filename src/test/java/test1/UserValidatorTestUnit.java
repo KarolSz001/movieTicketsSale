@@ -11,7 +11,7 @@ public class UserValidatorTestUnit {
     private CustomerValidator customerValidator = CustomerValidator.getInstance();
 
     @Test
-    public void shouldNowThrowAnyExceptionWhileValidationCorrectCustomer(){
+    public void shouldNotThrowAnyExceptionWhileValidationCorrectCustomer(){
         // given
         Customer customer = Customer.builder().name("ADAM").surname("KOWAL").age(22).email("adam.kowal@gmail.com").build();
         // when

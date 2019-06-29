@@ -94,7 +94,6 @@ public class ControlAppService {
                                 customerService.printCustomersByNumbersWatchedMovies();
                                 break;
                             }
-
                         }
                     }
                 }
@@ -141,9 +140,10 @@ public class ControlAppService {
                 }
                 case 3:
                     while (loopTickets) {
+                        System.out.println(" WELCOME TO SERVICE TICKETS SERVICES ");
+                        Customer customer = customerService.getCustomerOperation();
                         menuPrinter.printSaleTicketServiceMenu();
                         System.out.println();
-                        Customer customer = customerService.getCustomerOperation();
                         Integer choice = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
 
                         switch (choice) {
@@ -152,7 +152,6 @@ public class ControlAppService {
                                 break;
                             }
                             case 1: {
-                                System.out.println(" WELCOME TO SERVICE TICKETS APPLICATION ");
                                 saleTicketService.saleTicketOperation(customer);
                                 break;
                             }

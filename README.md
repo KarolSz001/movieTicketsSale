@@ -17,6 +17,9 @@ Data Base application with JDBI implementation
 
 ## Setup
 download, compile and run
+Local instance MySQL80
+localhost port 3306
+root // admin
 
 ## Code Examples
 public List<MovieWithDateTime> getInfo() {

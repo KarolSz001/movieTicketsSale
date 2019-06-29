@@ -12,7 +12,7 @@ public class DataManager {
 
         String line = sc.nextLine();
         if (line == null || !line.matches("\\d+")) {
-            throw new AppException(" WRONG DATA TRY AGAIN ");
+            throw new AppException(" WRONG DATA ");
         }
 
         return Integer.parseInt(line);
@@ -23,7 +23,7 @@ public class DataManager {
 
         String line = sc.nextLine();
         if (line == null || !line.matches("\\d+\\.\\d{2}")) {
-            throw new AppException(" WRONG DATA TRY AGAIN ");
+            throw new AppException(" WRONG DATA ");
         }
 
         return Integer.parseInt(line);

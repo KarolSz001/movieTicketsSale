@@ -1,6 +1,7 @@
 package services;
 
 import enums.Genre;
+import model.Customer;
 import services.dataGenerator.DataManager;
 import exception.AppException;
 import model.Movie;
@@ -48,10 +49,13 @@ public class MovieService {
             System.out.println(" DATABASE IS EMPTY \n");
         } else {
             System.out.println("-----------------------------------------------------------------------------\n");
-            System.out.printf("%5s %40s %25s %15s %15s", "MOVIE ID", "TITLE", "GRADE", "DURATION", "RELEASE DATA\n");
-            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(s->System.out.format("%5s %50s %20s %10d %20s \n",s.getId(),s.getTitle(),s.getGenre(),s.getDuration(),s.getRelease_date()));
+            System.out.printf("%5s %40s %25s %15s %15s %15s", "MOVIE ID", "TITLE", "GRADE", "DURATION", "PRICE", "RELEASE DATA\n");
+            getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(this::printFormattedMovie);
             System.out.println("-----------------------------------------------------------------------------\n");
         }
+    }
+    private void printFormattedMovie(Movie s){
+        System.out.format("%5s %50s %20s %10d %20s %15s \n",s.getId(),s.getTitle(),s.getGenre(),s.getDuration(),s.getPrice(), s.getRelease_date());
     }
 
     public List<MovieWithDateTime> getInfo(){ return movieRepository.getInfo(); }

@@ -1,1443 +1,1443 @@
 [
   {
     "title": "Die Hard",
-    "genre": "DRAMA",
-    "price": 55.45,
-    "duration": 66,
+    "genre": "ACTION",
+    "price": 53.65,
+    "duration": 126,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Transporter",
-    "genre": "DRAMA",
-    "price": 89.84,
-    "duration": 148,
+    "genre": "FANTASY",
+    "price": 83.59,
+    "duration": 124,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Dark Knight",
-    "genre": "FANTASY",
-    "price": 80.82,
-    "duration": 172,
+    "genre": "COMEDY",
+    "price": 77.27,
+    "duration": 103,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Bourne Identity",
     "genre": "FANTASY",
-    "price": 92.81,
-    "duration": 105,
+    "price": 55.45,
+    "duration": 66,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "James Bond: Casino Royale",
-    "genre": "HORROR",
-    "price": 55.28,
-    "duration": 158,
+    "genre": "COMEDY",
+    "price": 82.21,
+    "duration": 113,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Suicide Squad",
-    "genre": "ACTION",
-    "price": 90.39,
-    "duration": 116,
+    "genre": "FANTASY",
+    "price": 85.38,
+    "duration": 159,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Hancock",
-    "genre": "FANTASY",
-    "price": 67.58,
-    "duration": 109,
+    "genre": "HORROR",
+    "price": 70.24,
+    "duration": 171,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Terminator",
-    "genre": "FANTASY",
-    "price": 75.83,
-    "duration": 173,
+    "genre": "COMEDY",
+    "price": 74.84,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Predator",
-    "genre": "FANTASY",
-    "price": 98.0,
-    "duration": 151,
+    "genre": "DRAMA",
+    "price": 88.69,
+    "duration": 125,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Taken",
-    "genre": "HORROR",
-    "price": 54.37,
-    "duration": 144,
+    "genre": "FANTASY",
+    "price": 71.05,
+    "duration": 155,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Mission Impossible",
-    "genre": "DRAMA",
-    "price": 95.88,
-    "duration": 135,
+    "genre": "ACTION",
+    "price": 73.62,
+    "duration": 77,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Indiana Jones: Raiders of the Lost Ark",
-    "genre": "DRAMA",
-    "price": 89.26,
-    "duration": 92,
+    "genre": "ACTION",
+    "price": 87.4,
+    "duration": 153,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Gladiator",
-    "genre": "ACTION",
-    "price": 56.75,
-    "duration": 124,
+    "genre": "COMEDY",
+    "price": 67.43,
+    "duration": 137,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Tomb Raider",
-    "genre": "HORROR",
-    "price": 68.52,
-    "duration": 176,
+    "genre": "COMEDY",
+    "price": 68.11,
+    "duration": 174,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Lethal Weapon",
-    "genre": "ACTION",
-    "price": 72.19,
-    "duration": 123,
+    "genre": "DRAMA",
+    "price": 64.11,
+    "duration": 80,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Anchorman",
-    "genre": "COMEDY",
-    "price": 86.83,
-    "duration": 103,
+    "genre": "ACTION",
+    "price": 93.37,
+    "duration": 88,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Superbad",
-    "genre": "HORROR",
-    "price": 89.21,
-    "duration": 126,
+    "genre": "ACTION",
+    "price": 75.9,
+    "duration": 103,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Other Guys",
-    "genre": "HORROR",
-    "price": 84.34,
-    "duration": 83,
+    "genre": "COMEDY",
+    "price": 95.3,
+    "duration": 172,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Step Brothers",
-    "genre": "ACTION",
-    "price": 73.79,
-    "duration": 99,
+    "genre": "COMEDY",
+    "price": 97.81,
+    "duration": 66,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Liar Liar",
-    "genre": "DRAMA",
-    "price": 59.24,
-    "duration": 151,
+    "genre": "HORROR",
+    "price": 93.38,
+    "duration": 115,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Knocked Up",
-    "genre": "COMEDY",
-    "price": 58.13,
-    "duration": 142,
+    "genre": "FANTASY",
+    "price": 77.07,
+    "duration": 85,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Zoolander",
-    "genre": "HORROR",
-    "price": 57.69,
-    "duration": 91,
+    "genre": "DRAMA",
+    "price": 91.49,
+    "duration": 78,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Tropic Thunder",
-    "genre": "FANTASY",
-    "price": 72.56,
-    "duration": 145,
+    "genre": "HORROR",
+    "price": 70.61,
+    "duration": 164,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Dodgeball",
-    "genre": "FANTASY",
-    "price": 91.04,
-    "duration": 115,
+    "genre": "COMEDY",
+    "price": 78.81,
+    "duration": 131,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Old School",
-    "genre": "HORROR",
-    "price": 67.63,
-    "duration": 108,
+    "genre": "DRAMA",
+    "price": 68.16,
+    "duration": 85,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The 40-Year Old Virgin",
-    "genre": "DRAMA",
-    "price": 55.26,
-    "duration": 104,
+    "genre": "FANTASY",
+    "price": 92.35,
+    "duration": 124,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Ghostbusters",
     "genre": "COMEDY",
-    "price": 76.04,
-    "duration": 77,
+    "price": 67.19,
+    "duration": 89,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Big Lebowski",
     "genre": "ACTION",
-    "price": 97.44,
-    "duration": 64,
+    "price": 83.37,
+    "duration": 142,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Dumb and Dumber",
-    "genre": "ACTION",
-    "price": 97.04,
-    "duration": 147,
+    "genre": "COMEDY",
+    "price": 81.31,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Meet the Fockers",
-    "genre": "HORROR",
-    "price": 92.93,
-    "duration": 175,
+    "genre": "DRAMA",
+    "price": 86.33,
+    "duration": 130,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Wedding Crashers",
-    "genre": "ACTION",
-    "price": 58.02,
-    "duration": 140,
+    "genre": "COMEDY",
+    "price": 89.0,
+    "duration": 132,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "About Time",
-    "genre": "DRAMA",
-    "price": 67.91,
-    "duration": 133,
+    "genre": "COMEDY",
+    "price": 62.01,
+    "duration": 178,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "10 Things I Hate About You",
-    "genre": "HORROR",
-    "price": 89.72,
-    "duration": 176,
+    "genre": "ACTION",
+    "price": 94.0,
+    "duration": 80,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Pretty Woman",
-    "genre": "HORROR",
-    "price": 63.0,
-    "duration": 76,
+    "genre": "ACTION",
+    "price": 77.87,
+    "duration": 93,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "50 First Dates",
-    "genre": "HORROR",
-    "price": 69.86,
-    "duration": 94,
+    "genre": "ACTION",
+    "price": 89.27,
+    "duration": 157,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Love Actually",
-    "genre": "COMEDY",
-    "price": 87.18,
-    "duration": 136,
+    "genre": "HORROR",
+    "price": 80.19,
+    "duration": 73,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Notting Hill",
-    "genre": "COMEDY",
-    "price": 56.01,
-    "duration": 92,
+    "genre": "HORROR",
+    "price": 68.36,
+    "duration": 103,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Notebook",
-    "genre": "COMEDY",
-    "price": 84.51,
-    "duration": 79,
+    "genre": "ACTION",
+    "price": 65.52,
+    "duration": 65,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "When Harry Met Sally",
-    "genre": "FANTASY",
-    "price": 63.72,
-    "duration": 127,
+    "genre": "COMEDY",
+    "price": 80.06,
+    "duration": 94,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Clueless",
-    "genre": "HORROR",
-    "price": 86.51,
-    "duration": 140,
+    "genre": "DRAMA",
+    "price": 93.69,
+    "duration": 148,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Bridesmaids",
-    "genre": "COMEDY",
-    "price": 55.64,
-    "duration": 138,
+    "genre": "ACTION",
+    "price": 84.45,
+    "duration": 116,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Forgetting Sarah Marshall",
-    "genre": "FANTASY",
-    "price": 92.37,
-    "duration": 160,
+    "genre": "COMEDY",
+    "price": 80.99,
+    "duration": 88,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Titanic",
-    "genre": "FANTASY",
-    "price": 54.9,
-    "duration": 170,
+    "genre": "ACTION",
+    "price": 75.36,
+    "duration": 129,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Shawshank Redemption",
-    "genre": "ACTION",
-    "price": 56.51,
-    "duration": 138,
+    "genre": "HORROR",
+    "price": 55.71,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Forrest Gump",
-    "genre": "ACTION",
-    "price": 76.38,
-    "duration": 179,
+    "genre": "DRAMA",
+    "price": 62.19,
+    "duration": 157,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "American Beauty",
     "genre": "DRAMA",
-    "price": 58.93,
-    "duration": 104,
+    "price": 60.58,
+    "duration": 162,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Goodfellas",
-    "genre": "HORROR",
-    "price": 75.08,
-    "duration": 104,
+    "genre": "FANTASY",
+    "price": 79.08,
+    "duration": 115,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Taxi Driver",
-    "genre": "DRAMA",
-    "price": 87.12,
-    "duration": 141,
+    "genre": "COMEDY",
+    "price": 74.3,
+    "duration": 148,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Saving Private Ryan",
-    "genre": "FANTASY",
-    "price": 59.26,
-    "duration": 119,
+    "genre": "COMEDY",
+    "price": 67.55,
+    "duration": 106,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Godfather",
-    "genre": "DRAMA",
-    "price": 69.8,
-    "duration": 70,
+    "genre": "HORROR",
+    "price": 79.19,
+    "duration": 172,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Rocky",
-    "genre": "HORROR",
-    "price": 54.42,
-    "duration": 63,
+    "genre": "COMEDY",
+    "price": 93.48,
+    "duration": 166,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "There Will Be Blood",
-    "genre": "COMEDY",
-    "price": 62.57,
-    "duration": 75,
+    "genre": "DRAMA",
+    "price": 98.71,
+    "duration": 88,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "A Beautiful Mind",
-    "genre": "COMEDY",
-    "price": 75.7,
-    "duration": 136,
+    "genre": "HORROR",
+    "price": 70.7,
+    "duration": 64,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "12 Years a Slave",
-    "genre": "HORROR",
-    "price": 65.58,
-    "duration": 150,
+    "genre": "DRAMA",
+    "price": 60.16,
+    "duration": 114,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Green Mile",
-    "genre": "FANTASY",
-    "price": 67.66,
-    "duration": 125,
+    "genre": "ACTION",
+    "price": 67.1,
+    "duration": 136,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Boyhood",
-    "genre": "DRAMA",
-    "price": 67.66,
-    "duration": 142,
+    "genre": "COMEDY",
+    "price": 54.5,
+    "duration": 71,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Cast Away",
-    "genre": "ACTION",
-    "price": 55.77,
-    "duration": 129,
+    "genre": "COMEDY",
+    "price": 66.78,
+    "duration": 75,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Shining",
-    "genre": "COMEDY",
-    "price": 54.24,
-    "duration": 124,
+    "genre": "FANTASY",
+    "price": 54.2,
+    "duration": 101,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Paranormal Activity",
-    "genre": "ACTION",
-    "price": 59.13,
-    "duration": 130,
+    "genre": "DRAMA",
+    "price": 83.86,
+    "duration": 156,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Scream",
     "genre": "ACTION",
-    "price": 72.41,
-    "duration": 159,
+    "price": 56.63,
+    "duration": 116,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Conjuring",
-    "genre": "COMEDY",
-    "price": 66.47,
-    "duration": 169,
+    "genre": "FANTASY",
+    "price": 97.31,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The Cabin in the Woods",
-    "genre": "ACTION",
-    "price": 76.01,
-    "duration": 147,
+    "genre": "HORROR",
+    "price": 85.29,
+    "duration": 69,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The Exorcist",
-    "genre": "FANTASY",
-    "price": 58.72,
-    "duration": 70,
+    "genre": "COMEDY",
+    "price": 68.86,
+    "duration": 130,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Human Centipede",
-    "genre": "DRAMA",
-    "price": 77.51,
-    "duration": 106,
+    "genre": "ACTION",
+    "price": 98.37,
+    "duration": 104,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Blair Witch Project",
-    "genre": "COMEDY",
-    "price": 85.46,
-    "duration": 61,
+    "genre": "ACTION",
+    "price": 79.55,
+    "duration": 121,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Jaws",
-    "genre": "FANTASY",
-    "price": 66.61,
-    "duration": 115,
+    "genre": "HORROR",
+    "price": 67.75,
+    "duration": 134,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Dawn of the Dead",
-    "genre": "DRAMA",
-    "price": 93.76,
-    "duration": 149,
+    "genre": "ACTION",
+    "price": 55.83,
+    "duration": 79,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Halloween",
-    "genre": "HORROR",
-    "price": 83.36,
-    "duration": 120,
+    "genre": "ACTION",
+    "price": 71.22,
+    "duration": 73,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Ring",
-    "genre": "DRAMA",
-    "price": 50.79,
-    "duration": 166,
+    "genre": "FANTASY",
+    "price": 81.41,
+    "duration": 178,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "28 Days Later",
-    "genre": "HORROR",
-    "price": 65.13,
-    "duration": 167,
+    "genre": "FANTASY",
+    "price": 78.19,
+    "duration": 61,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Texas Chain Saw Massacre",
-    "genre": "COMEDY",
-    "price": 76.95,
-    "duration": 70,
+    "genre": "ACTION",
+    "price": 55.36,
+    "duration": 99,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Silence of the Lambs",
-    "genre": "ACTION",
-    "price": 73.11,
-    "duration": 158,
+    "genre": "DRAMA",
+    "price": 51.45,
+    "duration": 175,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Inception",
-    "genre": "DRAMA",
-    "price": 85.62,
-    "duration": 125,
+    "genre": "COMEDY",
+    "price": 71.2,
+    "duration": 137,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Departed",
-    "genre": "ACTION",
-    "price": 96.98,
-    "duration": 125,
+    "genre": "DRAMA",
+    "price": 87.57,
+    "duration": 106,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Heat",
-    "genre": "FANTASY",
-    "price": 89.55,
-    "duration": 92,
+    "genre": "DRAMA",
+    "price": 86.5,
+    "duration": 176,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Dark Knight Rises",
-    "genre": "COMEDY",
-    "price": 63.61,
-    "duration": 81,
+    "genre": "HORROR",
+    "price": 90.99,
+    "duration": 161,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Bourne Ultimatum",
     "genre": "FANTASY",
-    "price": 78.86,
-    "duration": 152,
+    "price": 71.02,
+    "duration": 150,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Black Swan",
-    "genre": "HORROR",
-    "price": 61.15,
-    "duration": 141,
+    "genre": "COMEDY",
+    "price": 92.03,
+    "duration": 104,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "No Country for Old Men",
-    "genre": "DRAMA",
-    "price": 90.85,
-    "duration": 157,
+    "genre": "HORROR",
+    "price": 70.46,
+    "duration": 87,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Run Lola Run",
-    "genre": "HORROR",
-    "price": 53.04,
-    "duration": 79,
+    "genre": "DRAMA",
+    "price": 67.57,
+    "duration": 85,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Se7en",
     "genre": "COMEDY",
-    "price": 71.41,
-    "duration": 123,
+    "price": 73.79,
+    "duration": 77,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Sin City",
-    "genre": "FANTASY",
-    "price": 61.82,
-    "duration": 85,
+    "genre": "DRAMA",
+    "price": 60.92,
+    "duration": 117,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Silence of the Lambs",
-    "genre": "ACTION",
-    "price": 53.8,
-    "duration": 164,
+    "genre": "HORROR",
+    "price": 53.99,
+    "duration": 173,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Minority Report",
-    "genre": "DRAMA",
-    "price": 87.51,
-    "duration": 163,
+    "genre": "FANTASY",
+    "price": 98.94,
+    "duration": 127,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Game",
     "genre": "COMEDY",
-    "price": 85.82,
-    "duration": 174,
+    "price": 56.74,
+    "duration": 91,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Shutter Island",
-    "genre": "ACTION",
-    "price": 66.39,
-    "duration": 164,
+    "genre": "FANTASY",
+    "price": 73.63,
+    "duration": 153,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The Fugitive",
-    "genre": "HORROR",
-    "price": 78.04,
-    "duration": 130,
+    "genre": "DRAMA",
+    "price": 51.7,
+    "duration": 123,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Others",
     "genre": "COMEDY",
-    "price": 86.59,
-    "duration": 153,
+    "price": 61.33,
+    "duration": 139,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Kill Bill: Vol. 2",
-    "genre": "FANTASY",
-    "price": 74.72,
-    "duration": 177,
+    "genre": "HORROR",
+    "price": 55.44,
+    "duration": 169,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Ghost Dog: The Way of the Samurai",
-    "genre": "DRAMA",
-    "price": 67.77,
-    "duration": 144,
+    "genre": "ACTION",
+    "price": 90.17,
+    "duration": 147,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Mulholland Dr.",
     "genre": "DRAMA",
-    "price": 87.01,
-    "duration": 132,
+    "price": 90.02,
+    "duration": 125,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Insomnia",
-    "genre": "DRAMA",
-    "price": 78.81,
-    "duration": 97,
+    "genre": "COMEDY",
+    "price": 85.15,
+    "duration": 147,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Chinatown",
-    "genre": "HORROR",
-    "price": 56.76,
-    "duration": 105,
+    "genre": "DRAMA",
+    "price": 81.72,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "21 Grams",
-    "genre": "FANTASY",
-    "price": 61.35,
+    "genre": "HORROR",
+    "price": 81.47,
     "duration": 97,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Mystic River",
-    "genre": "ACTION",
-    "price": 81.94,
-    "duration": 144,
+    "genre": "DRAMA",
+    "price": 92.54,
+    "duration": 97,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Prestige",
-    "genre": "DRAMA",
-    "price": 67.63,
-    "duration": 66,
+    "genre": "COMEDY",
+    "price": 72.43,
+    "duration": 146,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "The Usual Suspects",
-    "genre": "HORROR",
-    "price": 84.82,
-    "duration": 87,
+    "genre": "COMEDY",
+    "price": 90.12,
+    "duration": 123,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Prisoners",
-    "genre": "HORROR",
-    "price": 71.24,
-    "duration": 95,
+    "genre": "FANTASY",
+    "price": 88.51,
+    "duration": 174,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Collateral",
-    "genre": "COMEDY",
-    "price": 51.19,
-    "duration": 154,
+    "genre": "FANTASY",
+    "price": 76.87,
+    "duration": 88,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Jaws",
-    "genre": "DRAMA",
-    "price": 82.01,
-    "duration": 101,
+    "genre": "FANTASY",
+    "price": 62.65,
+    "duration": 175,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Lucky Number Slevin",
-    "genre": "HORROR",
-    "price": 73.23,
-    "duration": 150,
+    "genre": "FANTASY",
+    "price": 58.44,
+    "duration": 75,
     "release_date": {
       "year": 2019,
       "month": 6,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Oldboy",
-    "genre": "HORROR",
-    "price": 51.15,
-    "duration": 133,
+    "genre": "ACTION",
+    "price": 94.63,
+    "duration": 160,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The Sixth Sense",
-    "genre": "ACTION",
-    "price": 56.14,
-    "duration": 63,
+    "genre": "HORROR",
+    "price": 84.25,
+    "duration": 130,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Apocalypto",
-    "genre": "COMEDY",
-    "price": 73.02,
-    "duration": 141,
+    "genre": "ACTION",
+    "price": 77.43,
+    "duration": 131,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "V for Vendetta",
     "genre": "HORROR",
-    "price": 68.23,
-    "duration": 169,
+    "price": 81.95,
+    "duration": 61,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Twelve Monkeys",
-    "genre": "ACTION",
-    "price": 65.15,
-    "duration": 137,
+    "genre": "DRAMA",
+    "price": 66.59,
+    "duration": 120,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "127 Hours",
-    "genre": "HORROR",
-    "price": 52.41,
-    "duration": 132,
+    "genre": "ACTION",
+    "price": 71.88,
+    "duration": 140,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Eyes Wide Shut",
-    "genre": "FANTASY",
-    "price": 91.77,
-    "duration": 151,
+    "genre": "HORROR",
+    "price": 85.14,
+    "duration": 115,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Straw Dogs",
-    "genre": "ACTION",
-    "price": 61.81,
-    "duration": 159,
+    "genre": "COMEDY",
+    "price": 93.72,
+    "duration": 108,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Munich",
-    "genre": "FANTASY",
-    "price": 60.55,
-    "duration": 130,
+    "genre": "COMEDY",
+    "price": 57.12,
+    "duration": 138,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Next Three Days",
-    "genre": "COMEDY",
-    "price": 54.57,
-    "duration": 110,
+    "genre": "FANTASY",
+    "price": 79.16,
+    "duration": 89,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Die Hard",
-    "genre": "DRAMA",
-    "price": 58.38,
-    "duration": 126,
+    "genre": "ACTION",
+    "price": 79.79,
+    "duration": 94,
     "release_date": {
       "year": 2019,
       "month": 5,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "A Christmas Story",
-    "genre": "COMEDY",
-    "price": 88.86,
-    "duration": 98,
+    "genre": "HORROR",
+    "price": 73.25,
+    "duration": 74,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Scrooge",
-    "genre": "DRAMA",
-    "price": 86.62,
-    "duration": 159,
+    "genre": "ACTION",
+    "price": 72.93,
+    "duration": 133,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Rudolph, the Red-Nosed Reindeer",
     "genre": "ACTION",
-    "price": 79.42,
-    "duration": 158,
+    "price": 51.74,
+    "duration": 82,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Christmas Vacation",
-    "genre": "DRAMA",
-    "price": 82.76,
-    "duration": 168,
+    "genre": "FANTASY",
+    "price": 83.47,
+    "duration": 152,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "Miracle on 34th Street",
-    "genre": "HORROR",
-    "price": 81.49,
-    "duration": 148,
+    "genre": "COMEDY",
+    "price": 80.6,
+    "duration": 110,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Edward Scissorhands",
-    "genre": "HORROR",
-    "price": 74.93,
-    "duration": 69,
+    "genre": "COMEDY",
+    "price": 57.61,
+    "duration": 124,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Home Alone",
     "genre": "COMEDY",
-    "price": 53.6,
-    "duration": 167,
+    "price": 75.08,
+    "duration": 157,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "Bad Santa",
     "genre": "FANTASY",
-    "price": 68.82,
-    "duration": 93,
+    "price": 93.41,
+    "duration": 110,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Trading Places",
-    "genre": "COMEDY",
-    "price": 63.62,
-    "duration": 70,
+    "genre": "DRAMA",
+    "price": 73.67,
+    "duration": 161,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Scrooged",
-    "genre": "HORROR",
-    "price": 83.21,
-    "duration": 70,
+    "genre": "COMEDY",
+    "price": 94.16,
+    "duration": 94,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Elf",
-    "genre": "DRAMA",
-    "price": 88.78,
-    "duration": 83,
+    "genre": "COMEDY",
+    "price": 55.99,
+    "duration": 98,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "The Nightmare Before Christmas",
-    "genre": "COMEDY",
-    "price": 55.35,
-    "duration": 104,
+    "genre": "DRAMA",
+    "price": 86.92,
+    "duration": 129,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "The Shop Around the Corner",
-    "genre": "COMEDY",
-    "price": 59.05,
-    "duration": 96,
+    "genre": "ACTION",
+    "price": 81.67,
+    "duration": 69,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "Silent Night",
-    "genre": "HORROR",
-    "price": 70.56,
-    "duration": 74,
+    "genre": "ACTION",
+    "price": 67.53,
+    "duration": 128,
     "release_date": {
       "year": 2019,
       "month": 7,
-      "day": 27
+      "day": 29
     }
   },
   {
     "title": "A Charlie Brown Christmas",
-    "genre": "DRAMA",
-    "price": 51.38,
-    "duration": 76,
+    "genre": "ACTION",
+    "price": 53.23,
+    "duration": 136,
     "release_date": {
       "year": 2019,
-      "month": 7,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   },
   {
     "title": "Love Actually",
-    "genre": "ACTION",
-    "price": 92.24,
-    "duration": 90,
+    "genre": "DRAMA",
+    "price": 57.78,
+    "duration": 155,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "The Santa Clause",
-    "genre": "COMEDY",
-    "price": 52.83,
-    "duration": 89,
+    "genre": "ACTION",
+    "price": 62.59,
+    "duration": 91,
     "release_date": {
       "year": 2019,
-      "month": 6,
-      "day": 27
+      "month": 5,
+      "day": 29
     }
   },
   {
     "title": "How the Grinch Stole Christmas!",
-    "genre": "COMEDY",
-    "price": 60.13,
-    "duration": 76,
+    "genre": "HORROR",
+    "price": 56.6,
+    "duration": 85,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 7,
+      "day": 29
     }
   },
   {
     "title": "It Happened on Fifth Avenue",
-    "genre": "HORROR",
-    "price": 60.09,
-    "duration": 118,
+    "genre": "ACTION",
+    "price": 56.88,
+    "duration": 136,
     "release_date": {
       "year": 2019,
-      "month": 5,
-      "day": 27
+      "month": 6,
+      "day": 29
     }
   }
 ]
