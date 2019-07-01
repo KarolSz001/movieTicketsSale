@@ -24,6 +24,7 @@ public class MenuPrinter {
         sb.append(" 1 - CUSTOMERS MENU \n");
         sb.append(" 2 - MOVIES MENU \n");
         sb.append(" 3 - SALE TICKETS SERVICE \n");
+        sb.append(" 4 - STATISTIC APP \n");
         sb.append("-----------------------------------------------------------------------------\n");
         System.out.println(sb.toString());
 
@@ -75,6 +76,18 @@ public class MenuPrinter {
         sb.append("----------------------------------------------------------------------------- \n");
         System.out.println(sb.toString());
 
+    }
+
+    public void printStatisticMenu() {
+        sb.setLength(0);
+        sb.append("----------------------------------------------------------------------------- \n");
+        sb.append(" STATISTIC MENU \n");
+        sb.append(" 0 - COME BACK TO MAIN MENU \n");
+        sb.append(" 1 - PRINT STAT FOR MOVIES PRICE -> MIN, MAX, AVR \n");
+        sb.append(" 2 - PRINT STAT FOR MOVIES DURATION TIME -> MIN, MAX, AVR\n");
+        sb.append(" 3 - PRINT STAT FOR MOVIES GENRE -> CREATE MAP WITH GENRE NAD NUMBER OF MOVIES -> MIN, MAX, AVR\n");
+        sb.append("----------------------------------------------------------------------------- \n");
+        System.out.println(sb.toString());
     }
 
     public void printExit() {

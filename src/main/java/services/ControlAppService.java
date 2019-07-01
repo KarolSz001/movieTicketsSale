@@ -19,12 +19,13 @@ public class ControlAppService {
     private boolean loopMovie;
     private boolean loopTickets;
     private boolean loopOn;
+    private boolean loopStatic;
 
     private ControlAppService() {
     }
 
-    public static ControlAppService getInstance(){
-        if(instance == null){
+    public static ControlAppService getInstance() {
+        if (instance == null) {
             instance = new ControlAppService();
         }
         return instance;
@@ -173,14 +174,40 @@ public class ControlAppService {
                         }
 
                     }
+                case 4:
+                    while (loopStatic) {
+                        System.out.println(" WELCOME TO STATIC MENU \n");
+                        menuPrinter.printStatisticMenu();
+                        Integer choice = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
+
+                        switch (choice) {
+                            case 0: {
+                                setAllLoops(false);
+                                break;
+                            }
+                            case 1: {
+                                break;
+                            }
+                            case 2: {
+                                break;
+                            }
+                            case 3: {
+                                break;
+                            }
+                        }
+                    }
             }
         }
     }
+
+
+
 
     private void setAllLoops(boolean flag) {
         loopCustomer = flag;
         loopMovie = flag;
         loopTickets = flag;
+        loopStatic = flag;
     }
 
 

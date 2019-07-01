@@ -21,6 +21,4 @@ public class Movie {
     Integer duration;
     LocalDate release_date;
 
-
-
 }
