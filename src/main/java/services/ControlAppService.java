@@ -181,17 +181,21 @@ public class ControlAppService {
                         Integer choice = dataManager.getInt(" PRESS NUMBER TO MAKE A CHOICE ");
 
                         switch (choice) {
+
                             case 0: {
                                 setAllLoops(false);
                                 break;
                             }
                             case 1: {
+                                movieService.printStatisticByMoviePrice();
                                 break;
                             }
                             case 2: {
+                                movieService.printStatisticByDurationTime();
                                 break;
                             }
                             case 3: {
+                                movieService.printMapOfGenreAndNumberMovies();
                                 break;
                             }
                         }
@@ -200,7 +204,9 @@ public class ControlAppService {
         }
     }
 
-
+//*1 - PRINT STAT FOR MOVIES PRICE -> MIN, MAX, AVR \n");
+//        sb.append(" 2 - PRINT STAT FOR MOVIES DURATION TIME -> MIN, MAX, AVR\n");
+//        sb.append(" 3 - PRINT STAT FOR MOVIES GENRE -> CREATE MAP WITH GENRE NAD NUMBER OF MOVIES -> MIN, MAX, AVR\n");*/
 
 
     private void setAllLoops(boolean flag) {

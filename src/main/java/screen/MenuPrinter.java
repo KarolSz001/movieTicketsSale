@@ -85,7 +85,7 @@ public class MenuPrinter {
         sb.append(" 0 - COME BACK TO MAIN MENU \n");
         sb.append(" 1 - PRINT STAT FOR MOVIES PRICE -> MIN, MAX, AVR \n");
         sb.append(" 2 - PRINT STAT FOR MOVIES DURATION TIME -> MIN, MAX, AVR\n");
-        sb.append(" 3 - PRINT STAT FOR MOVIES GENRE -> CREATE MAP WITH GENRE NAD NUMBER OF MOVIES -> MIN, MAX, AVR\n");
+        sb.append(" 3 - PRINT STAT FOR MOVIES GENRE -> CREATE MAP WITH GENRE NAD NUMBER OF MOVIES\n");
         sb.append("----------------------------------------------------------------------------- \n");
         System.out.println(sb.toString());
     }
