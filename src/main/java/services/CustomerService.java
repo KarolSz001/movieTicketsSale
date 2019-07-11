@@ -1,16 +1,15 @@
 package services;
 
 import exception.AppException;
-import lombok.RequiredArgsConstructor;
 import model.MovieWithDateTime;
 import repository.MovieRepository;
-import services.dataGenerator.DataGenerator;
-import services.dataGenerator.DataManager;
 import model.Customer;
 import model.Loyalty_Card;
 import repository.CustomerRepository;
 import repository.LoyaltyCardRepository;
 import repository.SalesStandRepository;
+import services.dataGenerator.DataGenerator;
+import services.dataGenerator.DataManager;
 import valid.CustomerValidator;
 
 import java.time.LocalDate;
@@ -23,26 +22,25 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private static final Integer DISCOUNT_LIMIT = 1;
-    private static CustomerService instance;
 
-    private final MovieRepository movieRepository = new MovieRepository();
-    private final CustomerRepository customerRepository = new CustomerRepository();
-    private final CustomerValidator customerValidator = CustomerValidator.getInstance();
-    private final SalesStandRepository salesStandRepository = new SalesStandRepository();
-    private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-    private final DataManager dataManager = new DataManager();
-    private final DataGenerator dataGenerator = DataGenerator.getInstance();
+    private final MovieRepository movieRepository;
+    private final CustomerRepository customerRepository;
+    private final CustomerValidator customerValidator;
+    private final SalesStandRepository salesStandRepository;
+    private final LoyaltyCardRepository loyaltyCardRepository;
 
-    public CustomerService() {
+    public CustomerService(
+            MovieRepository movieRepository,
+            CustomerRepository customerRepository,
+            CustomerValidator customerValidator,
+            SalesStandRepository salesStandRepository,
+            LoyaltyCardRepository loyaltyCardRepository) {
+        this.movieRepository = movieRepository;
+        this.customerRepository = customerRepository;
+        this.customerValidator = customerValidator;
+        this.salesStandRepository = salesStandRepository;
+        this.loyaltyCardRepository = loyaltyCardRepository;
     }
-
-    public static CustomerService getInstance() {
-        if (instance == null) {
-            instance = new CustomerService();
-        }
-        return instance;
-    }
-
 
     public void addCustomer(Customer customer) {
         if (validationCustomerBeforeAdd(customer)) {
@@ -118,7 +116,7 @@ public class CustomerService {
 
     public Customer getCustomerOperation() {
         System.out.println(" PLEASE GIVE YOU EMAIL TO CHECK IF YOU ARE IN DATABASE ");
-        String email = dataManager.getLine(" GIVE EMAIL ");
+        String email = DataManager.getLine(" GIVE EMAIL ");
         Customer customer;
         System.out.println(" CHECKING DATABASE BY EMAIL CUSTOMER ");
 
@@ -142,25 +140,25 @@ public class CustomerService {
     }
 
     private Customer singleCustomerCreator() {
-        String name = dataManager.getLine(" GIVE YOU NAME ").toUpperCase();
-        String surname = dataManager.getLine(" GIVE YOU SURNAME ").toUpperCase();
-        Integer age = dataManager.getInt(" GIVE YOU AGE ");
-        String email = dataManager.getLine(" GIVE YOU EMAIL ");
+        String name = DataManager.getLine(" GIVE YOU NAME ").toUpperCase();
+        String surname = DataManager.getLine(" GIVE YOU SURNAME ").toUpperCase();
+        Integer age = DataManager.getInt(" GIVE YOU AGE ");
+        String email = DataManager.getLine(" GIVE YOU EMAIL ");
         return Customer.builder().name(name).surname(surname).age(age).email(email).build();
 
     }
 
     public void customerGeneratorDate() {
-        dataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(this::printFormattedCustomer);
+        DataGenerator.customersGenerator().stream().peek(this::addCustomer).forEach(this::printFormattedCustomer);
     }
 
     public void editCustomerById() {
-        Customer customer = getCustomerById(dataManager.getInt(" PRESS ID CUSTOMER ")).get();
+        Customer customer = getCustomerById(DataManager.getInt(" PRESS ID CUSTOMER ")).get();
         updateCustomer(customer);
     }
 
     public void removeCustomerById() {
-        removeCustomerById(dataManager.getInt(" PRESS ID CUSTOMER "));
+        removeCustomerById(DataManager.getInt(" PRESS ID CUSTOMER "));
     }
 
 
@@ -181,10 +179,10 @@ public class CustomerService {
     }
 
     public Customer creatCustomer() {
-        String name = dataManager.getLine(" GIVE A NAME ");
-        String surname = dataManager.getLine(" GIVE SURNAME ");
-        Integer age = dataManager.getInt(" GIVE AGE ");
-        String email = dataManager.getLine(" GIVE EMAIL ");
+        String name = DataManager.getLine(" GIVE A NAME ");
+        String surname = DataManager.getLine(" GIVE SURNAME ");
+        Integer age = DataManager.getInt(" GIVE AGE ");
+        String email = DataManager.getLine(" GIVE EMAIL ");
         return new Customer().builder().id(null).name(name).surname(surname).age(age).email(email).build();
     }
 

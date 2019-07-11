@@ -1,11 +1,15 @@
 package services;
 
 import enums.Genre;
+import repository.CustomerRepository;
+import repository.MovieRepository;
 import services.dataGenerator.DataManager;
 import model.*;
 import repository.LoyaltyCardRepository;
 import repository.SalesStandRepository;
+import valid.CustomerValidator;
 
+import javax.xml.crypto.Data;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
@@ -17,33 +21,29 @@ import java.util.Locale;
 
 public class SaleTicketService {
 
-    private static SaleTicketService instance;
-    private final DataManager dataManager = new DataManager();
+
     private final SalesStandRepository salesStandRepository = new SalesStandRepository();
     private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-    private final CustomerService customerService = new CustomerService();
-    private final MovieService movieService = MovieService.getInstance();
+    private final MovieService movieService = new MovieService();
+    private final MovieRepository movieRepository = new MovieRepository();
+    private final CustomerRepository customerRepository = new CustomerRepository();
+    private final CustomerValidator customerValidator = new CustomerValidator();
+    private final CustomerService customerService = new CustomerService(movieRepository, customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository);
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private static final Integer MOVIES_LIMIT_NUMBER = 2;
     private static final Double DISCOUNT_VALUE = 8.0;
 
 
-    private SaleTicketService() {
+    public SaleTicketService() {
     }
 
-    public static SaleTicketService getInstance(){
-        if(instance == null){
-            instance = new SaleTicketService();
-        }
-        return instance;
-    }
 
     public void saleTicketOperation(Customer customer) {
 
         MovieWithDateTime movieWithDateTime;
         Sales_Stand sales_stand;
         customerService.addCustomer(customer);
-        dataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
+        DataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
         Integer idMovie = getMovieById();
         Integer customerId = customerService.getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
@@ -51,7 +51,7 @@ public class SaleTicketService {
         LocalDateTime dateTime = LocalDateTime.of(date, time);
 
         if (isCardAvailableForCustomer(customerId)) {
-            boolean isConfirmation = dataManager.getBoolean(" DO YOU WANNA GET LOYAL CARD ?? ");
+            boolean isConfirmation = DataManager.getBoolean(" DO YOU WANNA GET LOYAL CARD ?? ");
             if (isConfirmation) {
                 addLoyalty(customer);
             }
@@ -79,7 +79,7 @@ public class SaleTicketService {
 
         System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
         movieService.showAllMoviesToday();
-        Integer idMovie = dataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
+        Integer idMovie = DataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
         movieService.showMovieById(idMovie);
         return idMovie;
     }
@@ -88,8 +88,8 @@ public class SaleTicketService {
 
         System.out.println("\n SCREENING HOURS ...... ");
         printAvailableTime();
-        Integer hh = dataManager.getInt("\n give a hour ");
-        Integer mm = dataManager.getInt(" give minutes ");
+        Integer hh = DataManager.getInt("\n give a hour ");
+        Integer mm = DataManager.getInt(" give minutes ");
         if (isTimeOverRange(LocalTime.of(hh, mm))) {
             System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE SCREEN HOUR ");
             return HIGH_RANGE_TIME;
@@ -181,11 +181,11 @@ public class SaleTicketService {
     }
 
     public void filterAllTicketsHistoryByGenre(Customer customer){
-        Genre genre = Genre.valueOf(dataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
+        Genre genre = Genre.valueOf(DataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
         movieService.getInfo().stream().filter(f->f.getEmail().equals(customer.getEmail())).filter(f->f.getGenre().equals(genre)).forEach(System.out::println);
     }
     public void filterAllTicketsHistoryByMaxDurationTime(Customer customer){
-        Integer duration = dataManager.getInt(" GIVE MAX DURATION TIME ");
+        Integer duration = DataManager.getInt(" GIVE MAX DURATION TIME ");
         movieService.getInfo().stream().filter(f->f.getEmail().equals(customer.getEmail())).filter(f->f.getDuration().equals(duration)).forEach(System.out::println);
     }
 

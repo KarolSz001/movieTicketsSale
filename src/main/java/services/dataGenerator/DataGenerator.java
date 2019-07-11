@@ -18,30 +18,22 @@ import java.util.stream.Collectors;
 
 public class DataGenerator {
 
-    private static DataGenerator instance;
-    private final String fileNameTxt = "titlesMovie.txt";
-    private final Integer minRangePrice = 50;
-    private final Integer maxRangePrice = 99;
-    private final Integer maxAge = 99;
-    private final Integer minAge = 50;
+    private static final String fileNameTxt = "titlesMovie.txt";
+    private final static Integer minRangePrice = 50;
+    private final static Integer maxRangePrice = 99;
+    private final static Integer maxAge = 99;
+    private final static Integer minAge = 50;
     private final MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter("movieTitle.json");
-    private final DataManager dataManager = new DataManager();
 
-    private DataGenerator() {
+
+    public DataGenerator() {
         List<Movie> movies = moviesGenerator();
         movieStoresJsonConverter.toJson(movies);
     }
 
-    public static DataGenerator getInstance() {
-        if(instance == null) {
-            instance = new DataGenerator();
-        }
-        return instance;
-    }
 
 
-
-    public List<String> readTxtFile() {
+    public static List<String> readTxtFile() {
         List<String> list = new ArrayList<>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileNameTxt));
@@ -58,7 +50,7 @@ public class DataGenerator {
         return list;
     }
 
-    private LocalDate dateGenerator() {
+    private static LocalDate dateGenerator() {
 
         LocalDate today = LocalDate.now();
         LocalDate past = today.minusMonths(1);
@@ -68,14 +60,14 @@ public class DataGenerator {
         return localDates[new Random().nextInt(size)];
     }
 
-    public List<Movie> moviesGenerator() {
+    public static List<Movie> moviesGenerator() {
         List<String> titleMovies = readTxtFile();
         List<Movie> movies = new ArrayList<>();
         titleMovies.stream().peek(p -> movies.add(singleMovieGenerator(p))).collect(Collectors.toList());
         return movies;
     }
 
-    private Movie singleMovieGenerator(String title) {
+    private static Movie singleMovieGenerator(String title) {
         Genre genre = Genre.getRandomGenre();
         LocalDate localDate = dateGenerator();
         DecimalFormatSymbols otherSymbol = new DecimalFormatSymbols(Locale.getDefault());
@@ -86,9 +78,9 @@ public class DataGenerator {
         return new Movie().builder().id(null).title(title).genre(genre).price(price).duration(duration).release_date(localDate).build();
     }
 
-    public List<Customer> customersGenerator() {
+    public static List<Customer> customersGenerator() {
         List<Customer> customers = new ArrayList<>();
-        int size = dataManager.getInt(" PRESS NUMBER OF CUSTOMERS ");
+        int size = DataManager.getInt(" PRESS NUMBER OF CUSTOMERS ");
         for (int i = 0; i < size; i++) {
             Customer customer = singleCustomerGenerator();
             customers.add(customer);
@@ -96,7 +88,7 @@ public class DataGenerator {
         return customers;
     }
 
-    public Customer singleCustomerGenerator() {
+    public static Customer singleCustomerGenerator() {
         String name = String.valueOf(Name.randomNameGenerator());
         String surname = String.valueOf(Surname.randomSurNameGenrator());
         Integer age = new Random().nextInt(maxAge - minAge) + minAge;
@@ -104,7 +96,6 @@ public class DataGenerator {
 
         return Customer.builder().name(name).surname(surname).age(age).email(email).build();
     }
-
 
     private enum Name {
         ADAM, DAVID, JON, SONIA, ANIA, OLA, ELA, ZOFIA, KAROl, LUDVIC, HANNA;
@@ -124,7 +115,7 @@ public class DataGenerator {
         }
     }
 
-    private String emailGenerator(String name, String surname) {
+    private static String emailGenerator(String name, String surname) {
         StringBuilder sb = new StringBuilder();
         sb.append(name.toLowerCase());
         sb.append(".");

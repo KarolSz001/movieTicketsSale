@@ -2,21 +2,10 @@ package screen;
 
 public class MenuPrinter {
 
-    private static MenuPrinter instance;
-    private final StringBuilder sb;
 
-    private MenuPrinter() {
-        sb = new StringBuilder();
-    }
+    private final static StringBuilder sb = new StringBuilder();
 
-    public static MenuPrinter getInstance(){
-        if(instance == null){
-            instance = new MenuPrinter();
-        }
-        return instance;
-    }
-
-    public void startMenu() {
+    public static void startMenu() {
         sb.setLength(0);
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" MAIN LOOP MENU \n");
@@ -27,10 +16,9 @@ public class MenuPrinter {
         sb.append(" 4 - STATISTIC APP \n");
         sb.append("-----------------------------------------------------------------------------\n");
         System.out.println(sb.toString());
-
     }
 
-    public void printSaleTicketServiceMenu() {
+    public static void printSaleTicketServiceMenu() {
         sb.setLength(0);
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" SALE TICKETS SERVICE MENU \n");
@@ -44,7 +32,7 @@ public class MenuPrinter {
 
     }
 
-    public void printCustomersMenu() {
+    public static void printCustomersMenu() {
         sb.setLength(0);
         sb.append("-----------------------------------------------------------------------------\n");
         sb.append(" CUSTOMER MENU \n");
@@ -62,7 +50,7 @@ public class MenuPrinter {
         System.out.println(sb.toString());
     }
 
-    public void printMoviesMenu() {
+    public static void printMoviesMenu() {
         sb.setLength(0);
         sb.append("----------------------------------------------------------------------------- \n");
         sb.append(" MOVIE MENU ");
@@ -78,7 +66,7 @@ public class MenuPrinter {
 
     }
 
-    public void printStatisticMenu() {
+    public static void printStatisticMenu() {
         sb.setLength(0);
         sb.append("----------------------------------------------------------------------------- \n");
         sb.append(" STATISTIC MENU \n");
@@ -90,7 +78,7 @@ public class MenuPrinter {
         System.out.println(sb.toString());
     }
 
-    public void printExit() {
+    public static void printExit() {
         System.out.println(" EXIT APPLICATION - GOODBYE \n");
     }
 

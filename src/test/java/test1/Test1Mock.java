@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -31,14 +30,15 @@ public class Test1Mock {
 
     @Test
     @DisplayName(" find all customers ")
-
     public void test1(){
         //GIVEN
         Mockito
                 .when(customerRepository.findAll())
                 .thenReturn(List.of(Customer.builder().name("ADAM").surname("KOWAL").age(22).email("adam.kowal@gmail.com").build()));
+
         // WHEN
         List<Customer> customers = customerService.findAll();
+        System.out.println(customers);
 
         //THEN
         Assertions.assertEquals(1,customers.size());

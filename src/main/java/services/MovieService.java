@@ -13,22 +13,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MovieService {
-    private static MovieService instance;
     private final String jsonFile = "movieTitle.json";
-    private final DataManager dataManager = new DataManager();
     private final MovieRepository movieRepository = new MovieRepository();
 
-    private MovieService() {
+    public MovieService() {
         movieRepository.loadMoviesToDataBase(jsonFile);
 
     }
 
-    public static MovieService getInstance() {
-        if (instance == null) {
-            instance = new MovieService();
-        }
-        return instance;
-    }
 
 
     public void removeMovieById(Integer movieId) {
@@ -40,7 +32,7 @@ public class MovieService {
     }
 
     public void removeMovieById() {
-        Integer id = dataManager.getInt(" PRESS ID MOVIE NUMBER");
+        Integer id = DataManager.getInt(" PRESS ID MOVIE NUMBER");
         removeMovieById(id);
     }
 
@@ -51,6 +43,7 @@ public class MovieService {
             System.out.println("-----------------------------------------------------------------------------\n");
             System.out.printf("%5s %40s %25s %15s %15s %15s", "MOVIE ID", "TITLE", "GRADE", "DURATION", "PRICE", "RELEASE DATA\n");
             getAllMovies().stream().filter(f -> f.getRelease_date().equals(LocalDate.now())).forEach(this::printFormattedMovie);
+//            getAllMovies().stream().forEach(this::printFormattedMovie);
             System.out.println("-----------------------------------------------------------------------------\n");
         }
     }
@@ -81,10 +74,10 @@ public class MovieService {
 
 
     public Movie createMovie() {
-        String title = dataManager.getLine(" GIVE A TITLE ");
-        Genre genre = Genre.valueOf(dataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
-        Double price = Double.valueOf(dataManager.getDouble(" GIVE A PRICE -> pattern ##.## "));
-        Integer duration = dataManager.getInt(" GIVE NUMBER OF MINUTES TIME, DURATION TIME ");
+        String title = DataManager.getLine(" GIVE A TITLE ");
+        Genre genre = Genre.valueOf(DataManager.getLine(" GIVE A GENRE  - > ACTION, HORROR, FANTASY, DRAMA, COMEDY ").toUpperCase());
+        Double price = Double.valueOf(DataManager.getDouble(" GIVE A PRICE -> pattern ##.## "));
+        Integer duration = DataManager.getInt(" GIVE NUMBER OF MINUTES TIME, DURATION TIME ");
         return Movie.builder().title(title).genre(genre).price(price).duration(duration).price(price).build();
     }
 
@@ -93,7 +86,7 @@ public class MovieService {
     }
 
     public void editMovieById() {
-        Integer idMovie = dataManager.getInt(" GIVE MOVIE ID TO EDIT ");
+        Integer idMovie = DataManager.getInt(" GIVE MOVIE ID TO EDIT ");
         Movie movie = createMovie();
         movieRepository.update(idMovie, movie);
     }

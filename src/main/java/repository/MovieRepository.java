@@ -44,9 +44,11 @@ public class MovieRepository extends AbstractCrudRepository<Movie, Integer> {
         MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter(fileName);
         List<Movie> movies = movieStoresJsonConverter.fromJson().get();
         for (Movie movie : movies) {
-            connection.withHandle(handle ->
+            /*connection.withHandle(handle ->
                     handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)",
-                            movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date().plusDays(1)));
+                            movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date().plusDays(1)));*/
+            movie.setRelease_date(movie.getRelease_date().plusDays(1));
+            add(movie);
         }
     }
 

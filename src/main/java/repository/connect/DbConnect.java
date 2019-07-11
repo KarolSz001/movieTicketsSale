@@ -8,7 +8,6 @@ public class DbConnect {
 
     private static DbConnect ourInstance = new DbConnect();
 
-
     public static DbConnect getInstance() {
         return ourInstance;
     }

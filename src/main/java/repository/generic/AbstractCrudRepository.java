@@ -2,14 +2,13 @@ package repository.generic;
 
 
 import exception.AppException;
-import model.Movie;
 import org.jdbi.v3.core.Jdbi;
 import repository.connect.DbConnect;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 public abstract class AbstractCrudRepository<T, ID> implements CrudRepository<T, ID> {
 

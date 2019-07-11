@@ -9,16 +9,7 @@ public class CustomerValidator {
     private final String NAME_REGEX = "[A-Za-z]+";
     private final String EMAIL_REGEX = "[A-Za-z]+\\.[A-Za-z]+@(gmail.com|onet.pl|wp.pl|interia.pl|o2.pl)";
 
-    private static CustomerValidator instance = null;
-
-    private CustomerValidator() {
-    }
-
-    public static CustomerValidator getInstance() {
-        if (instance == null) {
-            instance = new CustomerValidator();
-        }
-        return instance;
+    public CustomerValidator() {
     }
 
     public boolean isValidate(Customer customer) throws AppException {
