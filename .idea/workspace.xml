@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/valid/generic/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movieTitle.json" beforeDir="false" afterPath="$PROJECT_DIR$/movieTitle.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/connect/DbConnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/connect/DbConnect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/generic/AbstractCrudRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/generic/AbstractCrudRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/screen/MenuPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/screen/MenuPrinter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/ControlAppService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ControlAppService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/MovieService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/SaleTicketService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SaleTicketService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator$Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator$Name.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator$Surname.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator$Surname.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/dataGenerator/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/valid/CustomerValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/valid/CustomerValidator.class" afterDir="false" />
-    </list>
+    <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -150,7 +116,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="3126">
               <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -537,7 +503,7 @@
       <workItem from="1562276849913" duration="2172000" />
       <workItem from="1562530789839" duration="8037000" />
       <workItem from="1562699041577" duration="1817000" />
-      <workItem from="1562877955989" duration="4879000" />
+      <workItem from="1562877955989" duration="5743000" />
     </task>
     <servers />
   </component>
@@ -574,18 +540,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354767000" />
+    <option name="totallyTimeSpent" value="355631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7637795" visible="true" weight="0.17430703" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.17430703" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.23622048" side_tool="true" visible="true" weight="0.17430703" />
+      <window_info id="Favorites" order="6" sideWeight="0.2361809" side_tool="true" weight="0.17430703" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20042872" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31725615" />
@@ -596,7 +563,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18327974" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3601286" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.19399786" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -605,7 +572,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" visible="true" weight="0.09221748" />
+      <window_info anchor="right" id="Maven" order="6" visible="true" weight="0.07196162" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32977527" />
@@ -1068,7 +1035,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="3126">
           <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />

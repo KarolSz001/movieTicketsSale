@@ -18,7 +18,7 @@ public class App {
 
         StringBuilder sb = new StringBuilder();
         sb.append(" ----------------------------------------------------------------------------- \n");
-        sb.append(" movieTicketSale v1.0 25.06.2019 \n ");
+        sb.append(" movieTicketSale v1.0 11.07.2019 \n ");
         sb.append(" Karol Szot \n");
         sb.append(" ----------------------------------------------------------------------------- \n");
         System.out.println(sb.toString());
@@ -36,10 +36,6 @@ public class App {
         var saleTicketService = new SaleTicketService();
 
         var controlAppService = new ControlAppService(customerService,movieService,saleTicketService);
-
-
-//        System.out.println(LocalDate.now());
-        var dataGenerator = new DataGenerator();
         controlAppService.controlLoop();
     }
 }
