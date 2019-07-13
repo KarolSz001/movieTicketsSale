@@ -8,8 +8,6 @@ import model.*;
 import repository.LoyaltyCardRepository;
 import repository.SalesStandRepository;
 import valid.CustomerValidator;
-
-import javax.xml.crypto.Data;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;

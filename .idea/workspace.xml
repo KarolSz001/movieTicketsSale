@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="" />
+    <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,30 +29,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movieTitle.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-712">
+            <state relative-caret-position="1098">
               <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -54,10 +43,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/repository/MovieRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+            <state relative-caret-position="18">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test1/Test1Mock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/repository/CustomerRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/Validator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="108" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,32 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
+              <caret line="58" column="50" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,22 +136,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/JsonConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3126">
-              <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/main/java/service/MovieServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/SaleTicketService.java" />
         <option value="$PROJECT_DIR$/src/main/java/screen/Menu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/SalesStandRepository.java" />
@@ -183,14 +204,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/model/Movie.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" />
         <option value="$PROJECT_DIR$/src/main/java/valid/Validator.java" />
         <option value="$PROJECT_DIR$/src/main/java/valid/AbstractValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/CustomerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java" />
@@ -198,11 +214,22 @@
         <option value="$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/MovieService.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/MovieRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" />
       </list>
     </option>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -233,8 +260,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1928" />
+    <option name="y" value="58" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -246,6 +273,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,78 +290,28 @@
               <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
               <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
               <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
               <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="dataGenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="test1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,7 +361,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.Test1Mock.test4">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="movieTicketsSale" />
@@ -406,7 +384,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1Mock.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test1Mock.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -416,13 +394,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
       <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="test2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCreatorTestUnit.shouldCorrectAddNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test1Mock.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -431,14 +409,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.UserCreatorTestUnit" />
-      <option name="METHOD_NAME" value="shouldCorrectAddNewUser" />
+      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
+      <option name="METHOD_NAME" value="test3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCreatorTestUnit.shouldReturnEmptyOptionalWhileGetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test1Mock.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -447,8 +425,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.UserCreatorTestUnit" />
-      <option name="METHOD_NAME" value="shouldReturnEmptyOptionalWhileGetById" />
+      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
+      <option name="METHOD_NAME" value="test4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -456,11 +434,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.Test1Mock.test1" />
+        <item itemvalue="JUnit.Test1Mock.test4" />
+        <item itemvalue="JUnit.Test1Mock.test3" />
+        <item itemvalue="JUnit.Test1Mock.test2" />
         <item itemvalue="JUnit.Test1Mock" />
-        <item itemvalue="JUnit.UserCreatorTestUnit.shouldReturnEmptyOptionalWhileGetById" />
-        <item itemvalue="JUnit.UserCreatorTestUnit.shouldCorrectAddNewUser" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -503,50 +481,52 @@
       <workItem from="1562276849913" duration="2172000" />
       <workItem from="1562530789839" duration="8037000" />
       <workItem from="1562699041577" duration="1817000" />
-      <workItem from="1562877955989" duration="5743000" />
+      <workItem from="1562877955989" duration="5987000" />
+      <workItem from="1562960299020" duration="619000" />
+      <workItem from="1563044926050" duration="4690000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserCreatorTestUnit_shouldCorrectAddNewUser - 2019.06.27 at 22h 14m 14s.xml">
-      <configuration name="UserCreatorTestUnit.shouldCorrectAddNewUser" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 42m 04s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserCreatorTestUnit_shouldCorrectAddNewUser - 2019.06.27 at 22h 14m 29s.xml">
-      <configuration name="UserCreatorTestUnit.shouldCorrectAddNewUser" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 43m 09s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserCreatorTestUnit_shouldCorrectAddNewUser - 2019.06.27 at 22h 19m 00s.xml">
-      <configuration name="UserCreatorTestUnit.shouldCorrectAddNewUser" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 46m 59s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserCreatorTestUnit_shouldReturnEmptyOptionalWhileGetById - 2019.06.27 at 22h 20m 13s.xml">
-      <configuration name="UserCreatorTestUnit.shouldReturnEmptyOptionalWhileGetById" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 51m 28s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.06.27 at 22h 26m 22s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 52m 29s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.07.04 at 22h 49m 11s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 52m 45s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.07.04 at 23h 06m 10s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 53m 36s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.07.04 at 23h 07m 05s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 53m 51s.xml">
+      <configuration name="Test1Mock.test2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.07.07 at 22h 24m 39s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test3 - 2019.07.13 at 21h 20m 47s.xml">
+      <configuration name="Test1Mock.test3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test1Mock_test1 - 2019.07.07 at 22h 32m 37s.xml">
-      <configuration name="Test1Mock.test1" configurationId="JUnit" />
+    <history-entry file="Test1Mock_test3 - 2019.07.13 at 21h 21m 12s.xml">
+      <configuration name="Test1Mock.test3" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355631000" />
+    <option name="totallyTimeSpent" value="361184000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-1928" y="58" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.17430703" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.17750533" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -555,7 +535,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.2361809" side_tool="true" weight="0.17430703" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20042872" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31725615" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31725615" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -563,7 +543,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3601286" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.19614148" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.19399786" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -650,26 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Sales_Stand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Loyalty_Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -720,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Genre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Collection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -738,51 +691,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SalesStandRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/MovieWithDateTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gitignore.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AppException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2196">
@@ -797,63 +706,6 @@
             <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/Validator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="9" column="106" selection-start-line="9" selection-start-column="106" selection-end-line="9" selection-end-column="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="187" column="38" selection-start-line="187" selection-start-column="38" selection-end-line="187" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -877,30 +729,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java">
+    <entry file="file://$PROJECT_DIR$/movieTitle2.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-707">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="126">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test1/Test1Mock.java">
+    <entry file="file://$PROJECT_DIR$/movieTitle.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Color.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Genre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -911,20 +767,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/CustomerRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AppException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Loyalty_Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        <state relative-caret-position="252">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -941,6 +804,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/MovieWithDateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Sales_Stand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="954">
+          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/MovieRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SalesStandRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/JsonConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/MovieStoresJsonConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -951,60 +911,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/JsonConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/connect/DbConnect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movieTitle2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/dataGenerator/DataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movieTitle.json">
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1013,7 +923,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-712">
+        <state relative-caret-position="1098">
           <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1023,20 +933,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/MovieRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state relative-caret-position="18">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3126">
-          <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
+        <state relative-caret-position="162">
+          <caret line="9" column="108" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="106" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="9" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="58" column="50" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test1/Test1Mock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

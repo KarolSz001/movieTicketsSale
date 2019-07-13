@@ -1,5 +1,4 @@
 package services;
-
 import model.*;
 import screen.MenuPrinter;
 import services.dataGenerator.DataManager;
@@ -10,8 +9,6 @@ public class ControlAppService {
     private final CustomerService customerService;
     private final MovieService movieService;
     private final SaleTicketService saleTicketService;
-
-
     private boolean loopOn;
 
 

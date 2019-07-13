@@ -11,7 +11,6 @@ import repository.SalesStandRepository;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
 import valid.CustomerValidator;
-
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -43,6 +42,9 @@ public class CustomerService {
     }
 
     public void addCustomer(Customer customer) {
+        if(customer == null){
+            throw new AppException("customer is null");
+        }
         if (validationCustomerBeforeAdd(customer)) {
             customerRepository.add(customer);
         }
@@ -53,6 +55,9 @@ public class CustomerService {
     }
 
     public void removeCustomerById(Integer id) {
+        if(id == null){
+            throw new AppException("null id number");
+        }
         customerRepository.delete(id);
     }
 

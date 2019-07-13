@@ -6,10 +6,9 @@ import services.ControlAppService;
 import services.CustomerService;
 import services.MovieService;
 import services.SaleTicketService;
-import services.dataGenerator.DataGenerator;
 import valid.CustomerValidator;
 
-import java.time.LocalDate;
+
 
 
 public class App {

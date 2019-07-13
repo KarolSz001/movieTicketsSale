@@ -24,7 +24,7 @@ public class CustomerValidator {
         if (!isNameLengthCorrect(customer.getName()))
             throw new AppException(" Name is too short ");
 
-        if (!isSurnameLenghtCorrect(customer.getSurname())) {
+        if (!isSurnameLengthCorrect(customer.getSurname())) {
             throw new AppException(" Surname is too short ");
         }
         if (!isAgeCorrect(customer.getAge())) {
@@ -47,7 +47,7 @@ public class CustomerValidator {
         return name.length() > MIN_LENGTH_NAME;
     }
 
-    private boolean isSurnameLenghtCorrect(String surname) {
+    private boolean isSurnameLengthCorrect(String surname) {
         return surname.length() > MIN_LENGTH_NAME;
     }
 
