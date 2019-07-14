@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/LoyaltyCardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ControlAppService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,20 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,11 +45,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test1/Test1Mock.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="94">
+              <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,20 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="58" column="50" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/ControlAppService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            <state relative-caret-position="198">
+              <caret line="28" column="62" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="28" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/main/java/valid/Validator.java" />
         <option value="$PROJECT_DIR$/src/main/java/valid/AbstractValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/dataGenerator/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/main/java/screen/MenuPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/generic/AbstractCrudRepository.java" />
@@ -222,6 +200,7 @@
         <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/valid/CustomerValidatorKM.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" />
       </list>
     </option>
@@ -332,6 +311,9 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="enums" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\KMPROGRAMS\HOMEWORK\GIT\movieTicketsSale" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="enums" />
       <recent name="" />
@@ -344,9 +326,6 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\KMPROGRAMS\HOMEWORK\GIT\movieTicketsSale" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,15 +340,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Test1Mock.test4">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="movieTicketsSale" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test1Mock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserCreatorTestUnit.shouldReturnUserWhileGetById">
+    <configuration name="Test1Mockito.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -378,13 +350,61 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
+      <option name="MAIN_CLASS_NAME" value="test1.Test1Mockito" />
+      <option name="METHOD_NAME" value="test5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1Mockito.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movieTicketsSale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="test1.Test1Mockito" />
+      <option name="METHOD_NAME" value="test6" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1Mockito.test7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movieTicketsSale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="test1.Test1Mockito" />
+      <option name="METHOD_NAME" value="test7" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserCreatorTestUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movieTicketsSale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="test1.UserCreatorTestUnit" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1Mock.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserCreatorTestUnit.shouldReturnUserWhileGetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -393,40 +413,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
-      <option name="METHOD_NAME" value="test2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test1Mock.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="movieTicketsSale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
-      <option name="METHOD_NAME" value="test3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test1Mock.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="movieTicketsSale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.Test1Mock" />
-      <option name="METHOD_NAME" value="test4" />
+      <option name="MAIN_CLASS_NAME" value="test1.UserCreatorTestUnit" />
+      <option name="METHOD_NAME" value="shouldReturnUserWhileGetById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -434,11 +422,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Test1Mock.test4" />
-        <item itemvalue="JUnit.Test1Mock.test3" />
-        <item itemvalue="JUnit.Test1Mock.test2" />
-        <item itemvalue="JUnit.Test1Mock" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.UserCreatorTestUnit.shouldReturnUserWhileGetById" />
+        <item itemvalue="JUnit.Test1Mockito.test7" />
+        <item itemvalue="JUnit.Test1Mockito.test6" />
+        <item itemvalue="JUnit.Test1Mockito.test5" />
+        <item itemvalue="JUnit.UserCreatorTestUnit" />
       </list>
     </recent_temporary>
   </component>
@@ -483,50 +471,50 @@
       <workItem from="1562699041577" duration="1817000" />
       <workItem from="1562877955989" duration="5987000" />
       <workItem from="1562960299020" duration="619000" />
-      <workItem from="1563044926050" duration="4690000" />
+      <workItem from="1563044926050" duration="8276000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 42m 04s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 43m 09s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 46m 59s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 51m 28s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 52m 29s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 52m 45s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 53m 36s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test2 - 2019.07.13 at 20h 53m 51s.xml">
-      <configuration name="Test1Mock.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test3 - 2019.07.13 at 21h 20m 47s.xml">
-      <configuration name="Test1Mock.test3" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test1Mock_test3 - 2019.07.13 at 21h 21m 12s.xml">
       <configuration name="Test1Mock.test3" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Test1Mock_test4 - 2019.07.13 at 21h 27m 13s.xml">
+      <configuration name="Test1Mock.test4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserCreatorTestUnit - 2019.07.14 at 08h 41m 27s.xml">
+      <configuration name="UserCreatorTestUnit" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserCreatorTestUnit_shouldReturnUserWhileGetById - 2019.07.14 at 08h 41m 55s.xml">
+      <configuration name="UserCreatorTestUnit.shouldReturnUserWhileGetById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 49m 25s.xml">
+      <configuration name="Test1Mock.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 49m 38s.xml">
+      <configuration name="Test1Mock.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 51m 54s.xml">
+      <configuration name="Test1Mock.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 53m 03s.xml">
+      <configuration name="Test1Mock.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test6 - 2019.07.14 at 09h 00m 10s.xml">
+      <configuration name="Test1Mock.test6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test1Mock_test7 - 2019.07.14 at 09h 04m 09s.xml">
+      <configuration name="Test1Mock.test7" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361184000" />
+    <option name="totallyTimeSpent" value="364770000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="58" width="1936" height="1066" extended-state="6" />
+    <frame x="-1928" y="58" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.17750533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.12260128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -535,7 +523,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.2361809" side_tool="true" weight="0.17430703" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20042872" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31725615" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26902464" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -706,26 +694,6 @@
             <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" column="7" selection-start-line="12" selection-end-line="48" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/valid/CustomerValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1002,8 +960,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="58" column="50" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="50" />
+        <state relative-caret-position="198">
+          <caret line="28" column="62" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="28" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/valid/generic/AbstractValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1012,8 +990,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test1/Test1Mock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="1666">
+          <caret line="123" column="4" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

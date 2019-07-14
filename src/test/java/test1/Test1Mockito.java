@@ -2,6 +2,7 @@ package test1;
 
 import exception.AppException;
 import model.Customer;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,12 +16,13 @@ import org.mockito.quality.Strictness;
 import repository.CustomerRepository;
 import services.CustomerService;
 import java.util.List;
+import java.util.Optional;
 
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 
-public class Test1Mock {
+public class Test1Mockito {
 
     @Mock
     private CustomerRepository customerRepository;
@@ -74,7 +76,54 @@ public class Test1Mock {
         Assertions.assertEquals("null id number", e.getMessage());
     }
 
+    @Test
+    @DisplayName(" should return user while get id")
+    public void test5() {
+
+        Customer expectedCustomer = new Customer().builder().name("Karol").surname("Major").email("karol.major@gmail.com").age(22).build();
+        expectedCustomer.setId(1);
+        // GIVEN
+        Mockito
+                .when(customerRepository.findOne(1))
+                .thenReturn(java.util.Optional.ofNullable(Customer.builder().name("Karol").surname("Major").email("karol.major@gmail.com").age(22).id(1).build()));
+
+        // when
+        Optional<Customer> customerResult = customerService.getCustomerById(1);
+        // then
+        Assert.assertEquals(Optional.of(expectedCustomer), customerResult);
+    }
+
+    @Test
+    @DisplayName(" should return user while get id")
+    public void test6() {
+
+        Customer expectedCustomer = new Customer().builder().name("Karol").surname("Major").email("karol.major@gmail.com").age(22).build();
+        expectedCustomer.setId(1);
+        // GIVEN
+        Mockito
+                .when(customerRepository.findOne(1))
+                .thenReturn(java.util.Optional.ofNullable(Customer.builder().name("Karol").surname("Major").email("karol.major@gmail.com").age(22).id(1).build()));
+
+        // when
+        Optional<Customer> customerResult = customerService.getCustomerById(1);
+        // then
+        Assert.assertEquals(Optional.of(expectedCustomer), customerResult);
+    }
+
+    @Test
+    @DisplayName(" should return empty Optional while get id")
+    public void test7() {
+
+        // when
+        Optional<Customer> customerResult = customerService.getCustomerById(1);
+        // then
+        Assert.assertEquals(Optional.empty(), customerResult);
+    }
+
+
+
 }
+
 
 
 
