@@ -1,11 +1,15 @@
 package services;
 
 import enums.Genre;
+import repository.CustomerRepository;
+import repository.LoyaltyCardRepository;
+import repository.SalesStandRepository;
 import services.dataGenerator.DataManager;
 import exception.AppException;
 import model.Movie;
 import model.MovieWithDateTime;
 import repository.MovieRepository;
+import valid.CustomerValidator;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -14,14 +18,52 @@ import java.util.stream.Collectors;
 
 public class MovieService {
     private final String jsonFile = "movieTitle.json";
-    private final MovieRepository movieRepository = new MovieRepository();
 
-    public MovieService() {
+    private final CustomerRepository customerRepository;
+    private final CustomerValidator customerValidator;
+    private final SalesStandRepository salesStandRepository;
+    private final LoyaltyCardRepository loyaltyCardRepository;
+    private final MovieRepository movieRepository;
+
+    public MovieService(
+                        CustomerRepository customerRepository,
+                        CustomerValidator customerValidator,
+                        SalesStandRepository salesStandRepository,
+                        LoyaltyCardRepository loyaltyCardRepository,
+                        MovieRepository movieRepository) {
+
+        this.customerRepository = customerRepository;
+        this.movieRepository = movieRepository;
+        this.customerValidator = customerValidator;
+        this.salesStandRepository = salesStandRepository;
+        this.loyaltyCardRepository = loyaltyCardRepository;
+
         movieRepository.loadMoviesToDataBase(jsonFile);
-
     }
 
+    public String getJsonFile() {
+        return jsonFile;
+    }
 
+    public CustomerRepository getCustomerRepository() {
+        return customerRepository;
+    }
+
+    public CustomerValidator getCustomerValidator() {
+        return customerValidator;
+    }
+
+    public SalesStandRepository getSalesStandRepository() {
+        return salesStandRepository;
+    }
+
+    public LoyaltyCardRepository getLoyaltyCardRepository() {
+        return loyaltyCardRepository;
+    }
+
+    public MovieRepository getMovieRepository() {
+        return movieRepository;
+    }
 
     public void removeMovieById(Integer movieId) {
         movieRepository.delete(movieId);

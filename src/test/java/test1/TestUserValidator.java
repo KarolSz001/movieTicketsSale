@@ -6,7 +6,7 @@ import org.junit.Test;
 import valid.CustomerValidator;
 
 
-public class UserValidatorTestUnit {
+public class TestUserValidator {
 
     private CustomerValidator customerValidator = new CustomerValidator();
 

@@ -22,7 +22,7 @@ import java.util.Optional;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 
-public class Test1Mockito {
+public class TestCustomerService {
 
     @Mock
     private CustomerRepository customerRepository;

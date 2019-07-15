@@ -19,13 +19,12 @@ import java.util.Locale;
 
 public class SaleTicketService {
 
-
-    private final SalesStandRepository salesStandRepository = new SalesStandRepository();
-    private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
-    private final MovieService movieService = new MovieService();
     private final MovieRepository movieRepository = new MovieRepository();
     private final CustomerRepository customerRepository = new CustomerRepository();
     private final CustomerValidator customerValidator = new CustomerValidator();
+    private final SalesStandRepository salesStandRepository = new SalesStandRepository();
+    private final LoyaltyCardRepository loyaltyCardRepository = new LoyaltyCardRepository();
+    private final MovieService movieService = new MovieService(customerRepository,customerValidator,salesStandRepository,loyaltyCardRepository,movieRepository);
     private final CustomerService customerService = new CustomerService(movieRepository, customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository);
     private static final LocalTime HIGH_RANGE_TIME = LocalTime.of(22, 30);
     private static final Integer MOVIES_LIMIT_NUMBER = 2;
