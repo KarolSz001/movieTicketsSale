@@ -20,7 +20,6 @@ import services.MovieService;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -56,7 +55,6 @@ public class TestMovieService {
         Assertions.assertEquals("add movie null arg", e.getMessage());
 
     }
-
 
     @Test
     @DisplayName("find movie by id number")
@@ -97,18 +95,14 @@ public class TestMovieService {
         Assert.assertEquals(expectedMovie, movieResult);
     }
 
-
-
     @Test
     @DisplayName(" should return empty Optional while get id")
     public void test7() {
 
-        AppException e = Assertions.assertThrows(AppException.class,()->movieService.getMovieById(1));
-        Assertions.assertEquals(" Wrong ID number ",e.getMessage());
+        AppException e = Assertions.assertThrows(AppException.class, () -> movieService.getMovieById(1));
+        Assertions.assertEquals(" Wrong ID number ", e.getMessage());
 
     }
-
-
 
 
 }

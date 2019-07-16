@@ -11,6 +11,8 @@ import repository.SalesStandRepository;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
 import valid.CustomerValidator;
+import valid.CustomerValidatorKM;
+
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -41,13 +43,21 @@ public class CustomerService {
         this.loyaltyCardRepository = loyaltyCardRepository;
     }
 
+
+
     public void addCustomer(Customer customer) {
         if(customer == null){
             throw new AppException("customer is null");
         }
-        if (validationCustomerBeforeAdd(customer)) {
+        if (validationCustomerBeforeAdd2(customer)) {
             customerRepository.add(customer);
-        }
+        } else throw new AppException(" wrong validationCustomerBeforeAdd  ");
+    }
+
+    private boolean validationCustomerBeforeAdd2(Customer customer) {
+        CustomerValidatorKM customerValidatorKM = new CustomerValidatorKM();
+        customerValidatorKM.validate(customer);
+        return customerValidatorKM.hasErrors() && (!isEmailAlreadyExist(customer.getEmail()));
     }
 
     private boolean validationCustomerBeforeAdd(Customer customer) {
@@ -135,7 +145,7 @@ public class CustomerService {
             if (getCustomerByEmail(email).isPresent()) {
                 throw new AppException(" EMAIL IS ALREADY EXIST IN DATABASE ");
             }
-            if (!validationCustomerBeforeAdd(customer)) {
+            if (!validationCustomerBeforeAdd2(customer)) {
                 throw new AppException(" VALIDATION CUSTOMER ERROR ");
             }
 
