@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db5a708e-e1a4-45f6-b556-91c87ae5665f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/test1/TestMovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test1/Test1Mockito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/TestCustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/TestUserValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/test1/TestMovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test1/TestMovieService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,12 +21,12 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestCustomerService.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="547">
-                    <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+                  <state relative-caret-position="385">
+                    <caret line="101" column="16" lean-forward="true" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -50,22 +45,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="26" column="158" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="158" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestUserValidator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,24 +59,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="232">
+              <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1562#1563#0" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-                <element signature="e#1650#1651#0" expanded="true" />
-                <element signature="e#1691#1692#0" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
-                <element signature="e#1847#1848#0" expanded="true" />
-                <element signature="e#1890#1891#0" expanded="true" />
-                <element signature="e#1953#1954#0" expanded="true" />
-                <element signature="e#1997#1998#0" expanded="true" />
-                <element signature="e#2048#2049#0" expanded="true" />
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exception/AppException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding>
+                <element signature="e#114#115#0" expanded="true" />
+                <element signature="e#144#145#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="35" column="58" lean-forward="true" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+            <state relative-caret-position="342">
+              <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestMovieService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="446">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,7 +141,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="450">
               <caret line="33" column="139" selection-start-line="33" selection-start-column="139" selection-end-line="33" selection-end-column="139" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/enums/Genre.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -249,10 +231,10 @@
         <option value="$PROJECT_DIR$/src/test/java/test1/UserCreatorTestUnit.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/Test1Mock.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1/UserValidatorTestUnit.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test1/TestMovieService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/MovieService.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/SaleTicketService.java" />
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/MovieService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test1/TestMovieService.java" />
       </list>
     </option>
   </component>
@@ -303,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -321,29 +304,6 @@
               <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movieTicketsSale" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="movieTicketsSale" type="b2602c69:ProjectViewProjectNode" />
@@ -370,7 +330,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -420,40 +379,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestMovieService.test1">
-    <configuration name="TestCustomerService.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="movieTicketsSale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.TestCustomerService" />
-      <option name="METHOD_NAME" value="test6" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCustomerService.test7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="movieTicketsSale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.TestCustomerService" />
-      <option name="METHOD_NAME" value="test7" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMovieService.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestMovieService.test7">
+    <configuration name="TestMovieService.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -463,13 +390,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
       <option name="MAIN_CLASS_NAME" value="test1.TestMovieService" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="test2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUserValidator.shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMovieService.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -478,14 +405,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.TestUserValidator" />
-      <option name="METHOD_NAME" value="shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" />
+      <option name="MAIN_CLASS_NAME" value="test1.TestMovieService" />
+      <option name="METHOD_NAME" value="test3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCreatorTestUnit.shouldReturnUserWhileGetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMovieService.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="movieTicketsSale" />
       <extension name="coverage">
         <pattern>
@@ -494,8 +421,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test1" />
-      <option name="MAIN_CLASS_NAME" value="test1.UserCreatorTestUnit" />
-      <option name="METHOD_NAME" value="shouldReturnUserWhileGetById" />
+      <option name="MAIN_CLASS_NAME" value="test1.TestMovieService" />
+      <option name="METHOD_NAME" value="test4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMovieService.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movieTicketsSale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="test1.TestMovieService" />
+      <option name="METHOD_NAME" value="test5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMovieService.test7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movieTicketsSale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test1" />
+      <option name="MAIN_CLASS_NAME" value="test1.TestMovieService" />
+      <option name="METHOD_NAME" value="test7" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -503,11 +462,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestMovieService.test1" />
-        <item itemvalue="JUnit.TestUserValidator.shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" />
-        <item itemvalue="JUnit.UserCreatorTestUnit.shouldReturnUserWhileGetById" />
-        <item itemvalue="JUnit.TestCustomerService.test7" />
-        <item itemvalue="JUnit.TestCustomerService.test6" />
+        <item itemvalue="JUnit.TestMovieService.test7" />
+        <item itemvalue="JUnit.TestMovieService.test5" />
+        <item itemvalue="JUnit.TestMovieService.test4" />
+        <item itemvalue="JUnit.TestMovieService.test3" />
+        <item itemvalue="JUnit.TestMovieService.test2" />
       </list>
     </recent_temporary>
   </component>
@@ -553,50 +512,51 @@
       <workItem from="1562877955989" duration="5987000" />
       <workItem from="1562960299020" duration="619000" />
       <workItem from="1563044926050" duration="10432000" />
-      <workItem from="1563226648901" duration="2008000" />
+      <workItem from="1563226648901" duration="2122000" />
+      <workItem from="1563293735134" duration="2176000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 51m 54s.xml">
-      <configuration name="Test1Mock.test5" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test5 - 2019.07.14 at 08h 53m 03s.xml">
-      <configuration name="Test1Mock.test5" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test6 - 2019.07.14 at 09h 00m 10s.xml">
-      <configuration name="Test1Mock.test6" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test1Mock_test7 - 2019.07.14 at 09h 04m 09s.xml">
-      <configuration name="Test1Mock.test7" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserCreatorTestUnit_shouldReturnUserWhileGetById - 2019.07.14 at 09h 23m 33s.xml">
-      <configuration name="UserCreatorTestUnit.shouldReturnUserWhileGetById" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserValidatorTestUnit_shouldNotThrowAnyExceptionWhileValidationCorrectCustomer - 2019.07.14 at 09h 40m 49s.xml">
-      <configuration name="UserValidatorTestUnit.shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserValidatorTestUnit_shouldNotThrowAnyExceptionWhileValidationCorrectCustomer - 2019.07.14 at 09h 41m 07s.xml">
-      <configuration name="UserValidatorTestUnit.shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserValidatorTestUnit_shouldNotThrowAnyExceptionWhileValidationCorrectCustomer - 2019.07.14 at 09h 41m 37s.xml">
-      <configuration name="UserValidatorTestUnit.shouldNotThrowAnyExceptionWhileValidationCorrectCustomer" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestMovieService_test1 - 2019.07.15 at 22h 49m 45s.xml">
       <configuration name="TestMovieService.test1" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TestMovieService_test1 - 2019.07.15 at 22h 50m 59s.xml">
       <configuration name="TestMovieService.test1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestMovieService_test1 - 2019.07.15 at 23h 11m 15s.xml">
+      <configuration name="TestMovieService.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test2 - 2019.07.16 at 18h 57m 12s.xml">
+      <configuration name="TestMovieService.test2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test3 - 2019.07.16 at 19h 00m 15s.xml">
+      <configuration name="TestMovieService.test3" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test4 - 2019.07.16 at 19h 02m 50s.xml">
+      <configuration name="TestMovieService.test4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test4 - 2019.07.16 at 19h 03m 53s.xml">
+      <configuration name="TestMovieService.test4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test5 - 2019.07.16 at 19h 07m 37s.xml">
+      <configuration name="TestMovieService.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test5 - 2019.07.16 at 19h 08m 52s.xml">
+      <configuration name="TestMovieService.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMovieService_test7 - 2019.07.16 at 19h 14m 58s.xml">
+      <configuration name="TestMovieService.test7" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368934000" />
+    <option name="totallyTimeSpent" value="371224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.15138593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7638191" visible="true" weight="0.15298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -605,7 +565,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.2361809" side_tool="true" weight="0.17430703" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.20042872" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31618434" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31618434" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -615,14 +575,14 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.19614148" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.19399786" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.19399786" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" visible="true" weight="0.051705755" />
+      <window_info anchor="right" id="Maven" order="6" visible="true" weight="0.08422175" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32977527" />
@@ -799,13 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AppException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -987,6 +940,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="158" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="158" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/repository/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1014,71 +977,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Genre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestUserValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestCustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/CustomerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="58" lean-forward="true" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1650#1651#0" expanded="true" />
-            <element signature="e#1691#1692#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-            <element signature="e#1847#1848#0" expanded="true" />
-            <element signature="e#1890#1891#0" expanded="true" />
-            <element signature="e#1953#1954#0" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-            <element signature="e#2048#2049#0" expanded="true" />
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2311#2312#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/SaleTicketService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="26" column="158" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="158" />
+        <state relative-caret-position="342">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1087,8 +989,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="450">
           <caret line="33" column="139" selection-start-line="33" selection-start-column="139" selection-end-line="33" selection-end-column="139" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/enums/Genre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestCustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="101" column="16" lean-forward="true" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AppException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding>
+            <element signature="e#114#115#0" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestUserValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/MovieService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1097,8 +1047,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test1/TestMovieService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="446">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

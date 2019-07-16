@@ -26,11 +26,11 @@ public class MovieService {
     private final MovieRepository movieRepository;
 
     public MovieService(
-                        CustomerRepository customerRepository,
-                        CustomerValidator customerValidator,
-                        SalesStandRepository salesStandRepository,
-                        LoyaltyCardRepository loyaltyCardRepository,
-                        MovieRepository movieRepository) {
+            CustomerRepository customerRepository,
+            CustomerValidator customerValidator,
+            SalesStandRepository salesStandRepository,
+            LoyaltyCardRepository loyaltyCardRepository,
+            MovieRepository movieRepository) {
 
         this.customerRepository = customerRepository;
         this.movieRepository = movieRepository;
@@ -66,6 +66,9 @@ public class MovieService {
     }
 
     public void removeMovieById(Integer movieId) {
+        if (movieId == null) {
+            throw new AppException("null id number");
+        }
         movieRepository.delete(movieId);
     }
 
@@ -111,6 +114,9 @@ public class MovieService {
     }
 
     public void addMovie(Movie movie) {
+        if (movie == null) {
+            throw new AppException("add movie null arg");
+        }
         movieRepository.add(movie);
     }
 
