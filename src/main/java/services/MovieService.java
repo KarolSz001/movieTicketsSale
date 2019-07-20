@@ -41,30 +41,6 @@ public class MovieService {
         movieRepository.loadMoviesToDataBase(jsonFile);
     }
 
-    public String getJsonFile() {
-        return jsonFile;
-    }
-
-    public CustomerRepository getCustomerRepository() {
-        return customerRepository;
-    }
-
-    public CustomerValidator getCustomerValidator() {
-        return customerValidator;
-    }
-
-    public SalesStandRepository getSalesStandRepository() {
-        return salesStandRepository;
-    }
-
-    public LoyaltyCardRepository getLoyaltyCardRepository() {
-        return loyaltyCardRepository;
-    }
-
-    public MovieRepository getMovieRepository() {
-        return movieRepository;
-    }
-
     public void removeMovieById(Integer movieId) {
         if (movieId == null) {
             throw new AppException("null id number");

@@ -9,8 +9,6 @@ import services.SaleTicketService;
 import valid.CustomerValidator;
 
 
-
-
 public class App {
 
     public static void main(String[] args) {
@@ -31,10 +29,10 @@ public class App {
 
         var customerService = new CustomerService(
                 movieRepository, customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository);
-        var movieService = new MovieService(customerRepository,customerValidator,salesStandRepository,loyaltyCardRepository,movieRepository);
+        var movieService = new MovieService(customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository, movieRepository);
         var saleTicketService = new SaleTicketService();
 
-        var controlAppService = new ControlAppService(customerService,movieService,saleTicketService);
+        var controlAppService = new ControlAppService();
         controlAppService.controlLoop();
     }
 }

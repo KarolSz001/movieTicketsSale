@@ -43,8 +43,6 @@ public class CustomerService {
         this.loyaltyCardRepository = loyaltyCardRepository;
     }
 
-
-
     public void addCustomer(Customer customer) {
         if(customer == null){
             throw new AppException("customer is null");

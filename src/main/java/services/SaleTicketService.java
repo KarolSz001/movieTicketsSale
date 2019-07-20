@@ -41,8 +41,11 @@ public class SaleTicketService {
         MovieWithDateTime movieWithDateTime;
         Sales_Stand sales_stand;
         customerService.addCustomer(customer);
-        DataManager.getLine(" PRESS KEY TO CONTINUE AND SEE WHAT WE HAVE TODAY TO WATCH ");
-        Integer idMovie = getMovieById();
+        DataManager.getLine(" PRESS KEY TO CONTINUE TO SEE WHAT WE HAVE TODAY TO WATCH ");
+        System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
+        movieService.showAllMoviesToday();
+        Integer idMovie = DataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
+        movieService.showMovieById(idMovie);
         Integer customerId = customerService.getCustomerByEmail(customer.getEmail()).get().getId();
         LocalDate date = LocalDate.now();
         LocalTime time = getScreeningHours();
@@ -62,7 +65,6 @@ public class SaleTicketService {
             movieWithDateTime = sendConfirmationOfSellingTicket(customer.getEmail());
             discountPriceTicket(movieWithDateTime);
             increaseCurrentNumberMovieInLoyalCard(customerId);
-
         } else {
             System.out.println(" DISCOUNT IS NOT ACTIVE ");
             sales_stand = new Sales_Stand().builder().customerId(customerId).movieId(idMovie).start_date_time(dateTime).discount(false).build();
@@ -71,15 +73,6 @@ public class SaleTicketService {
         }
 
         System.out.println(" SEND CONFIRMATION OF SELLING TICKET -----> \n" + movieWithDateTime);
-    }
-
-    private Integer getMovieById() {
-
-        System.out.println(" BELOW MOVIES WHICH ARE AVAILABLE TODAY ");
-        movieService.showAllMoviesToday();
-        Integer idMovie = DataManager.getInt(" PRESS ID MOVIE NUMBER AS YOU CHOICE ");
-        movieService.showMovieById(idMovie);
-        return idMovie;
     }
 
     private LocalTime getScreeningHours() {
@@ -92,7 +85,6 @@ public class SaleTicketService {
             System.out.println(" IT IS INCORRECT TIME, YOU WILL GET LAST POSSIBLE SCREEN HOUR ");
             return HIGH_RANGE_TIME;
         }
-
         return correctTime(LocalTime.of(hh, mm));
     }
 
@@ -131,10 +123,8 @@ public class SaleTicketService {
     }
 
     private boolean isLoyalCardActive(Integer customerId) {
-
         return customerService.isCardActive(customerId);
     }
-
 
     private MovieWithDateTime sendConfirmationOfSellingTicket(String customerEmail) {
         return movieService.getInfo().stream().filter(f -> f.getEmail().equals(customerEmail)).max(Comparator.comparing(MovieWithDateTime::getId)).get();

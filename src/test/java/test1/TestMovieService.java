@@ -2,7 +2,6 @@ package test1;
 
 import enums.Genre;
 import exception.AppException;
-import model.Customer;
 import model.Movie;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
