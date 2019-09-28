@@ -11,7 +11,7 @@ import repository.SalesStandRepository;
 import services.dataGenerator.DataGenerator;
 import services.dataGenerator.DataManager;
 import valid.CustomerValidator;
-import valid.CustomerValidatorKM;
+
 
 import java.time.LocalDate;
 import java.util.Comparator;
@@ -53,9 +53,8 @@ public class CustomerService {
     }
 
     private boolean validationCustomerBeforeAdd2(Customer customer) {
-        CustomerValidatorKM customerValidatorKM = new CustomerValidatorKM();
-        customerValidatorKM.validate(customer);
-        return customerValidatorKM.hasErrors() && (!isEmailAlreadyExist(customer.getEmail()));
+        CustomerValidator customerValidator = new CustomerValidator();
+        return customerValidator.isValidate(customer) && (!isEmailAlreadyExist(customer.getEmail()));
     }
 
     private boolean validationCustomerBeforeAdd(Customer customer) {

@@ -9,6 +9,7 @@ import exception.AppException;
 import model.Movie;
 import model.MovieWithDateTime;
 import repository.MovieRepository;
+import services.dataGenerator.MovieStoresJsonConverter;
 import valid.CustomerValidator;
 
 import java.text.DecimalFormat;
@@ -38,7 +39,18 @@ public class MovieService {
         this.salesStandRepository = salesStandRepository;
         this.loyaltyCardRepository = loyaltyCardRepository;
 
-        movieRepository.loadMoviesToDataBase(jsonFile);
+        loadMoviesToDataBase(jsonFile);
+    }
+    public void loadMoviesToDataBase(String fileName) {
+        MovieStoresJsonConverter movieStoresJsonConverter = new MovieStoresJsonConverter(fileName);
+        List<Movie> movies = movieStoresJsonConverter.fromJson().get();
+        for (Movie movie : movies) {
+            /*connection.withHandle(handle ->
+                    handle.execute(" INSERT INTO movie (title, genre, price, duration, release_date) values (?, ?, ?, ?, ?)",
+                            movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getDuration(), movie.getRelease_date().plusDays(1)));*/
+            movie.setRelease_date(movie.getRelease_date().plusDays(1));
+            movieRepository.add(movie);
+        }
     }
 
     public void removeMovieById(Integer movieId) {

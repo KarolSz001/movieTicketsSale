@@ -15,24 +15,23 @@ public class App {
 
         StringBuilder sb = new StringBuilder();
         sb.append(" ----------------------------------------------------------------------------- \n");
-        sb.append(" movieTicketSale v1.0 11.07.2019 \n ");
+        sb.append(" movieTicketSale v1.0 25.07.2019 \n ");
         sb.append(" Karol Szot \n");
         sb.append(" ----------------------------------------------------------------------------- \n");
         System.out.println(sb.toString());
-
 
         var movieRepository = new MovieRepository();
         var customerRepository = new CustomerRepository();
         var customerValidator = new CustomerValidator();
         var salesStandRepository = new SalesStandRepository();
         var loyaltyCardRepository = new LoyaltyCardRepository();
+        var saleTicketService = new SaleTicketService();
 
         var customerService = new CustomerService(
                 movieRepository, customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository);
         var movieService = new MovieService(customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository, movieRepository);
-        var saleTicketService = new SaleTicketService();
 
-        var controlAppService = new ControlAppService();
+        var controlAppService = new ControlAppService(customerService,movieService,saleTicketService);
         controlAppService.controlLoop();
     }
 }
