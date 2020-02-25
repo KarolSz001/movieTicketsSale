@@ -25,13 +25,15 @@ public class App {
         var customerValidator = new CustomerValidator();
         var salesStandRepository = new SalesStandRepository();
         var loyaltyCardRepository = new LoyaltyCardRepository();
-        var saleTicketService = new SaleTicketService();
 
+        var saleTicketService = new SaleTicketService();
         var customerService = new CustomerService(
                 movieRepository, customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository);
         var movieService = new MovieService(customerRepository, customerValidator, salesStandRepository, loyaltyCardRepository, movieRepository);
 
         var controlAppService = new ControlAppService(customerService,movieService,saleTicketService);
         controlAppService.controlLoop();
+
+
     }
 }
